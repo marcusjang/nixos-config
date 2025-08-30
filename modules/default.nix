@@ -38,6 +38,7 @@
 	environment.systemPackages = with pkgs; [
 		xorg.xprop
 		git
+		gh
 		stow
 		wget
 		curl

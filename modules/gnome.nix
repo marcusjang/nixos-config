@@ -27,6 +27,7 @@
 
 		systemPackages = with pkgs.gnomeExtensions; [
 			pkgs.gnome-tweaks
+			pkgs.pinentry-gnome3
 			blur-my-shell
 			dash-to-dock
 			clipboard-indicator

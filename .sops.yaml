@@ -1,0 +1,15 @@
+keys:
+  - &marcus age1prqttmulrz2urqxfsjsj3uhfw5e8amwvjakc9ynp90n07t22wyhs5uaml8
+  - &server_ser8 age1q664t7wt0n3vwn6sv7s38x34f25yg244q4f9f9g3gqsd6fccd4esuqhuan
+  - &server_minibook age1g2f7sa44ckn7fvnhhgzqfrlteq3z5h486z9mgtu60clvsnkr94gsw8yjgg
+  - &server_nas age1a2vp8d97nzqpr4c7a929vaapyuvup8hs4zr50c60cglf80jaupfs985mqg
+  - &server_wsl age1qxyhfqkt8cl7h77u385w0xslm9gl3w73nz5m7w6a4nxf2gmn29gqtc4wxt
+creation_rules:
+  - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
+    key_groups:
+    - age:
+      - *marcus
+      - *server_ser8
+      - *server_minibook
+      - *server_nas
+      - *server_wsl

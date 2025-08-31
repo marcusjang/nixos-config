@@ -9,6 +9,7 @@
 
 	environment.systemPackages = with pkgs; [
 		firefox
+		ungoogled-chromium
 		thunderbird
 		birdtray
 		ghostty

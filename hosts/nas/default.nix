@@ -1,9 +1,10 @@
-{ pkgs, inputs, outputs, ... }: let
+{ inputs, outputs, ... }: let
 	automount_opts = "relatime,nofail";
 in {
 	imports =[
 		outputs.nixosModules.default
 		inputs.hardware.nixosModules.common-cpu-intel
+		inputs.hardware.nixosModules.common-pc-ssd
 
 		./hardware-configuration.nix
 	];

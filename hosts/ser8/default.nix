@@ -5,7 +5,6 @@
 		inputs.hardware.nixosModules.common-cpu-amd
 		inputs.hardware.nixosModules.common-cpu-amd-pstate
 		inputs.hardware.nixosModules.common-cpu-amd-zenpower
-		inputs.hardware.nixosModules.common-cpu-amd-raphael-igpu
 		inputs.hardware.nixosModules.common-pc-ssd
 
 		./hardware-configuration.nix

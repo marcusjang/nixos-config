@@ -11,7 +11,6 @@
 		firefox
 		thunderbird
 		birdtray
-		cromite
 		ghostty
 		remmina
 		discord

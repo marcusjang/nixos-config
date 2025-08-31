@@ -26,6 +26,7 @@
 		};
 
 		systemPackages = with pkgs.gnomeExtensions; [
+			pkgs.gnome-color-manager
 			pkgs.gnome-tweaks
 			pkgs.pinentry-gnome3
 			blur-my-shell

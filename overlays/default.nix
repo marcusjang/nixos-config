@@ -10,7 +10,7 @@
 	};
 
 	legcord-icon = final: prev: {
-		legcord = prev.unstable.legcord.overrideAttrs (old: {
+		legcord = prev.legcord.overrideAttrs (old: {
 			desktopItems = [
 				((builtins.elemAt old.desktopItems 0).override { icon = "discord"; })
 			];

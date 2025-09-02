@@ -10,6 +10,8 @@
 		openFirewall = true;
 	};
 
+	programs.mosh.enable = true;
+
 	users.users."marcus".openssh.authorizedKeys.keys = [
 		"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEAQGnfAf5qxzSiPE3FhMqxF717jDLlblI0fCXlaL2le" # marcus@keepass
 		"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAgTPArpqWPIxGVRwP+Ap2TN7hbUUtnGyP1pV8hn8dX/" # marcus@desktop

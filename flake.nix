@@ -30,6 +30,7 @@
 					./modules/desktop.nix
 					./modules/gnome.nix
 					./modules/i18n.nix
+					./modules/firewall.nix
 					./modules/mounts.nix
 					sops-nix.nixosModules.sops
 				];
@@ -45,6 +46,7 @@
 					./modules/gnome.nix
 					./modules/i18n.nix
 					./modules/mounts.nix
+					./modules/firewall.nix
 					./modules/wireguard.nix
 					sops-nix.nixosModules.sops
 				];
@@ -65,6 +67,7 @@
 					./hosts/nas
 					./modules/ssh.nix
 					./modules/samba.nix
+					./modules/firewall.nix
 					./users/marcus.nix
 					sops-nix.nixosModules.sops
 				];

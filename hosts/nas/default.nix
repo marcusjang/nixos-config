@@ -17,7 +17,13 @@ in {
 
 	networking.hostName = "nas";
 	networking.networkmanager.enable = true;
-	networking.firewall.enable = false;
+	networking.firewall.allowedTCPPorts = [
+		80 # http
+		443 # https
+		3923 # copyparty
+		8581 # homebridge
+	];
+
 	time.timeZone = "Asia/Seoul";
 
 	virtualisation.docker.enable = true;

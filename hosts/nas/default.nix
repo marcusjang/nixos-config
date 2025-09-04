@@ -23,6 +23,15 @@ in {
 		3923 # copyparty
 		8581 # homebridge
 	];
+	networking.firewall.allowedTCPPortRanges = [
+		{ from = 52950; to = 52999; } # homebridge
+	];
+	networking.firewall.allowedUDPPorts = [
+		1900 # homebridge SSDP
+	];
+	networking.firewall.allowedUDPPortRanges = [
+		{ from = 52950; to = 52999; } # homebridge
+	];
 
 	time.timeZone = "Asia/Seoul";
 

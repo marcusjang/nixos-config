@@ -22,6 +22,7 @@
 				gnome-clocks
 				gnome-calendar
 				gnome-maps
+				gnome-connections
 			];
 		};
 

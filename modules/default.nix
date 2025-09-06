@@ -1,4 +1,4 @@
-{ pkgs, lib, inputs, outputs, config, ... }: 
+{ pkgs, lib, outputs, config, ... }: 
 {
 	nix = {
 		settings = {
@@ -55,8 +55,8 @@
 		mosh
 		zsh-autosuggestions
 		direnv
-		nodejs_24
 		deno
+		nodejs_latest
 		ripgrep
 		unstable.fzf
 		unstable.lazygit
@@ -89,9 +89,6 @@
 			enable = true;
 			baseIndex = 1;
 			keyMode = "vi";
-			plugins = with pkgs; [
-				tmux-ayu-theme
-			];
 		};
 	};
 }

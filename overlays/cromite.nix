@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ ... }:
 final: prev: {
 	cromite = prev.cromite.overrideAttrs (old: rec {
 		version = "139.0.7258.143";

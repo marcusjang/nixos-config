@@ -6,22 +6,22 @@ in {
 	environment.systemPackages = [ pkgs.cifs-utils ];
 	fileSystems = {
 		"/mnt/drive0" = {
-			device = "//192.168.1.200/drive0";
+			device = "//10.0.10.2/drive0";
 			fsType = "cifs";
 			options = [ "${automount_opts},${credentials},${owner}" ];
 		};
 		"/mnt/drive1" = {
-			device = "//192.168.1.200/drive1";
+			device = "//10.0.10.2/drive1";
 			fsType = "cifs";
 			options = [ "${automount_opts},${credentials},${owner}" ];
 		};
 		"/mnt/drive2" = {
-			device = "//192.168.1.200/drive2";
+			device = "//10.0.10.2/drive2";
 			fsType = "cifs";
 			options = [ "${automount_opts},${credentials},${owner}" ];
 		};
 		"/mnt/drive3" = {
-			device = "//192.168.1.200/drive3";
+			device = "//10.0.10.2/drive3";
 			fsType = "cifs";
 			options = [ "${automount_opts},${credentials},${owner}" ];
 		};

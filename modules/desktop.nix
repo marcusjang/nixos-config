@@ -22,6 +22,7 @@
 		xdg-desktop-portal-gtk
 		mpv
 		yacreader
+		unstable.winbox4
 	];
 
 	fonts = {

@@ -30,6 +30,7 @@
 			pkgs.gnome-color-manager
 			pkgs.gnome-tweaks
 			pkgs.pinentry-gnome3
+			pkgs.switcheroo
 			blur-my-shell
 			dash-to-dock
 			clipboard-indicator

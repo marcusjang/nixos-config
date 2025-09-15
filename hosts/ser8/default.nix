@@ -1,4 +1,4 @@
-{ inputs, outputs, ... }:
+{ pkgs, inputs, outputs, ... }:
 {
 	imports =[
 		outputs.nixosModules.default
@@ -12,6 +12,7 @@
 
 	boot.loader.systemd-boot.enable = true;
 	boot.loader.efi.canTouchEfiVariables = true;
+	boot.kernelPackages = pkgs.linuxPackages_latest;
 
 	networking.hostName = "ser8";
 	networking.networkmanager.enable = true;

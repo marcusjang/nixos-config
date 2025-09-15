@@ -29,7 +29,7 @@
 		enableDefaultPackages = true;
 		packages = with pkgs; [
 			pretendard
-			meslo-lgs-nf
+			nerd-fonts.meslo-lg
 			noto-fonts
 			noto-fonts-cjk-sans
 			noto-fonts-cjk-serif

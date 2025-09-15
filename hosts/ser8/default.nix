@@ -6,6 +6,7 @@
 		inputs.hardware.nixosModules.common-cpu-amd-pstate
 		inputs.hardware.nixosModules.common-cpu-amd-zenpower
 		inputs.hardware.nixosModules.common-pc-ssd
+		inputs.hardware.nixosModules.common-hidpi
 
 		./hardware-configuration.nix
 	];

@@ -12,7 +12,7 @@
 		ungoogled-chromium
 		thunderbird
 		birdtray
-		ghostty
+		unstable.ghostty
 		remmina
 		discord
 		legcord

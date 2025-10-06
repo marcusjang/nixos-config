@@ -1,4 +1,4 @@
-{ pkgs, outputs, ... }: 
+{ pkgs, inputs, outputs, ... }: 
 {
 	nixpkgs.config.allowUnfree = true;
 
@@ -12,7 +12,7 @@
 		ungoogled-chromium
 		thunderbird
 		birdtray
-		ghostty
+		inputs.ghostty.packages.${pkgs.stdenv.hostPlatform.system}.default
 		remmina
 		discord
 		legcord

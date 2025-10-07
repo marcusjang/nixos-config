@@ -10,7 +10,12 @@
 			url = "github:Mic92/sops-nix";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
-		ghostty.url = "github:ghostty-org/ghostty";
+		ghostty = {
+			type = "github";
+			owner = "ghostty-org";
+			repo = "ghostty";
+			ref = "refs/tags/v1.2.1";
+		};
 	};
 
 	outputs = { self, nixpkgs, sops-nix, ... } @ inputs: let

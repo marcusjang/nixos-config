@@ -4,6 +4,7 @@
 
 	nixpkgs.overlays = [
 		outputs.overlays.legcord-icon
+		outputs.overlays.legcord-latest
 		outputs.overlays.cromite-latest
 	];
 

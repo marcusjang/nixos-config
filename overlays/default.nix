@@ -17,6 +17,7 @@
 		});
 	};
 	
+	legcord-latest = import ./legcord.nix { inherit inputs; };
 	deno-latest = import ./deno.nix { inherit inputs; };
 	cromite-latest = import ./cromite.nix { inherit inputs; };
 }

@@ -14,7 +14,7 @@
 			type = "github";
 			owner = "ghostty-org";
 			repo = "ghostty";
-			ref = "refs/tags/v1.2.1";
+			ref = "refs/tags/v1.2.2";
 		};
 	};
 

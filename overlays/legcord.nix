@@ -13,7 +13,7 @@ final: prev: {
 		pnpmDeps = final.pkgs.pnpm.fetchDeps {
 			inherit (finalAttrs) pname version src;
 			fetcherVersion = 1;
-			hash = "sha256-2zp+6wjTdbCp6VmN5d0NPir1VzSy6sOxkPbfFTvPXIM=";
+			hash = "sha256-GF/pdbHWnese772wpZ0CoKqB5+YqskJvl1IO+1TIMO0=";
 		};
 		autoPatchelfIgnoreMissingDeps = [ "*" ];
 	});

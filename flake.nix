@@ -16,6 +16,12 @@
 			repo = "ghostty";
 			ref = "refs/tags/v1.2.3";
 		};
+		zmk-studio = {
+			type = "github";
+			owner = "TomaSajt";
+			repo = "nixpkgs";
+			ref = "zmk-studio";
+		};
 	};
 
 	outputs = { self, nixpkgs, sops-nix, ... } @ inputs: let

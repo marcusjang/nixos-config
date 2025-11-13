@@ -169,7 +169,8 @@
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "sops-nix": "sops-nix",
-        "wsl": "wsl"
+        "wsl": "wsl",
+        "zmk-studio": "zmk-studio"
       }
     },
     "sops-nix": {
@@ -252,6 +253,22 @@
       "original": {
         "owner": "mitchellh",
         "repo": "zig-overlay",
+        "type": "github"
+      }
+    },
+    "zmk-studio": {
+      "locked": {
+        "lastModified": 1745271318,
+        "narHash": "sha256-fhXiaQ/DLUtQn72EF/HWB/+iwytrkw+ahvr7rE7qu+o=",
+        "owner": "TomaSajt",
+        "repo": "nixpkgs",
+        "rev": "7408473b7908a63496777d81cc7e88ea11351927",
+        "type": "github"
+      },
+      "original": {
+        "owner": "TomaSajt",
+        "ref": "zmk-studio",
+        "repo": "nixpkgs",
         "type": "github"
       }
     },

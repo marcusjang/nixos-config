@@ -3,10 +3,8 @@
 	nixpkgs.config.allowUnfree = true;
 
 	nixpkgs.overlays = [
-		outputs.overlays.zmk-studio
 		outputs.overlays.legcord-icon
 		outputs.overlays.legcord-latest
-		outputs.overlays.cromite-latest
 	];
 
 	environment.systemPackages = with pkgs; [
@@ -25,7 +23,6 @@
 		mpv
 		yacreader
 		unstable.winbox4
-		zmk-studio.zmk-studio
 	];
 
 	fonts = {

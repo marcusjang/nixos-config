@@ -11,6 +11,14 @@
 		./hardware-configuration.nix
 	];
 
+	nixpkgs.overlays = [
+		outputs.overlays.zmk-studio
+	];
+
+	environment.systemPackages = with pkgs; [
+		zmk-studio.zmk-studio
+	];
+
 	boot.loader.systemd-boot.enable = true;
 	boot.loader.efi.canTouchEfiVariables = true;
 	boot.kernelPackages = pkgs.linuxPackages_latest;

@@ -41,6 +41,7 @@
 			caffeine
 			rounded-window-corners-reborn
 			rounded-corners
+			pkgs.unstable.gnomeExtensions.quick-settings-tweaker
 		];
 	};
 

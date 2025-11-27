@@ -21,6 +21,7 @@
 		home-manager
 		xdg-desktop-portal-gtk
 		mpv
+		eog
 		yacreader
 		unstable.winbox4
 	];

@@ -44,6 +44,7 @@
 					./modules/i18n.nix
 					./modules/firewall.nix
 					./modules/mounts.nix
+					./modules/games.nix
 					sops-nix.nixosModules.sops
 				];
 			};

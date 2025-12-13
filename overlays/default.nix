@@ -4,14 +4,14 @@
 
 	unstable-packages = final: _prev: {
 		unstable = import inputs.nixpkgs-unstable {
-			system = final.system;
+			system = final.stdenv.hostPlatform.system;
 			config.allowUnfree = true;
 		};
 	};
 
 	zmk-studio = final: _prev: {
 		zmk-studio = import inputs.zmk-studio {
-			system = final.system;
+			system = final.stdenv.hostPlatform.system;
 		};
 	};
 

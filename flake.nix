@@ -14,7 +14,7 @@
 			type = "github";
 			owner = "ghostty-org";
 			repo = "ghostty";
-			ref = "refs/tags/v1.2.3";
+			ref = "refs/tags/tip";
 		};
 		zmk-studio = {
 			type = "github";

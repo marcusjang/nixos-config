@@ -34,7 +34,6 @@
 		nixosConfigurations = {
 			ser8 = nixpkgs.lib.nixosSystem {
 				specialArgs = { inherit inputs outputs; };
-				system = "x86_64-linux";
 				modules = [
 					./hosts/ser8
 					./users/marcus.nix
@@ -50,7 +49,6 @@
 			};
 			minibook = nixpkgs.lib.nixosSystem {
 				specialArgs = { inherit inputs outputs; };
-				system = "x86_64-linux";
 				modules = [
 					./hosts/minibook
 					./users/marcus.nix
@@ -66,7 +64,6 @@
 			};
 			wsl = nixpkgs.lib.nixosSystem {
 				specialArgs = { inherit inputs outputs; };
-				system = "x86_64-linux";
 				modules = [
 					./hosts/wsl
 					./users/marcus.nix
@@ -75,7 +72,6 @@
 			};
 			nas = nixpkgs.lib.nixosSystem {
 				specialArgs = { inherit inputs outputs; };
-				system = "x86_64-linux";
 				modules = [
 					./hosts/nas
 					./modules/ssh.nix

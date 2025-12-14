@@ -36,6 +36,7 @@
 			noto-fonts-cjk-serif
 			hack-font
 			fira-code
+			nanum
 		];
 		fontconfig = {
 			enable = true;

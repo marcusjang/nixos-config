@@ -37,7 +37,7 @@
 			appindicator
 			lockscreen-extension
 			custom-command-toggle
-			hibernate-status-button
+			power-off-options
 			caffeine
 			rounded-window-corners-reborn
 			rounded-corners

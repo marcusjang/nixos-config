@@ -6,21 +6,11 @@
 		nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 		hardware.url = "github:nixos/nixos-hardware";
 		wsl.url = "github:nix-community/NixOS-WSL";
+		ghostty.url = "github:ghostty-org/ghostty/refs/tags/tip";
+		zmk-studio.url = "github:TomaSajt/nixpkgs/zmk-studio";
 		sops-nix = {
 			url = "github:Mic92/sops-nix";
 			inputs.nixpkgs.follows = "nixpkgs";
-		};
-		ghostty = {
-			type = "github";
-			owner = "ghostty-org";
-			repo = "ghostty";
-			ref = "refs/tags/tip";
-		};
-		zmk-studio = {
-			type = "github";
-			owner = "TomaSajt";
-			repo = "nixpkgs";
-			ref = "zmk-studio";
 		};
 	};
 

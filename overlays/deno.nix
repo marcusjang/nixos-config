@@ -2,12 +2,12 @@
 final: prev: {
 	deno = prev.deno.overrideAttrs (old: rec {
 		pname = old.pname;
-		version = "2.6.0";
+		version = "2.6.3";
 		name = "${old.pname}-${version}";
 
 		src = final.pkgs.fetchurl {
 			url = "https://github.com/denoland/deno/releases/download/v${version}/deno-x86_64-unknown-linux-gnu.zip";
-			hash = "sha256-UG/o2qIR5AFalPsXAugmNnVrw86yzDTU/j7zG4KjaEQ=";
+			hash = "sha256-s8JNxvOYJgeJa9eV/WvL3FPz0R6NgZCyoH/RiB6xFIo=";
 		};
 
 		nativeBuildInputs = with final.pkgs; [

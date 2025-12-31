@@ -10,7 +10,7 @@
 		defaultUser = "marcus";
 	};
 
-	networking.hostName = "nixos-wsl";
+	networking.hostName = "wsl";
 	time.timeZone = "Asia/Seoul";
 
 	system.stateVersion = "25.05";

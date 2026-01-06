@@ -58,6 +58,7 @@
 		deno
 		nodejs_latest
 		ripgrep
+		unstable.nushell
 		unstable.fzf
 		unstable.lazygit
 		unstable.nerdfetch

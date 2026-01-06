@@ -31,6 +31,7 @@
 			pkgs.gnome-tweaks
 			pkgs.pinentry-gnome3
 			pkgs.switcheroo
+			pkgs.ffmpegthumbnailer
 			blur-my-shell
 			dash-to-dock
 			clipboard-indicator

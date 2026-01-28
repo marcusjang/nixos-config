@@ -8,13 +8,18 @@
 		wsl.url = "github:nix-community/NixOS-WSL";
 		ghostty.url = "github:ghostty-org/ghostty/refs/tags/tip";
 		zmk-studio.url = "github:TomaSajt/nixpkgs/zmk-studio";
+		niri.url = "github:sodiboo/niri-flake";
+		dms = {
+			url = "github:AvengeMedia/DankMaterialShell/stable";
+			inputs.nixpkgs.follows = "nixpkgs-unstable";
+		};
 		sops-nix = {
 			url = "github:Mic92/sops-nix";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 	};
 
-	outputs = { self, nixpkgs, sops-nix, ... } @ inputs: let
+	outputs = { self, nixpkgs, sops-nix, dms, ... } @ inputs: let
 		inherit (self) outputs;
 	in {
 		overlays = import ./overlays { inherit inputs; };
@@ -45,10 +50,12 @@
 					./modules/audio.nix
 					./modules/desktop.nix
 					./modules/gnome.nix
+					./modules/niri.nix
 					./modules/i18n.nix
 					./modules/mounts.nix
 					./modules/firewall.nix
 					./modules/wireguard.nix
+					dms.nixosModules.dank-material-shell
 					sops-nix.nixosModules.sops
 				];
 			};

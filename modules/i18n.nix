@@ -9,10 +9,4 @@
 			ibus.engines = with pkgs.ibus-engines; [ hangul ];
 		};
 	};
-
-	environment.sessionVariables = {
-		GTK_IM_MODULE = "ibus";
-		QT_IM_MODULE = "ibus";
-		XMODIFIERS = "@im=ibus";
-	};
 }

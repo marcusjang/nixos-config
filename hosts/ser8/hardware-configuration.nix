@@ -26,6 +26,17 @@
 
   swapDevices = [ ];
 
+  # Disable spotty built-in bluetooth module
+  services.udev.packages = [
+    pkgs.writeTextFile {
+	  name = "disable-bt";
+	  text = ''
+	    SUBSYSTEM=="usb", ATTRS{idVendor}=="8087", ATTRS{idProduct}=="0032", ATTR{authorized}="0"
+      '';
+	  destination = "/etc/udev/rules.d/81-bluetooth-hci.rules";
+	}
+  ];
+
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction

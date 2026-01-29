@@ -29,12 +29,12 @@
   # Disable spotty built-in bluetooth module
   services.udev.packages = [
     (pkgs.writeTextFile {
-	  name = "disable-bt";
-	  text = ''
-	    SUBSYSTEM=="usb", ATTRS{idVendor}=="8087", ATTRS{idProduct}=="0032", ATTR{authorized}="0"
+      name = "disable-bt";
+      text = ''
+        SUBSYSTEM=="usb", ATTRS{idVendor}=="8087", ATTRS{idProduct}=="0032", ATTR{authorized}="0"
       '';
-	  destination = "/etc/udev/rules.d/81-bluetooth-hci.rules";
-	})
+      destination = "/etc/udev/rules.d/81-bluetooth-hci.rules";
+    })
   ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

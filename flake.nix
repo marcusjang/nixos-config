@@ -6,8 +6,11 @@
 		nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 		hardware.url = "github:nixos/nixos-hardware";
 		wsl.url = "github:nix-community/NixOS-WSL";
-		ghostty.url = "github:ghostty-org/ghostty/refs/tags/tip";
 		niri.url = "github:sodiboo/niri-flake";
+		ghostty = {
+			url = "github:ghostty-org/ghostty/refs/tags/v1.2.3";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 		dms = {
 			url = "github:AvengeMedia/DankMaterialShell/stable";
 			inputs.nixpkgs.follows = "nixpkgs-unstable";

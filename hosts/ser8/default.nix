@@ -16,7 +16,7 @@
 	];
 
 	environment.systemPackages = with pkgs; [
-		zmk-studio.zmk-studio
+		unstable.zmk-studio
 	];
 
 	boot.loader.systemd-boot.enable = true;

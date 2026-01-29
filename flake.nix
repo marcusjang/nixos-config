@@ -7,7 +7,6 @@
 		hardware.url = "github:nixos/nixos-hardware";
 		wsl.url = "github:nix-community/NixOS-WSL";
 		ghostty.url = "github:ghostty-org/ghostty/refs/tags/tip";
-		zmk-studio.url = "github:TomaSajt/nixpkgs/zmk-studio";
 		niri.url = "github:sodiboo/niri-flake";
 		dms = {
 			url = "github:AvengeMedia/DankMaterialShell/stable";

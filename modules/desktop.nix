@@ -16,7 +16,6 @@
 		legcord
 		keepassxc
 		ibus
-		home-manager
 		xdg-desktop-portal-gtk
 		mpv
 		eog

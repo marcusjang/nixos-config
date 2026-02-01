@@ -7,13 +7,12 @@ final: prev: {
 			owner = "Legcord";
 			repo = "Legcord";
 			tag = "v${version}";
-			rev = "79bddf3d940b611d200ee4e808816583e801327e";
-			hash = "";
+			hash = "sha256-196AE244jEZNfhkC+vouNq9M7DOd3kk/1JLW1XRLOHA=";
 	  	};
 		pnpmDeps = final.pkgs.pnpm.fetchDeps {
 			inherit (finalAttrs) pname version src;
 			fetcherVersion = 1;
-			hash = "";
+			hash = "sha256-ksClxW8dIV72Hky5RFJ6cpPAteL29Cx8Me0aG5V/Y4k=";
 		};
 		autoPatchelfIgnoreMissingDeps = [ "*" ];
 	});

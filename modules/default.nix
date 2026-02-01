@@ -53,7 +53,6 @@
 		btop
 		bat
 		mosh
-		zsh-autosuggestions
 		direnv
 		deno
 		nodejs_latest
@@ -70,16 +69,6 @@
 	services.lorri.enable = true;
 
 	programs = {
-		zsh = {
-			enable = true;
-			enableCompletion = true;
-			autosuggestions.enable = true;
-			ohMyZsh = {
-				enable = true;
-				plugins = [ "git" "fzf" ];
-			};
-		};
-
 		neovim = {
 			enable = true;
 			defaultEditor = true;

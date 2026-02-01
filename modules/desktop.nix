@@ -4,14 +4,12 @@
 
 	nixpkgs.overlays = [
 		outputs.overlays.legcord-icon
-		#outputs.overlays.legcord-latest
+		outputs.overlays.legcord-latest
 	];
 
 	environment.systemPackages = with pkgs; [
 		firefox
-		ungoogled-chromium
 		thunderbird
-		birdtray
 		inputs.ghostty.packages.${pkgs.stdenv.hostPlatform.system}.default
 		remmina
 		discord

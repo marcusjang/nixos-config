@@ -40,6 +40,8 @@
 		git
 		gh
 		stow
+		bat
+		bat-extras.batman
 		wget
 		curl
 		unzip

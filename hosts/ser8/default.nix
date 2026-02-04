@@ -1,6 +1,6 @@
 { pkgs, inputs, outputs, ... }:
 {
-	imports =[
+	imports = [
 		outputs.nixosModules.default
 		inputs.hardware.nixosModules.common-cpu-amd
 		inputs.hardware.nixosModules.common-cpu-amd-pstate
@@ -9,10 +9,6 @@
 		inputs.hardware.nixosModules.common-hidpi
 
 		./hardware-configuration.nix
-	];
-
-	nixpkgs.overlays = [
-		outputs.overlays.zmk-studio
 	];
 
 	environment.systemPackages = with pkgs; [

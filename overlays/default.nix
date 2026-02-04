@@ -9,12 +9,6 @@
 		};
 	};
 
-	zmk-studio = final: _prev: {
-		zmk-studio = import inputs.zmk-studio {
-			system = final.stdenv.hostPlatform.system;
-		};
-	};
-
 	legcord-icon = final: prev: {
 		legcord = prev.legcord.overrideAttrs (old: {
 			desktopItems = [

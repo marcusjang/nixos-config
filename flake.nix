@@ -44,6 +44,20 @@
 					sops-nix.nixosModules.sops
 				];
 			};
+			x1c13 = nixpkgs.lib.nixosSystem {
+				specialArgs = { inherit inputs outputs; };
+				modules = [
+					./hosts/x1c13
+					./users/marcus.nix
+					./modules/audio.nix
+					./modules/desktop.nix
+					./modules/gnome.nix
+					./modules/i18n.nix
+					./modules/firewall.nix
+					./modules/mounts.nix
+					sops-nix.nixosModules.sops
+				];
+			};
 			minibook = nixpkgs.lib.nixosSystem {
 				specialArgs = { inherit inputs outputs; };
 				modules = [

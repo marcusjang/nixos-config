@@ -11,6 +11,8 @@
 	boot.loader.efi.canTouchEfiVariables = true;
 	boot.kernelPackages = pkgs.linuxPackages_latest;
 
+	services.fprintd.enable = true;
+
 	networking.hostName = "x1c13";
 	networking.networkmanager.enable = true;
 	time.timeZone = "Asia/Seoul";

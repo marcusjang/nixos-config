@@ -8,8 +8,8 @@
 		wsl.url = "github:nix-community/NixOS-WSL";
 		niri.url = "github:sodiboo/niri-flake";
 		ghostty = {
-			url = "github:ghostty-org/ghostty/refs/tags/v1.2.3";
-			inputs.nixpkgs.follows = "nixpkgs";
+			url = "github:ghostty-org/ghostty?ref=pull/10459/head";
+			inputs.nixpkgs.follows = "nixpkgs-unstable";
 		};
 		dms = {
 			url = "github:AvengeMedia/DankMaterialShell/stable";

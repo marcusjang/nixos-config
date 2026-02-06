@@ -46,8 +46,8 @@
 		];
 	};
 
-	programs.dconf.profiles.user.databases = [
-		{
+	programs.dconf = {
+		profiles.user.databases = [{
 			settings = {
 				"org/gnome/mutter" = {
 					experimental-features = [
@@ -57,6 +57,13 @@
 					];
 				};
 			};
-		}
-	];
+		}];
+		profiles.gdm.databases = [{
+			settings = {
+				"org/gnome/login-screen" = {
+					enable-fingerprint-authentication = false;
+				};
+			};
+		}];
+	};
 }

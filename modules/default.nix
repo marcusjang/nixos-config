@@ -1,5 +1,7 @@
 { pkgs, lib, outputs, config, ... }: 
 {
+	boot.loader.timeout = 2;
+
 	nix = {
 		settings = {
 			experimental-features = [ "nix-command" "flakes" ];

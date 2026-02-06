@@ -7,8 +7,22 @@
 		./hardware-configuration.nix
 	];
 
-	boot.loader.systemd-boot.enable = true;
-	boot.loader.systemd-boot.consoleMode = "5";
+	boot.loader.limine = {
+		enable = true;
+		efiSupport = true;
+		maxGenerations = 4;
+		extraConfig = ''
+			interface_rotation: 90
+		'';
+		style = {
+			wallpapers = [ ];
+			graphicalTerminal = {
+				font = {
+					scale = "2x2";
+				};
+			};
+		};
+	};
 	boot.loader.efi.canTouchEfiVariables = true;
 
 	networking.hostName = "minibook";

@@ -54,7 +54,9 @@
 					./modules/gnome.nix
 					./modules/i18n.nix
 					./modules/firewall.nix
+					./modules/suspend.nix
 					./modules/mounts.nix
+					./modules/wireguard.nix
 					sops-nix.nixosModules.sops
 				];
 			};
@@ -70,6 +72,8 @@
 					./modules/i18n.nix
 					./modules/mounts.nix
 					./modules/firewall.nix
+					./modules/suspend.nix
+					./modules/mounts.nix
 					./modules/wireguard.nix
 					dms.nixosModules.dank-material-shell
 					sops-nix.nixosModules.sops

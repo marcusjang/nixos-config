@@ -25,9 +25,15 @@
 	};
 	boot.loader.efi.canTouchEfiVariables = true;
 
+	boot.kernelParams = [ "mem_sleep_default=deep" ];
+
 	networking.hostName = "minibook";
 	networking.networkmanager.enable = true;
 	time.timeZone = "Asia/Seoul";
+
+	systemd.sleep.extraConfig = ''
+        SuspendState=mem
+    '';
 
 	system.stateVersion = "24.11";
 }

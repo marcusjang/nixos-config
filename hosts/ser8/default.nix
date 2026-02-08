@@ -31,8 +31,8 @@
 	}];
 
 	services.logind.settings.Login = {
-		PowerKey = "hibernate";
-		PowerKeyLongPress = "poweroff";
+		HandlePowerKey = "hibernate";
+		HandlePowerKeyLongPress = "poweroff";
 	};
 
 	networking.hostName = "ser8";

@@ -26,14 +26,22 @@
 
   swapDevices = [ ];
 
-  # Disable spotty built-in bluetooth module
   services.udev.packages = [
+    # Disable spotty built-in bluetooth module
     (pkgs.writeTextFile {
       name = "disable-bt";
       text = ''
         SUBSYSTEM=="usb", ATTRS{idVendor}=="8087", ATTRS{idProduct}=="0032", ATTR{authorized}="0"
       '';
       destination = "/etc/udev/rules.d/81-bluetooth-hci.rules";
+    })
+    # Disable mouse from waking up the host
+    (pkgs.writeTextFile {
+      name = "disable-mouse-wakeup";
+      text = ''
+        ACTION=="add|change" SUBSYSTEM=="usb", ATTRS{idVendor}=="25a7", ATTRS{idProduct}=="fa7c", ATTR{power/wakeup}="disabled"
+      '';
+      destination = "/etc/udev/rules.d/41-disable-wakeup-triggers.rules";
     })
   ];
 

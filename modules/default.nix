@@ -53,6 +53,7 @@
 		neovim
 		fd
 		tree-sitter
+		trashy
 		tmux
 		starship
 		btop

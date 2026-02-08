@@ -38,35 +38,35 @@
 	];
 	
 	environment.systemPackages = with pkgs; [
-		xorg.xprop
-		nix-search-cli
-		git
-		gh
-		stow
 		bat
 		bat-extras.batman
-		wget
-		curl
-		unzip
-		gcc_multi
-		vim
-		neovim
-		fd
-		tree-sitter
-		trashy
-		tmux
-		starship
 		btop
-		mosh
-		direnv
+		curl
 		deno
+		direnv
+		fd
+		gcc_multi
+		gh
+		git
+		mosh
+		neovim
+		nix-search-cli
 		nodejs_latest
 		ripgrep
-		unstable.nushell
+		starship
+		stow
+		tmux
+		trashy
+		tree-sitter
 		unstable.carapace
 		unstable.fzf
 		unstable.lazygit
 		unstable.nerdfetch
+		unstable.nushell
+		unzip
+		vim
+		wget
+		xorg.xprop
 	];
 
 	services.userborn.enable = true;

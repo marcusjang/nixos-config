@@ -42,7 +42,9 @@
 			dash-to-dock
 			lockscreen-extension
 			no-overview
-			power-off-options
+			# TEMP: until ko language PR is merged then updated on nixpkgs
+			#power-off-options
+			pkgs.gnome-shell-power-off-options-ko
 			rounded-corners
 			rounded-window-corners-reborn
 			pkgs.unstable.gnomeExtensions.quick-settings-tweaker

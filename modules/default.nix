@@ -39,6 +39,7 @@
 	
 	environment.systemPackages = with pkgs; [
 		xorg.xprop
+		nix-search-cli
 		git
 		gh
 		stow
@@ -54,6 +55,7 @@
 		tree-sitter
 		tmux
 		starship
+		carapace
 		btop
 		bat
 		mosh

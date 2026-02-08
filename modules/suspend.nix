@@ -2,9 +2,9 @@
 {
 	services.power-profiles-daemon.enable = true;
 	services.logind.settings.Login = {
-		LidSwitch = "suspend-then-hibernate";
-		PowerKey = "hibernate";
-		PowerKeyLongPress = "poweroff";
+		HandleLidSwitch = "suspend-then-hibernate";
+		HandlePowerKey = "hibernate";
+		HandlePowerKeyLongPress = "poweroff";
 	};
 
 	systemd.sleep.extraConfig = ''

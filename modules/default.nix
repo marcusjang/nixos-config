@@ -55,7 +55,6 @@
 		tree-sitter
 		tmux
 		starship
-		carapace
 		btop
 		bat
 		mosh
@@ -64,6 +63,7 @@
 		nodejs_latest
 		ripgrep
 		unstable.nushell
+		unstable.carapace
 		unstable.fzf
 		unstable.lazygit
 		unstable.nerdfetch

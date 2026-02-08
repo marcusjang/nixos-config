@@ -68,7 +68,6 @@
 					./modules/audio.nix
 					./modules/desktop.nix
 					./modules/gnome.nix
-					./modules/niri.nix
 					./modules/i18n.nix
 					./modules/mounts.nix
 					./modules/firewall.nix

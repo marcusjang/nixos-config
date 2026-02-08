@@ -56,7 +56,6 @@
 		tmux
 		starship
 		btop
-		bat
 		mosh
 		direnv
 		deno

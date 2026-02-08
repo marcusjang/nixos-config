@@ -33,16 +33,18 @@
 			pkgs.pinentry-gnome3
 			pkgs.switcheroo
 			pkgs.ffmpegthumbnailer
-			blur-my-shell
-			dash-to-dock
-			clipboard-indicator
 			appindicator
-			lockscreen-extension
-			custom-command-toggle
-			power-off-options
+			auto-move-windows
+			blur-my-shell
 			caffeine
-			rounded-window-corners-reborn
+			clipboard-indicator
+			custom-command-toggle
+			dash-to-dock
+			lockscreen-extension
+			no-overview
+			power-off-options
 			rounded-corners
+			rounded-window-corners-reborn
 			pkgs.unstable.gnomeExtensions.quick-settings-tweaker
 		];
 	};

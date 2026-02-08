@@ -27,6 +27,7 @@
 		};
 
 		systemPackages = with pkgs.gnomeExtensions; [
+			pkgs.gnome-session
 			pkgs.gnome-color-manager
 			pkgs.gnome-tweaks
 			pkgs.pinentry-gnome3

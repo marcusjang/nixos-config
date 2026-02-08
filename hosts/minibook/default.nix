@@ -12,8 +12,8 @@
 		efiSupport = true;
 		maxGenerations = 4;
 		extraConfig = ''
-			interface_rotation: 90
-		'';
+            interface_rotation: 90
+        '';
 		style = {
 			wallpapers = [ ];
 			graphicalTerminal = {

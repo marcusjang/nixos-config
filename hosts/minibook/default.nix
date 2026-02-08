@@ -1,4 +1,4 @@
-{ inputs, outputs, ... }:
+{ lib, inputs, outputs, ... }:
 {
 	imports =[
 		outputs.nixosModules.default
@@ -35,6 +35,17 @@
         SuspendState=mem
     '';
 
+	programs.dconf = {
+		profiles.gdm.databases = [{
+			settings = {
+				"org/gnome/desktop/interface" = {
+					scaling-factor = lib.gvariant.mkUint32 1;
+					text-scaling-factor = 1.25;
+				};
+			};
+		}];
+	};
+	
 	system.stateVersion = "24.11";
 }
 

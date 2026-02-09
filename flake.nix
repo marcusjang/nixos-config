@@ -11,17 +11,13 @@
 			url = "github:ghostty-org/ghostty?ref=pull/10459/head";
 			inputs.nixpkgs.follows = "nixpkgs-unstable";
 		};
-		dms = {
-			url = "github:AvengeMedia/DankMaterialShell/stable";
-			inputs.nixpkgs.follows = "nixpkgs-unstable";
-		};
 		sops-nix = {
 			url = "github:Mic92/sops-nix";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 	};
 
-	outputs = { self, nixpkgs, sops-nix, dms, ... } @ inputs: let
+	outputs = { self, nixpkgs, nixpkgs-unstable, sops-nix, ... } @ inputs: let
 		inherit (self) outputs;
 	in {
 		overlays = import ./overlays { inherit inputs; };
@@ -60,7 +56,7 @@
 					sops-nix.nixosModules.sops
 				];
 			};
-			minibook = nixpkgs.lib.nixosSystem {
+			minibook = nixpkgs-unstable.lib.nixosSystem {
 				specialArgs = { inherit inputs outputs; };
 				modules = [
 					./hosts/minibook
@@ -74,7 +70,6 @@
 					./modules/suspend.nix
 					./modules/mounts.nix
 					./modules/wireguard.nix
-					dms.nixosModules.dank-material-shell
 					sops-nix.nixosModules.sops
 				];
 			};

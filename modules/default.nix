@@ -33,7 +33,6 @@
 
 	nixpkgs.overlays = [
 		outputs.overlays.additions
-		outputs.overlays.deno-latest
 		outputs.overlays.unstable-packages
 	];
 	
@@ -42,7 +41,7 @@
 		bat-extras.batman
 		btop
 		curl
-		deno
+		deno-bin
 		direnv
 		fd
 		gcc_multi

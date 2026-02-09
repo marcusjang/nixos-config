@@ -9,7 +9,7 @@ final: prev: {
 			tag = "v${version}";
 			hash = "sha256-196AE244jEZNfhkC+vouNq9M7DOd3kk/1JLW1XRLOHA=";
 	  	};
-		pnpmDeps = final.pkgs.pnpm.fetchDeps {
+		pnpmDeps = final.pkgs.fetchPnpmDeps {
 			inherit (finalAttrs) pname version src;
 			fetcherVersion = 1;
 			hash = "sha256-ksClxW8dIV72Hky5RFJ6cpPAteL29Cx8Me0aG5V/Y4k=";

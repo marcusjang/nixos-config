@@ -31,6 +31,8 @@
 	}];
 
 	services.logind.settings.Login = {
+		IdleAction = "suspend-then-hibernate";
+		IdleActionSec = "30m";
 		HandlePowerKey = "hibernate";
 		HandlePowerKeyLongPress = "poweroff";
 	};

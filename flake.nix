@@ -33,7 +33,8 @@
 					./modules/audio.nix
 					./modules/desktop.nix
 					./modules/gnome.nix
-					./modules/i18n.nix
+					./modules/locale.nix
+					./modules/ibus.nix
 					./modules/firewall.nix
 					./modules/mounts.nix
 					./modules/games.nix
@@ -48,7 +49,8 @@
 					./modules/audio.nix
 					./modules/desktop.nix
 					./modules/gnome.nix
-					./modules/i18n.nix
+					./modules/locale.nix
+					./modules/ibus.nix
 					./modules/firewall.nix
 					./modules/suspend.nix
 					./modules/mounts.nix
@@ -64,7 +66,8 @@
 					./modules/audio.nix
 					./modules/desktop.nix
 					./modules/gnome.nix
-					./modules/i18n.nix
+					./modules/locale.nix
+					./modules/ibus.nix
 					./modules/mounts.nix
 					./modules/firewall.nix
 					./modules/suspend.nix

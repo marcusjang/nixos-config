@@ -1,5 +1,6 @@
 { pkgs, config, ... }: 
 {
+	sops.secrets."user/marcus/password".mode = "0400";
 	programs.zsh.enable = true;
 	users.users.marcus = {
 		description = "Marcus";

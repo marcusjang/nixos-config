@@ -1,5 +1,7 @@
 { lib, pkgs, config, ... }:
 {
+	sops.secrets."wireguard/wg0/privateKey".mode = "0400";
+
 	environment.systemPackages = with pkgs; [
 		wireguard-tools
 	];

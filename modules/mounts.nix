@@ -4,10 +4,10 @@
 in {
 	sops.secrets = {
 		smbcreds = {
-			mode = "0600";
+			mode = "0400";
 		};
 		davfs = {
-			mode = "0600";
+			mode = "0400";
 			path = "/etc/davfs2/secrets";
 		};
 	};

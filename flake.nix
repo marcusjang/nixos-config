@@ -86,8 +86,13 @@
 				specialArgs = { inherit inputs outputs; };
 				modules = [
 					./hosts/nas
-					./modules/ssh.nix
-					./modules/samba.nix
+					./modules/server/ssh.nix
+					./modules/server/samba.nix
+					./modules/server/traefik.nix
+					./modules/server/homebridge.nix
+					./modules/server/webdav.nix
+					./modules/server/mylar3.nix
+					./modules/server/komga.nix
 					./modules/firewall.nix
 					./users/marcus.nix
 					sops-nix.nixosModules.sops

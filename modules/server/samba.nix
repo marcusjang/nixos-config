@@ -1,25 +1,16 @@
 { pkgs, config, ... }:
 {
-	users = {
-		groups = {
-			"samba" = {
-				gid = 1001;
-			};
-		};
-		users = {
-			"nas" = {
-				uid = 1001;
-				isNormalUser = false;
-				isSystemUser = true;
-				group = "samba";
-				hashedPasswordFile = config.sops.secrets."user/nas/password".path;
-			};
-		};
+	sops.secrets."user/samba/password".mode = "0400";
+
+	users.users."samba" = {
+		isSystemUser = true;
+		group = "nas";
+		hashedPasswordFile = config.sops.secrets."user/samba/password".path;
 	};
 
 	system.activationScripts = {
 		init_smbpasswd.text = ''
-			/run/current-system/sw/bin/printf "$(/run/current-system/sw/bin/cat ${config.sops.secrets."user/nas/password".path})\n$(/run/current-system/sw/bin/cat ${config.sops.secrets."user/nas/password".path})\n" | /run/current-system/sw/bin/smbpasswd -sa nas
+			/run/current-system/sw/bin/printf "$(/run/current-system/sw/bin/cat ${config.sops.secrets."user/samba/password".path})\n$(/run/current-system/sw/bin/cat ${config.sops.secrets."user/samba/password".path})\n" | /run/current-system/sw/bin/smbpasswd -sa samba
 		'';
 	};
 
@@ -69,8 +60,8 @@
 					"directory mask" = "0775";
 					"force create mode" = "0664";
 					"force directory mode" = "0775";
-					"force group" = "samba";
-					"force user" = "nas";
+					"force group" = "nas";
+					"force user" = "samba";
 					"guest account" = "marcus";
 					"hosts allow" = "127.0.0.0/8 10.0.0.0/8 172.16.0.0/12 192.168.0.0/16";
 					"hosts deny" = "0.0.0.0/0";
@@ -83,31 +74,31 @@
 					"comment" = "NAS Drive 0";
 					"path" = "/mnt/drive0/shared";
 					"read only" = "No";
-					"valid users" = "nas";
+					"valid users" = "samba";
 				};
 				"drive1" = {
 					"comment" = "NAS Drive 1";
 					"path" = "/mnt/drive1/shared";
 					"read only" = "No";
-					"valid users" = "nas";
+					"valid users" = "samba";
 				};
 				"drive2" = {
 					"comment" = "NAS Drive 2";
 					"path" = "/mnt/drive2/shared";
 					"read only" = "No";
-					"valid users" = "nas";
+					"valid users" = "samba";
 				};
 				"drive3" = {
 					"comment" = "NAS Drive 3";
 					"path" = "/mnt/drive3/shared";
 					"read only" = "No";
-					"valid users" = "nas";
+					"valid users" = "samba";
 				};
 				"Time Machine Backup" = {
 					"comment" = "Time Machine Backup";
 					"path" = "/mnt/time-machine/data";
 					"read only" = "No";
-					"valid users" = "nas";
+					"valid users" = "samba";
 					"writeable" = "Yes";
 				};
 			};

@@ -18,16 +18,11 @@
 		defaultSopsFile = ../secrets/secrets.yaml;
 		defaultSopsFormat = "yaml";
 		age = {
-			keyFile = "/home/${config.users.users."marcus".name}/.config/sops/age/keys.txt";
+			keyFile = "${config.users.users."marcus".home}/.config/sops/age/keys.txt";
 			sshKeyPaths = [
 				"/etc/ssh/ssh_host_ed25519_key"
 			];
 			generateKey = true;
-		};
-		secrets = {
-			"wireguard/wg0/privateKey" = {};
-			"user/marcus/password" = {};
-			"user/nas/password" = {};
 		};
 	};
 

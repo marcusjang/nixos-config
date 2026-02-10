@@ -33,9 +33,9 @@ in {
 		{ from = 52950; to = 52999; } # homebridge
 	];
 
-	time.timeZone = "Asia/Seoul";
+	users.groups.nas = { };
 
-	virtualisation.docker.enable = true;
+	time.timeZone = "Asia/Seoul";
 
 	services.thermald.enable = true;
 

@@ -34,7 +34,7 @@
 					./modules/desktop.nix
 					./modules/gnome.nix
 					./modules/locale.nix
-					./modules/ibus.nix
+					./modules/ime/ibus.nix
 					./modules/firewall.nix
 					./modules/mounts.nix
 					./modules/games.nix
@@ -50,7 +50,7 @@
 					./modules/desktop.nix
 					./modules/gnome.nix
 					./modules/locale.nix
-					./modules/ibus.nix
+					./modules/ime/ibus.nix
 					./modules/firewall.nix
 					./modules/suspend.nix
 					./modules/mounts.nix
@@ -67,7 +67,7 @@
 					./modules/desktop.nix
 					./modules/gnome.nix
 					./modules/locale.nix
-					./modules/ibus.nix
+					./modules/ime/ibus.nix
 					./modules/mounts.nix
 					./modules/firewall.nix
 					./modules/suspend.nix

@@ -2,6 +2,17 @@
 {
 	additions = final: _prev: import ../pkgs final.pkgs;
 
+	ghostty-flake = final: _prev: {
+		ghostty = inputs.ghostty.packages.${final.pkgs.stdenv.hostPlatform.system}.default.overrideAttrs (finalAttrs: prevAttrs: {
+			patches = [
+				(final.pkgs.fetchpatch {
+					url = "https://github.com/ghostty-org/ghostty/pull/10459.patch";
+					hash = "sha256-CJVIlKhBMD0ll52heWKFNE7I4jo7eTK1AKvmO2PbiiA=";
+				})
+			];
+		});
+	};
+
 	unstable-packages = final: _prev: {
 		unstable = import inputs.nixpkgs-unstable {
 			system = final.stdenv.hostPlatform.system;

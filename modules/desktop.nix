@@ -1,8 +1,9 @@
-{ pkgs, inputs, outputs, ... }: 
+{ pkgs, outputs, ... }: 
 {
 	nixpkgs.config.allowUnfree = true;
 
 	nixpkgs.overlays = [
+		outputs.overlays.ghostty-flake
 		outputs.overlays.legcord-icon
 		outputs.overlays.legcord-latest
 	];
@@ -10,7 +11,7 @@
 	environment.systemPackages = with pkgs; [
 		firefox
 		thunderbird
-		inputs.ghostty.packages.${pkgs.stdenv.hostPlatform.system}.default
+		ghostty
 		remmina
 		discord
 		legcord

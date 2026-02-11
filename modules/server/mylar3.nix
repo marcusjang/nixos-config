@@ -6,8 +6,8 @@ in {
 			image = "lscr.io/linuxserver/mylar3:nightly";
 			ports = [ "127.0.0.1:${toString port}:8090" ];
 			environment = {
-				PUID = "1001";
-				PGID = "1001";
+				PUID = "991";
+				PGID = "988";
 			};
 			volumes = [
 				"/var/lib/mylar3/config:/config"

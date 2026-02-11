@@ -9,6 +9,7 @@
 	];
 
 	environment.systemPackages = with pkgs; [
+		xprop
 		firefox
 		thunderbird
 		ghostty

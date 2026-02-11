@@ -60,7 +60,6 @@
 		unzip
 		vim
 		wget
-		xorg.xprop
 	];
 
 	services.userborn.enable = true;

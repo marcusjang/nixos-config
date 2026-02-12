@@ -31,14 +31,15 @@
 				modules = [
 					./hosts/ser8
 					./users/marcus.nix
-					./modules/audio.nix
-					./modules/desktop.nix
-					./modules/gnome.nix
 					./modules/locale.nix
-					./modules/ime/ibus.nix
 					./modules/firewall.nix
 					./modules/mounts.nix
-					./modules/games.nix
+					./modules/desktop
+					./modules/desktop/audio.nix
+					./modules/desktop/fonts.nix
+					./modules/desktop/gnome.nix
+					./modules/desktop/ime/ibus.nix
+					./modules/desktop/games.nix
 					sops-nix.nixosModules.sops
 				];
 			};
@@ -47,15 +48,16 @@
 				modules = [
 					./hosts/x1c13
 					./users/marcus.nix
-					./modules/audio.nix
-					./modules/desktop.nix
-					./modules/gnome.nix
 					./modules/locale.nix
-					./modules/ime/ibus.nix
 					./modules/firewall.nix
-					./modules/suspend.nix
 					./modules/mounts.nix
 					./modules/wireguard.nix
+					./modules/desktop
+					./modules/desktop/audio.nix
+					./modules/desktop/fonts.nix
+					./modules/desktop/gnome.nix
+					./modules/desktop/suspend.nix
+					./modules/desktop/ime/ibus.nix
 					sops-nix.nixosModules.sops
 				];
 			};
@@ -64,16 +66,17 @@
 				modules = [
 					./hosts/minibook
 					./users/marcus.nix
-					./modules/audio.nix
-					./modules/desktop.nix
-					./modules/gnome.nix
 					./modules/locale.nix
-					./modules/ime/ibus.nix
 					./modules/mounts.nix
 					./modules/firewall.nix
-					./modules/suspend.nix
 					./modules/mounts.nix
 					./modules/wireguard.nix
+					./modules/desktop
+					./modules/desktop/audio.nix
+					./modules/desktop/fonts.nix
+					./modules/desktop/gnome.nix
+					./modules/desktop/suspend.nix
+					./modules/desktop/ime/ibus.nix
 					sops-nix.nixosModules.sops
 				];
 			};
@@ -90,6 +93,8 @@
 				specialArgs = { inherit inputs outputs; };
 				modules = [
 					./hosts/nas
+					./users/marcus.nix
+					./modules/firewall.nix
 					./modules/server/ssh.nix
 					./modules/server/samba.nix
 					./modules/server/traefik.nix
@@ -97,8 +102,6 @@
 					./modules/server/webdav.nix
 					./modules/server/mylar3.nix
 					./modules/server/komga.nix
-					./modules/firewall.nix
-					./users/marcus.nix
 					sops-nix.nixosModules.sops
 				];
 			};

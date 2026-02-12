@@ -8,7 +8,8 @@
 		wsl.url = "github:nix-community/NixOS-WSL";
 		niri.url = "github:sodiboo/niri-flake";
 		ghostty = {
-			url = "github:ghostty-org/ghostty?ref=tip";
+			#url = "github:ghostty-org/ghostty?ref=tip";
+			url = "github:ghostty-org/ghostty?ref=2868677af50af301ebe4ec1c7f79ad31dcd67cd3";
 			inputs.nixpkgs.follows = "nixpkgs-unstable";
 		};
 		sops-nix = {

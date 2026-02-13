@@ -4,10 +4,10 @@ stdenv.mkDerivation rec {
 	version = "7";
 
 	src = fetchFromGitHub {
-		owner = "marcusjang";
+		owner = "axelitama";
 		repo = "power-off-options";
-		rev = "6647560b184d4cbfa79c4e9245825f9608c0b013";
-		hash = "sha256-XfRKjDrvvp9DvtEV6/VRr+c6aqWy8MnG3VfJoN56VT4=";
+		rev = "10680913ff3de4d2fa519c0ffbd7cd3b01734fd6";
+		hash = "sha256-W64zSRpFX+5SZou7N+FAeQZ0T9Bk/qzXhgr+TuEP4T4=";
 	};
 
 	passthru = {

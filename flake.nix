@@ -37,9 +37,9 @@
 					./modules/desktop
 					./modules/desktop/audio.nix
 					./modules/desktop/fonts.nix
-					./modules/desktop/gnome.nix
-					./modules/desktop/ime/ibus.nix
 					./modules/desktop/games.nix
+					./modules/desktop/de/gnome.nix
+					./modules/desktop/ime/ibus.nix
 					sops-nix.nixosModules.sops
 				];
 			};
@@ -55,8 +55,8 @@
 					./modules/desktop
 					./modules/desktop/audio.nix
 					./modules/desktop/fonts.nix
-					./modules/desktop/gnome.nix
 					./modules/desktop/suspend.nix
+					./modules/desktop/de/gnome.nix
 					./modules/desktop/ime/ibus.nix
 					sops-nix.nixosModules.sops
 				];
@@ -74,8 +74,8 @@
 					./modules/desktop
 					./modules/desktop/audio.nix
 					./modules/desktop/fonts.nix
-					./modules/desktop/gnome.nix
 					./modules/desktop/suspend.nix
+					./modules/desktop/de/gnome.nix
 					./modules/desktop/ime/ibus.nix
 					sops-nix.nixosModules.sops
 				];

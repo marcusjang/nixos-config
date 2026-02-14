@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, lib, config, ... }:
 {
 	sops.secrets."user/samba/password".mode = "0400";
 
@@ -10,7 +10,7 @@
 
 	system.activationScripts = {
 		init_smbpasswd.text = ''
-			/run/current-system/sw/bin/printf "$(/run/current-system/sw/bin/cat ${config.sops.secrets."user/samba/password".path})\n$(/run/current-system/sw/bin/cat ${config.sops.secrets."user/samba/password".path})\n" | /run/current-system/sw/bin/smbpasswd -sa samba
+			${lib.getExe' pkgs.coreutils "printf"} "$(${lib.getExe' pkgs.coreutils "cat"} ${config.sops.secrets."user/samba/password".path})\n$(${lib.getExe' pkgs.coreutils "cat"} ${config.sops.secrets."user/samba/password".path})\n" | ${lib.getExe' pkgs.samba "smbpasswd"} -sa samba
 		'';
 	};
 

@@ -45,7 +45,6 @@
 		mosh
 		neovim
 		nix-search-cli
-		nodejs_latest
 		ripgrep
 		starship
 		stow

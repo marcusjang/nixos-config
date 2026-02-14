@@ -28,5 +28,5 @@
 		});
 	};
 	
-	legcord-latest = import ./legcord.nix { inherit inputs; };
+	legcord-latest = import ./legcord.nix { };
 }

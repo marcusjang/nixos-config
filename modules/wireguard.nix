@@ -1,6 +1,7 @@
 { lib, pkgs, config, ... }:
 {
 	sops.secrets."wireguard/wg0/privateKey".mode = "0400";
+	sops.secrets."wireguard/wg0/presharedKey".mode = "0400";
 
 	environment.systemPackages = with pkgs; [
 		wireguard-tools
@@ -12,16 +13,17 @@
 
 	networking.wg-quick.interfaces = {
 		wg0 = {
-			address = [ "192.168.3.10/32" ];
+			address = [ "10.0.30.4/32" ];
 			listenPort = 51820;
-			dns = [ "192.168.1.1" ];
+			dns = [ "192.168.0.1" ];
 			privateKeyFile = config.sops.secrets."wireguard/wg0/privateKey".path;
 			peers = [
 				{
-					publicKey = "IADPqQruIV4e5OUrY6U0gFjU7+0J7oOVtbDwdABym28=";
+					publicKey = "FRPOCws5AewREN8NhXuIkY+zC0/hJpsXe/VwM8+Jimk=";
 					allowedIPs = [ "0.0.0.0/0" ];
 					endpoint = "dungeon.melange.works:13231";
 					persistentKeepalive = 25;
+					presharedKeyFile = config.sops.secrets."wireguard/wg0/presharedKey".path;
 				}
 			];
 		};

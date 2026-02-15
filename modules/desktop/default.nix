@@ -9,19 +9,19 @@
 	];
 
 	environment.systemPackages = with pkgs; [
-		xprop
-		firefox
-		thunderbird
-		ghostty
-		remmina
 		discord
-		legcord
-		keepassxc
-		ibus
-		xdg-desktop-portal-gtk
-		mpv
 		eog
-		yacreader
+		firefox
+		ghostty
+		ibus
+		keepassxc
+		legcord
+		mpv
+		remmina
+		thunderbird
 		unstable.winbox4
+		xdg-desktop-portal-gtk
+		xprop
+		yacreader
 	];
 }

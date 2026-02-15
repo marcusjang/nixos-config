@@ -7,8 +7,6 @@
 
 	programs.dms-shell.enable = true;
 
-	security.polkit.enable = true;
-
 	environment.systemPackages = with pkgs; [
 		alacritty
 		fuzzel

@@ -29,4 +29,12 @@
 		};
 	};
 	systemd.services.wg-quick-wg0.wantedBy = lib.mkForce [ ];
+
+	security.polkit.extraConfig = ''
+      polkit.addRule(function(action, subject) {
+        if (action.id == "org.freedesktop.systemd1.manage-units" &&
+          action.lookup("unit") == "wg-quick-wg0.service")
+        { return polkit.Result.YES; }
+      });
+    '';
 }

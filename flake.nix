@@ -86,6 +86,7 @@
 				modules = [
 					./hosts/wsl
 					./users/marcus.nix
+					./modules/mounts.nix
 					sops-nix.nixosModules.sops
 				];
 			};

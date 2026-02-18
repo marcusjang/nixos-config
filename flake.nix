@@ -94,7 +94,7 @@
 				modules = [
 					./hosts/nas
 					./users/marcus.nix
-					./modules/firewall.nix
+					./modules/server
 					./modules/server/ssh.nix
 					./modules/server/samba.nix
 					./modules/server/traefik.nix

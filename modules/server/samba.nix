@@ -10,11 +10,10 @@
 
 	system.activationScripts = {
 		init_smbpasswd.text = ''
-			${lib.getExe' pkgs.coreutils "printf"} \
-			"$(${lib.getExe' pkgs.coreutils "cat"} ${config.sops.secrets."user/samba/password".path})\n\
-			 $(${lib.getExe' pkgs.coreutils "cat"} ${config.sops.secrets."user/samba/password".path})\n" |\
-			${lib.getExe' pkgs.samba "smbpasswd"} -sa ${config.users.users."samba".name}
-		'';
+            ${lib.getExe' pkgs.coreutils "printf"} \
+            "$(${lib.getExe' pkgs.coreutils "cat"} ${config.sops.secrets."user/samba/password".path})\n$(${lib.getExe' pkgs.coreutils "cat"} ${config.sops.secrets."user/samba/password".path})\n" |\
+            ${lib.getExe' pkgs.samba "smbpasswd"} -sa ${config.users.users."samba".name}
+        '';
 	};
 
 	services = {

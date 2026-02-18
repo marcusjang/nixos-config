@@ -1,11 +1,11 @@
 { pkgs, lib, config, ... }:
 let
-	setPassword = pkgs.writeShellScript "samba-set-password" ''
-		set -euo pipefail
-		smb_password="$(${lib.getExe' pkgs.coreutils "cat"} ${config.sops.secrets."user/samba/password".path})"
-		${lib.getExe' pkgs.coreutils "echo"} -e "$smb_password\n$smb_password\n" |\
-		${lib.getExe' pkgs.samba "smbpasswd"} -sa ${config.users.users."samba".name}
-	'';
+    setPassword = pkgs.writeShellScript "samba-set-password" ''
+        set -euo pipefail
+        smb_password="$(${lib.getExe' pkgs.coreutils "cat"} ${config.sops.secrets."user/samba/password".path})"
+        ${lib.getExe' pkgs.coreutils "echo"} -e "$smb_password\n$smb_password\n" |
+        ${lib.getExe' pkgs.samba "smbpasswd"} -sa ${config.users.users."samba".name}
+    '';
 in	
 {
 	sops.secrets."user/samba/password" = {

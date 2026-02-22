@@ -37,6 +37,7 @@
 					./modules/desktop
 					./modules/desktop/audio.nix
 					./modules/desktop/fonts.nix
+					./modules/desktop/office.nix
 					./modules/desktop/games.nix
 					./modules/desktop/de/gnome.nix
 					./modules/desktop/ime/ibus.nix

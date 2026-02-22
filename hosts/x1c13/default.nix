@@ -18,6 +18,9 @@
 	#services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix-550a;
 	services.fwupd.enable = true;
 
+	services.thermald.enable = true;
+	services.tlp.enable = true;
+
 	networking.hostName = "x1c13";
 	networking.networkmanager.enable = true;
 	time.timeZone = "Asia/Seoul";

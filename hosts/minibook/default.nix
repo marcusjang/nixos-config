@@ -31,9 +31,10 @@
 	networking.networkmanager.enable = true;
 	time.timeZone = "Asia/Seoul";
 
-	systemd.sleep.extraConfig = ''
-        SuspendState=mem
-    '';
+	systemd.sleep.extraConfig = "SuspendState=mem";
+
+	services.thermald.enable = true;
+	services.tlp.enable = true;
 
 	programs.dconf = {
 		profiles.gdm.databases = [{

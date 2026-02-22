@@ -26,6 +26,19 @@
 		};
 	};
 
+	boot.plymouth.enable = true;
+	boot.kernelParams = [
+		"quiet"
+		"splash"
+		"loglevel=4"
+		"systemd.show_status=false"
+		"rd.udev.lov_level=3"
+		"udev.log_priority=3"
+		"boot.shell_on_fail"
+	];
+	boot.consoleLogLevel = 0;
+	boot.initrd.verbose = false;
+
 	nixpkgs.overlays = [
 		outputs.overlays.additions
 		outputs.overlays.unstable-packages

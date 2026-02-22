@@ -7,7 +7,11 @@
 			patches = [
 				(final.pkgs.fetchpatch {
 					url = "https://github.com/ghostty-org/ghostty/pull/10459.patch";
-					hash = "sha256-CJVIlKhBMD0ll52heWKFNE7I4jo7eTK1AKvmO2PbiiA=";
+					hash = "sha256-YmqiNE8nkRuzF793vJ+YRdpXe4V4EK9Lo4VAekORNJI=";
+				})
+				(final.pkgs.fetchpatch {
+					url = "https://github.com/ghostty-org/ghostty/pull/10809.patch";
+					hash = "sha256-dgS+fbE5+8tgy0huNoCTx22E/woxuzIC303bzps7TRM=";
 				})
 			];
 		});

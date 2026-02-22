@@ -19,7 +19,6 @@
 	services.fwupd.enable = true;
 
 	services.thermald.enable = true;
-	services.tlp.enable = true;
 
 	networking.hostName = "x1c13";
 	networking.networkmanager.enable = true;

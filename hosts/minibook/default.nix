@@ -34,7 +34,6 @@
 	systemd.sleep.extraConfig = "SuspendState=mem";
 
 	services.thermald.enable = true;
-	services.tlp.enable = true;
 
 	programs.dconf = {
 		profiles.gdm.databases = [{

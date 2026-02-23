@@ -41,6 +41,16 @@
 		HandlePowerKeyLongPress = "poweroff";
 	};
 
+	programs.dconf = {
+		profiles.user.databases = [{
+			settings = {
+				"org/gnome/settings-daemon/plugins/power" = {
+					sleep-inactive-ac-type = "hibernate";
+				};
+			};
+		}];
+	};
+
 	networking.hostName = "ser8";
 	networking.networkmanager.enable = true;
 	time.timeZone = "Asia/Seoul";

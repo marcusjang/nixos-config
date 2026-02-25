@@ -15,7 +15,7 @@
 		wg0 = {
 			address = [ "10.0.30.4/32" ];
 			listenPort = 51820;
-			dns = [ "192.168.0.1" ];
+			dns = [ "10.0.10.1" ];
 			privateKeyFile = config.sops.secrets."wireguard/wg0/privateKey".path;
 			peers = [
 				{

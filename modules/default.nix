@@ -42,6 +42,7 @@
 	nixpkgs.overlays = [
 		outputs.overlays.additions
 		outputs.overlays.unstable-packages
+		outputs.overlays.nixpkgs-patched
 	];
 
 	security.polkit.enable = true;

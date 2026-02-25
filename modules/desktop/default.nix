@@ -17,7 +17,7 @@
 		keepassxc
 		legcord
 		mpv
-		remmina
+		patched.remmina
 		thunderbird
 		unstable.winbox4
 		xdg-desktop-portal-gtk

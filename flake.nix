@@ -9,7 +9,7 @@
 		niri.url = "github:sodiboo/niri-flake";
 		ghostty = {
 			#url = "github:ghostty-org/ghostty?ref=tip";
-			url = "github:ghostty-org/ghostty?ref=861a9cf537a58a380bc6a0784573b3de3a70415e";
+			url = "github:ghostty-org/ghostty?ref=4c8f2bc77b218349839b8e929a981a2bdf4734a8";
 			inputs.nixpkgs.follows = "nixpkgs-unstable";
 		};
 		sops-nix = {

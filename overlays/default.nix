@@ -11,7 +11,7 @@
 				})
 				(final.pkgs.fetchpatch {
 					url = "https://github.com/ghostty-org/ghostty/pull/10809.patch";
-					hash = "sha256-dgS+fbE5+8tgy0huNoCTx22E/woxuzIC303bzps7TRM=";
+					hash = "sha256-DKIEA24CWohgoeqIS77f4aq6QF4UiSp48jKRo1Hx788=";
 				})
 			];
 		});

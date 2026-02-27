@@ -11,7 +11,7 @@ final: prev: {
 		};
 		pnpmDeps = final.pkgs.fetchPnpmDeps {
 			inherit (finalAttrs) pname version src;
-			fetcherVersion = 1;
+			fetcherVersion = 3;
 			hash = "sha256-9sdN5tbCCe/euTo8zRkU0C3yQ8sAufPyN8a4GeJW/Us=";
 		};
 		autoPatchelfIgnoreMissingDeps = [ "*" ];

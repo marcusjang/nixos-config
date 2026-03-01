@@ -15,7 +15,7 @@ in {
 	boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
 	boot.kernel.sysctl."net.ipv6.ip_forward" = 1;
 
-	networking.hostName = "nas";
+	networking.hostName = "nas400";
 	networking.networkmanager.enable = true;
 	networking.firewall.allowedTCPPorts = [
 		80 # http

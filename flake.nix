@@ -94,10 +94,10 @@
 					sops-nix.nixosModules.sops
 				];
 			};
-			nas = nixpkgs.lib.nixosSystem {
+			nas400 = nixpkgs.lib.nixosSystem {
 				specialArgs = { inherit inputs outputs; };
 				modules = [
-					./hosts/nas
+					./hosts/nas400
 					./users/marcus.nix
 					./modules/server
 					./modules/server/ssh.nix

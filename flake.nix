@@ -5,7 +5,7 @@
 		nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
 		nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 		hardware.url = "github:nixos/nixos-hardware";
-		wsl.url = "github:nix-community/NixOS-WSL";
+		wsl.url = "github:nix-community/NixOS-WSL/main";
 		niri.url = "github:sodiboo/niri-flake";
 		ghostty = {
 			#url = "github:ghostty-org/ghostty?ref=tip";
@@ -83,10 +83,11 @@
 					sops-nix.nixosModules.sops
 				];
 			};
-			wsl = nixpkgs.lib.nixosSystem {
+			wsl = nixpkgs-unstable.lib.nixosSystem {
 				system = "x86_64-linux";
 				specialArgs = { inherit inputs outputs; };
 				modules = [
+					inputs.wsl.nixosModules.default
 					./hosts/wsl
 					./users/marcus.nix
 					./modules/mounts.nix

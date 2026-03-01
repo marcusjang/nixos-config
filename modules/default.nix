@@ -90,9 +90,7 @@
 		vim
 		wget
 	];
-	environment.sessionVariables = {
-		PATH = [ "$HOME/scripts" ];
-	};
+	environment.variables.PATH = lib.mkForce [ "$PATH" "$HOME/scripts" ];
 
 	services.userborn.enable = true;
 	users.mutableUsers = false;

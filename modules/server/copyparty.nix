@@ -2,7 +2,10 @@
 {
 	nixpkgs.overlays = [ inputs.copyparty.overlays.default ];
 
-	sops.secrets."copyparty/accounts/marcus/password".mode = "0600";
+	sops.secrets."copyparty/accounts/marcus/password" = {
+		mode = "0600";
+		owner = "copyparty";
+	};
 
 	services.copyparty = {
 		enable = true;

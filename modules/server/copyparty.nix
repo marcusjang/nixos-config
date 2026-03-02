@@ -15,7 +15,7 @@
 			ftp-pr = "12000-12999";
 		};
 		accounts = {
-			marcus.passwordFile = config.secrets."copyparty/accounts/marcus/password".path;
+			marcus.passwordFile = config.sops.secrets."copyparty/accounts/marcus/password".path;
 		};
 		volumes = {
 			"/drive0" = {

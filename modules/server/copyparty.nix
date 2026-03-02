@@ -2,7 +2,7 @@
 {
 	nixpkgs.overlays = [ inputs.copyparty.overlays.default ];
 
-	sops.secrets.copyparty.accounts.marcus.password.mode = "0600";
+	sops.secrets."copyparty/accounts/marcus/password".mode = "0600";
 
 	services.copyparty = {
 		enable = true;
@@ -15,7 +15,7 @@
 			ftp-pr = "12000-12999";
 		};
 		accounts = {
-			marcus.passwordFile = config.secrets.copyparty.accounts.marcus.password.path;
+			marcus.passwordFile = config.secrets."copyparty/accounts/marcus/password".path;
 		};
 		volumes = {
 			"/drive0" = {

@@ -6,6 +6,7 @@
 		nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 		hardware.url = "github:nixos/nixos-hardware";
 		wsl.url = "github:nix-community/NixOS-WSL/main";
+		copyparty.url = "github:9001/copyparty";
 		niri.url = "github:sodiboo/niri-flake";
 		ghostty = {
 			#url = "github:ghostty-org/ghostty?ref=tip";
@@ -97,6 +98,7 @@
 			nas400 = nixpkgs.lib.nixosSystem {
 				specialArgs = { inherit inputs outputs; };
 				modules = [
+					inputs.copyparty.nixosModules.default
 					./hosts/nas400
 					./users/marcus.nix
 					./modules/server
@@ -107,6 +109,7 @@
 					./modules/server/webdav.nix
 					./modules/server/mylar3.nix
 					./modules/server/komga.nix
+					./modules/server/copyparty.nix
 					sops-nix.nixosModules.sops
 				];
 			};

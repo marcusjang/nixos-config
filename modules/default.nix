@@ -92,11 +92,6 @@
 	];
 	environment.variables.PATH = lib.mkForce [ "$PATH" "$HOME/scripts" ];
 
-	services.userborn.enable = true;
-	users.mutableUsers = false;
-
-	services.lorri.enable = true;
-
 	programs = {
 		neovim = {
 			enable = true;

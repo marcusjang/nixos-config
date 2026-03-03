@@ -1,5 +1,5 @@
 { inputs, outputs, lib, config, pkgs, ... }: let
-	zfsCompatibleKernelPackages = lib.filterAtttrs (
+	zfsCompatibleKernelPackages = lib.filterAttrs (
 		name: kernelPackages:
 		(builtins.match "linux_[0-9]+_[0-9]+" name) != null
 		&& (builtins.tryEval kernelPackages). success
@@ -35,6 +35,7 @@ in {
 	services.zfs.autoScrub.enable = true;
 	services.zfs.trim.enable = true;
 
+	networking.hostId = "8425e349";
 	networking.hostName = "n5";
 	networking.networkmanager.enable = true;
 	networking.firewall.allowedTCPPorts = [

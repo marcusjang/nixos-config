@@ -3,7 +3,8 @@ keys:
   - &server_ser8 age1q664t7wt0n3vwn6sv7s38x34f25yg244q4f9f9g3gqsd6fccd4esuqhuan
   - &server_x1c13 age1hzsrzq3f938745yykf894qtegz03xenp8raccylm06wtzz6zedwqx2wjy6
   - &server_minibook age1g2f7sa44ckn7fvnhhgzqfrlteq3z5h486z9mgtu60clvsnkr94gsw8yjgg
-  - &server_nas age1a2vp8d97nzqpr4c7a929vaapyuvup8hs4zr50c60cglf80jaupfs985mqg
+  - &server_n5 age1tzd8j8r9k8x9a79zncwkwveltnz7lfz5hh0ksw90wxm4nl04xq2sfrsf3g
+  - &server_nas400 age1a2vp8d97nzqpr4c7a929vaapyuvup8hs4zr50c60cglf80jaupfs985mqg
   - &server_wsl age1qxyhfqkt8cl7h77u385w0xslm9gl3w73nz5m7w6a4nxf2gmn29gqtc4wxt
 creation_rules:
   - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
@@ -13,5 +14,6 @@ creation_rules:
       - *server_ser8
       - *server_x1c13
       - *server_minibook
-      - *server_nas
+      - *server_n5
+      - *server_nas400
       - *server_wsl

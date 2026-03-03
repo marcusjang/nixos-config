@@ -15,6 +15,7 @@
 	users.users."marcus".openssh.authorizedKeys.keys = [
 		"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEAQGnfAf5qxzSiPE3FhMqxF717jDLlblI0fCXlaL2le" # marcus@keepass
 		"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAgTPArpqWPIxGVRwP+Ap2TN7hbUUtnGyP1pV8hn8dX/" # marcus@desktop
+		"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINI8El2z+o0LjODHPttOzzyS8ORo64gSSYVZmduniQPC" # marcus@n5
 		"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILd/G7nepYED8JCi0h6kuLvSufSo+j0MSwVWSXFvsnmo" # marcus@ser8
 		"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK8pfl4YsH2TfOcPfAp+KO7vdksoxBEbvPACoZVr2uCu" # marcus@x1c13
 		"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP/irMQq9qNQSTjt0FINPLQy/ZKHZ0fZkKOEIu5m4rrt" # marcus@mbp

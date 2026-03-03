@@ -22,34 +22,14 @@
 			marcus.passwordFile = config.sops.secrets."copyparty/accounts/marcus/password".path;
 		};
 		volumes = {
-			"/drive0" = {
-				path = "/mnt/drive0/shared";
+			"/" = {
+				path = "/share";
 				access = {
 					r = "*";
 					rwmda = [ "marcus" ];
 				};
 			};
-			"/drive1" = {
-				path = "/mnt/drive1/shared";
-				access = {
-					r = "*";
-					rwmda = [ "marcus" ];
-				};
-			};
-			"/drive2" = {
-				path = "/mnt/drive2/shared";
-				access = {
-					r = "*";
-					rwmda = [ "marcus" ];
-				};
-			};
-			"/drive3" = {
-				path = "/mnt/drive3/shared";
-				access = {
-					r = "*";
-					rwmda = [ "marcus" ];
-				};
-			};
+			"/archive" = { path = "/var/empty"; };
 		};
 	};
 

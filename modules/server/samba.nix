@@ -57,6 +57,9 @@ in
 				"smb1 unix extensions" = "No";
 				"smb ports" = "445";
 				"usershare allow guests" = "Yes";
+				"usershare owner only" = "No";
+				"usershare max shares" = "100";
+				"usershare path" = "/var/lib/samba/usershares";
 				"winbind scan trusted domains" = "Yes";
 				"fruit:aapl" ="Yes";
 				"fruit:time machine" = "Yes";
@@ -80,37 +83,6 @@ in
 				"strict locking" = "No";
 				"vfs objects" = "catia fruit streams_xattr";
 				"wide links" = "Yes";
-			};
-			"drive0" = {
-				"comment" = "NAS Drive 0";
-				"path" = "/mnt/drive0/shared";
-				"read only" = "No";
-				"valid users" = "samba";
-			};
-			"drive1" = {
-				"comment" = "NAS Drive 1";
-				"path" = "/mnt/drive1/shared";
-				"read only" = "No";
-				"valid users" = "samba";
-			};
-			"drive2" = {
-				"comment" = "NAS Drive 2";
-				"path" = "/mnt/drive2/shared";
-				"read only" = "No";
-				"valid users" = "samba";
-			};
-			"drive3" = {
-				"comment" = "NAS Drive 3";
-				"path" = "/mnt/drive3/shared";
-				"read only" = "No";
-				"valid users" = "samba";
-			};
-			"Time Machine Backup" = {
-				"comment" = "Time Machine Backup";
-				"path" = "/mnt/time-machine/data";
-				"read only" = "No";
-				"valid users" = "samba";
-				"writeable" = "Yes";
 			};
 		};
 	};

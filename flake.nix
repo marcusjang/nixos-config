@@ -8,6 +8,15 @@
 		wsl.url = "github:nix-community/NixOS-WSL/main";
 		copyparty.url = "github:9001/copyparty";
 		niri.url = "github:sodiboo/niri-flake";
+		disko = {
+			url = "github:nix-community/disko/latest";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
+		disko-zfs = {
+			url = "github:numtide/disko-zfs";
+			inputs.nixpkgs.follows = "nixpkgs";
+			inputs.disko.follows = "disko";
+		};
 		ghostty = {
 			#url = "github:ghostty-org/ghostty?ref=tip";
 			url = "github:ghostty-org/ghostty?ref=4c8f2bc77b218349839b8e929a981a2bdf4734a8";
@@ -92,6 +101,26 @@
 					./hosts/wsl
 					./users/marcus.nix
 					./modules/mounts.nix
+					sops-nix.nixosModules.sops
+				];
+			};
+			n5 = nixpkgs.lib.nixosSystem {
+				specialArgs = { inherit inputs outputs; };
+				modules = [
+					inputs.disko.nixosModules.disko
+					inputs.disko-zfs.nixosModules.default
+					inputs.copyparty.nixosModules.default
+					./hosts/n5
+					./users/marcus.nix
+					./modules/server
+					./modules/server/ssh.nix
+					./modules/server/samba.nix
+					./modules/server/traefik.nix
+					./modules/server/homebridge.nix
+					./modules/server/webdav.nix
+					./modules/server/mylar3.nix
+					./modules/server/komga.nix
+					./modules/server/copyparty.nix
 					sops-nix.nixosModules.sops
 				];
 			};

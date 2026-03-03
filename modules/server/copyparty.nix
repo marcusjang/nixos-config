@@ -26,10 +26,15 @@
 				path = "/share";
 				access = {
 					r = "*";
-					rwmda = [ "marcus" ];
+					A = [ "marcus" ];
 				};
 			};
-			"/archive" = { path = "/var/empty"; };
+			"/archive" = {
+				path = "/var/empty";
+				access = {
+					r = "*";
+				};
+			};
 		};
 	};
 

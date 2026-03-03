@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 {
 	services.openssh = {
 		enable = true;
@@ -21,4 +21,6 @@
 		"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPsJMdW95Bl0/0E7JLp88EdTKXDV4ecMt5eZyzybp5ZL" # marcus@minibook
 		"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGk+1j6U3UCAGc4C4pKAlqy7TkVFGtFcme9o6mdeg0QP" # marcus@iPhone via iSH
 	];
+
+	users.users."git".openssh.authorizedKeys.keys = config.users.users."marcus".openssh.authorizedKeys.keys;
 }

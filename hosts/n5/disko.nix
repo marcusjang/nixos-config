@@ -3,7 +3,7 @@
 	disko.devices = {
 		disk = {
 			main = {
-				device = "/dev/disk/by-id/some-disk-id";
+				device = "/dev/disk/by-id/nvme-BAYHUB_Foresee-C9A611-0x0013-64GB_29036200000000000001";
 				type = "disk";
 				content = {
 					type = "gpt";
@@ -30,7 +30,7 @@
 			};
 			drive0 = {
 				type = "disk";
-				device = "/dev/disk/by-id/some-disk-id";
+				device = "/dev/disk/by-id/ata-WDC_WDS100T2B0A-00SM50_183324801704";
 				content = {
 					type = "gpt";
 					partitions = {
@@ -46,7 +46,7 @@
 			};
 			drive1 = {
 				type = "disk";
-				device = "/dev/disk/by-id/some-disk-id";
+				device = "/dev/disk/by-id/ata-SanDisk_SDSSDHII960G_151709400157";
 				content = {
 					type = "gpt";
 					partitions = {
@@ -62,7 +62,7 @@
 			};
 			drive2 = {
 				type = "disk";
-				device = "/dev/disk/by-id/some-disk-id";
+				device = "/dev/disk/by-id/ata-SanDisk_Ultra_II_960GB_161416804734";
 				content = {
 					type = "gpt";
 					partitions = {
@@ -78,7 +78,7 @@
 			};
 			drive3 = {
 				type = "disk";
-				device = "/dev/disk/by-id/some-disk-id";
+				device = "/dev/disk/by-id/ata-TOSHIBA-TR150_46PB30AFK8ZU";
 				content = {
 					type = "gpt";
 					partitions = {

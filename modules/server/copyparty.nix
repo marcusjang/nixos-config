@@ -4,7 +4,8 @@
 
 	sops.secrets."copyparty/accounts/marcus/password" = {
 		mode = "0600";
-		owner = "copyparty";
+		owner = config.services.copyparty.user;
+		group = config.services.copyparty.group;
 	};
 
 	services.copyparty = {

@@ -10,7 +10,7 @@ in {
 		group = "nas";
 		settings = {
 			port = port;
-			directory = "/mnt/drive3/shared/WebDAV/data";
+			directory = "/serve/webdav";
 			users = [
 				{
 					username = "{env}WEBDAV_USERNAME";

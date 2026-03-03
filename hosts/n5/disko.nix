@@ -121,11 +121,10 @@
 					zfs_fs = {
 						type = "zfs_fs";
 						mountpoint = "/share";
-						options = {
-							sharesmb = "on";
-							acltype = "posixacl";
-							xattr = "sa";
-						};
+					};
+					zfs_fs_webdav = {
+						type = "zfs_fs";
+						mountpoint = "/serve/webdav";
 					};
 				};
 			};

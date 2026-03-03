@@ -84,6 +84,13 @@ in
 				"vfs objects" = "catia fruit streams_xattr";
 				"wide links" = "Yes";
 			};
+			"share" = {
+				"path" = "/share";
+				"browseable" = "yes";
+				"read only" = "no";
+				"guest ok" = "no";
+				"valid users" = "samba";
+			};
 		};
 	};
 

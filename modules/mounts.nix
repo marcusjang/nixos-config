@@ -21,38 +21,11 @@ in {
 
 	systemd.mounts = [
 		{
-			description = "NAS Drive 0";
+			description = "NAS";
 			after = [ "network-online.target" ];
 			wants = [ "network-online.target" ];
-			what = "//10.0.10.2/drive0";
-			where = "/mnt/drive0";
-			options = "credentials=${config.sops.secrets.smbcreds.path},${automount_opts},${owner}";
-			type = "cifs";
-		}
-		{
-			description = "NAS Drive 1";
-			after = [ "network-online.target" ];
-			wants = [ "network-online.target" ];
-			what = "//10.0.10.2/drive1";
-			where = "/mnt/drive1";
-			options = "credentials=${config.sops.secrets.smbcreds.path},${automount_opts},${owner}";
-			type = "cifs";
-		}
-		{
-			description = "NAS Drive 2";
-			after = [ "network-online.target" ];
-			wants = [ "network-online.target" ];
-			what = "//10.0.10.2/drive2";
-			where = "/mnt/drive2";
-			options = "credentials=${config.sops.secrets.smbcreds.path},${automount_opts},${owner}";
-			type = "cifs";
-		}
-		{
-			description = "NAS Drive 3";
-			after = [ "network-online.target" ];
-			wants = [ "network-online.target" ];
-			what = "//10.0.10.2/drive3";
-			where = "/mnt/drive3";
+			what = "//10.0.10.2/share";
+			where = "/mnt/share";
 			options = "credentials=${config.sops.secrets.smbcreds.path},${automount_opts},${owner}";
 			type = "cifs";
 		}
@@ -70,28 +43,7 @@ in {
 
 	systemd.automounts = [
 		{	
-			where = "/mnt/drive0";
-			wantedBy = [ "multi-user.target" ];
-			automountConfig = {
-				TimeoutIdleSec = "120";
-			};
-		}
-		{	
-			where = "/mnt/drive1";
-			wantedBy = [ "multi-user.target" ];
-			automountConfig = {
-				TimeoutIdleSec = "120";
-			};
-		}
-		{	
-			where = "/mnt/drive2";
-			wantedBy = [ "multi-user.target" ];
-			automountConfig = {
-				TimeoutIdleSec = "120";
-			};
-		}
-		{	
-			where = "/mnt/drive3";
+			where = "/mnt/share";
 			wantedBy = [ "multi-user.target" ];
 			automountConfig = {
 				TimeoutIdleSec = "120";

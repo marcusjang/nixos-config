@@ -119,7 +119,11 @@
 				
 				datasets = {
 					zfs_fs = { type = "zfs_fs"; mountpoint = "/share"; };
-					zfs_fs_webdav = { type = "zfs_fs"; mountpoint = "/serve/webdav"; };
+					zfs_fs_webdav = {
+						type = "zfs_fs";
+						mountpoint = "/serve/webdav";
+						options.quota = "10M";
+					};
 					zfs_fs_git = { type = "zfs_fs"; mountpoint = "/git"; };
 				};
 			};

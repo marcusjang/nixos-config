@@ -32,6 +32,8 @@ in {
 	
 	boot.supportedFilesystems = [ "zfs" ];
 
+	environment.systemPackages = [ pkgs.unstable.disko ];
+
 	services.zfs.autoScrub.enable = true;
 	services.zfs.trim.enable = true;
 

@@ -7,12 +7,12 @@ in {
 			ports = [ "127.0.0.1:${toString port}:8090" ];
 			environment = {
 				PUID = "991";
-				PGID = "988";
+				PGID = "991";
 			};
 			volumes = [
 				"/var/lib/mylar3/config:/config"
-				"/mnt/drive3/shared/data/comics:/comics"
-				"/mnt/drive3/shared/data/downloads:/downloads"
+				"/share/comics:/comics"
+				"/share/downloads:/downloads"
 			];
 		};
 	};

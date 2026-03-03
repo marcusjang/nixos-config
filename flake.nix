@@ -112,6 +112,7 @@
 					inputs.copyparty.nixosModules.default
 					./hosts/n5
 					./users/marcus.nix
+					./users/git.nix
 					./modules/server
 					./modules/server/ssh.nix
 					./modules/server/samba.nix

@@ -5,14 +5,6 @@
 	ghostty-flake = final: _prev: {
 		ghostty = inputs.ghostty.packages.${final.pkgs.stdenv.hostPlatform.system}.default.overrideAttrs (finalAttrs: prevAttrs: {
 			patches = [
-				(final.pkgs.fetchpatch {
-					url = "https://github.com/ghostty-org/ghostty/pull/10459.patch";
-					hash = "sha256-YmqiNE8nkRuzF793vJ+YRdpXe4V4EK9Lo4VAekORNJI=";
-				})
-				(final.pkgs.fetchpatch {
-					url = "https://github.com/ghostty-org/ghostty/pull/10809.patch";
-					hash = "sha256-DKIEA24CWohgoeqIS77f4aq6QF4UiSp48jKRo1Hx788=";
-				})
 			];
 		});
 	};

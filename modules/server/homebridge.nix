@@ -1,5 +1,7 @@
 { config, lib, pkgs, ... }: let
 	marcus-desktop = "10.0.10.10";
+	marcus-work-vm = "10.0.10.11";
+	air-purifier = "10.0.20.251";
 in {
 	sops.secrets = {
 		"homebridge/sshKey" = {
@@ -39,6 +41,84 @@ in {
 					shutdownCommandTimeout = 5;
 					logLevel = "Info";
 					returnEarly = false;
+				}
+				{
+					accessory = "NetworkDevice";
+					model = "NetworkDevice";
+					name = "marcus@work.vm";
+					host = marcus-work-vm;
+					pingCommand = "${lib.getExe' pkgs.iputils "ping"} -c 1 ${marcus-work-vm}";
+					pingCommandTimeout = 1;
+					pingTimeout = 1;
+					pingInterval = 2;
+					pingsToChange = 5;
+					startCommand = "${lib.getExe pkgs.openssh} -o StrictHostKeyChecking=no -i ${config.sops.secrets."homebridge/sshKey".path} marcus@${marcus-desktop} \"pwsh -Command \\\"& { Start-VM -Name marcus@work.vm }\\\"\"";
+					startCommandTimeout = 0;
+					wakeGraceTime = 30;
+					wakeCommandTimeout = 0;
+					shutdownCommand = "${lib.getExe pkgs.openssh} -o StrictHostKeyChecking=no -i ${config.sops.secrets."homebridge/sshKey".path} marcus@${marcus-desktop} \"pwsh -Command \\\"& { Stop-VM -Name marcus@work.vm }\\\"\"";
+					shutdownGraceTime = 15;
+					shutdownCommandTimeout = 5;
+					logLevel = "Info";
+					returnEarly = false;
+				}
+			];
+			platforms = [
+				{
+					name = "LG ThinQ";
+					platform = "LGThinQ";
+					thinq1 = false;
+					country = "KR";
+					language = "ko-KR";
+					auth_mode = "token";
+					username = "";
+					password = "";
+					refresh_interval = 60;
+					devices = [
+						{
+							type = "DEHUMIDIFIER";
+							name = "제습기";
+						}
+					];
+				}
+				{
+					name = "miot";
+					platform = "miot";
+					micloud = {
+						forceMiCloud = false;
+						useCachedSession = true;
+					};
+					devices = [
+						{
+							name = "공기 청정기";
+							ip = air-purifier;
+							model = "zhimi.airpurifier.m2";
+							deviceId = "70541498";
+							micloud = {
+								country = "tw";
+								forceMiCloud = false;
+								useCachedSession = true;
+							};
+							pollingInterval = 10;
+							deepDebugLog = false;
+							silentLog = true;
+							deviceEnabled = true;
+							customAccessory = false;
+							onlyMainService = false;
+							buzzerControl = false;
+							ledControl = false;
+							childLockControl = false;
+							modeControl = true;
+							suppressAutoServiceCreation = [
+								"temperature"
+								"relativeHumidity"
+								"illumination"
+							];
+							fanLevelControl = false;
+							ioniserControl = false;
+							screenControl = false;
+						}
+					];
 				}
 			];
 		};

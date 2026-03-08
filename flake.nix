@@ -19,7 +19,7 @@
 		};
 		ghostty = {
 			#url = "github:ghostty-org/ghostty?ref=tip";
-			url = "github:ghostty-org/ghostty?ref=619e33a4febec871c0d655f51d85e7f5f21ba289";
+			url = "github:ghostty-org/ghostty?ref=42d36359dbe3cb13adacf8e40ddf3c37c8a2e564";
 			inputs.nixpkgs.follows = "nixpkgs-unstable";
 		};
 		sops-nix = {

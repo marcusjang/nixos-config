@@ -28,7 +28,7 @@
 		};
 	};
 
-	outputs = { self, nixpkgs, nixpkgs-unstable, sops-nix, ... } @ inputs: let
+	outputs = { self, nixpkgs, sops-nix, ... } @ inputs: let
 		inherit (self) outputs;
 	in {
 		overlays = import ./overlays { inherit inputs; };
@@ -74,7 +74,7 @@
 					sops-nix.nixosModules.sops
 				];
 			};
-			minibook = nixpkgs-unstable.lib.nixosSystem {
+			minibook = nixpkgs.lib.nixosSystem {
 				specialArgs = { inherit inputs outputs; };
 				modules = [
 					./hosts/minibook
@@ -93,7 +93,7 @@
 					sops-nix.nixosModules.sops
 				];
 			};
-			wsl = nixpkgs-unstable.lib.nixosSystem {
+			wsl = nixpkgs.lib.nixosSystem {
 				system = "x86_64-linux";
 				specialArgs = { inherit inputs outputs; };
 				modules = [

@@ -20,6 +20,18 @@
 
 	services.thermald.enable = true;
 
+	services.keyd = {
+		enable = true;
+		keyboards = {
+			defaults = {
+				ids = [ "0001:0001:09b4e68d" ];
+				settings = {
+					main = { "f23+leftshift+leftmeta" = "rightcontrol"; };
+				};
+			};
+		};
+	};
+
 	networking.hostName = "x1c13";
 	networking.networkmanager.enable = true;
 	time.timeZone = "Asia/Seoul";

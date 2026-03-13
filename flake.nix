@@ -18,8 +18,8 @@
 			inputs.disko.follows = "disko";
 		};
 		ghostty = {
-			#url = "github:ghostty-org/ghostty?ref=tip";
-			url = "github:ghostty-org/ghostty?ref=42d36359dbe3cb13adacf8e40ddf3c37c8a2e564";
+			url = "github:ghostty-org/ghostty?tag=v1.3.0";
+			#url = "github:ghostty-org/ghostty?ref=42d36359dbe3cb13adacf8e40ddf3c37c8a2e564";
 			inputs.nixpkgs.follows = "nixpkgs-unstable";
 		};
 		sops-nix = {

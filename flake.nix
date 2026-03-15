@@ -8,6 +8,7 @@
 		wsl.url = "github:nix-community/NixOS-WSL/main";
 		copyparty.url = "github:9001/copyparty";
 		niri.url = "github:sodiboo/niri-flake";
+		ghostty.url = "github:ghostty-org/ghostty?ref=v1.3.1";
 		disko = {
 			url = "github:nix-community/disko/latest";
 			inputs.nixpkgs.follows = "nixpkgs";
@@ -16,11 +17,6 @@
 			url = "github:numtide/disko-zfs";
 			inputs.nixpkgs.follows = "nixpkgs";
 			inputs.disko.follows = "disko";
-		};
-		ghostty = {
-			url = "github:ghostty-org/ghostty?tag=v1.3.0";
-			#url = "github:ghostty-org/ghostty?ref=42d36359dbe3cb13adacf8e40ddf3c37c8a2e564";
-			inputs.nixpkgs.follows = "nixpkgs-unstable";
 		};
 		sops-nix = {
 			url = "github:Mic92/sops-nix";

@@ -3,7 +3,7 @@
 	additions = final: _prev: import ../pkgs final.pkgs;
 
 	ghostty-flake = final: _prev: {
-		ghostty = final.pkgs.unstable.ghostty;
+		ghostty = inputs.ghostty.packages.${final.pkgs.stdenv.hostPlatform.system}.default;
 		/*
 		ghostty = inputs.ghostty.packages.${final.pkgs.stdenv.hostPlatform.system}.default.overrideAttrs (finalAttrs: prevAttrs: {
 			patches = [

@@ -38,7 +38,7 @@
 		};
 	};
 
-	networking.firewall.allowedTCPPorts = [ 3923 ];
+	networking.firewall.allowedTCPPorts = [ 3923 14321 ];
 	networking.firewall.allowedTCPPortRanges = [
 		{ from = 12000; to = 12999; }
 	];

@@ -1,6 +1,16 @@
-{ config, inputs, ... }:
+{ config, inputs, pkgs, ... }:
 {
-	nixpkgs.overlays = [ inputs.copyparty.overlays.default ];
+	nixpkgs.overlays = [
+		inputs.copyparty.overlays.default
+		(final: prev: {
+			copyparty-full-raw = prev.copyparty-full.overridePythonAttrs(old: {
+				dependencies = old.dependencies ++ (with final.python3.pkgs; [
+					rawpy
+					pyvips
+				]);
+			});
+		})
+	];
 
 	sops.secrets."copyparty/accounts/copyparty/password" = {
 		mode = "0600";
@@ -10,6 +20,7 @@
 
 	services.copyparty = {
 		enable = true;
+		package = pkgs.copyparty-full-raw;
 		user = "copyparty";
 		group = "nas";
 		settings = {

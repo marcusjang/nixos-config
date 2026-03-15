@@ -28,6 +28,10 @@
 					r = "*";
 					A = [ "copyparty" ];
 				};
+				flags = {
+					chmod_f = "664";
+					chmod_d = "775";
+				};
 			};
 			"/archive" = {
 				path = "/var/empty";

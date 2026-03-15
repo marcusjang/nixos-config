@@ -19,14 +19,14 @@
 			ftp-pr = "12000-12999";
 		};
 		accounts = {
-			marcus.passwordFile = config.sops.secrets."copyparty/accounts/marcus/password".path;
+			samba.passwordFile = config.sops.secrets."copyparty/accounts/samba/password".path;
 		};
 		volumes = {
 			"/" = {
 				path = "/share";
 				access = {
 					r = "*";
-					A = [ "marcus" ];
+					A = [ "samba" ];
 				};
 			};
 			"/archive" = {
@@ -37,6 +37,12 @@
 			};
 		};
 	};
+
+	networking.firewall.allowedTCPPorts = [ 3923 ];
+	networking.firewall.allowedTCPPortRanges = [
+		{ from = 12000; to = 12999; }
+	];
+	networking.firewall.allowedUDPPorts = [ 69 1900 3969 5353 ];
 
 	services.traefik.dynamicConfigOptions.http = {
 		routers.copyparty = {

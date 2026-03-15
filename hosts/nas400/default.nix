@@ -20,17 +20,6 @@ in {
 	networking.firewall.allowedTCPPorts = [
 		80 # http
 		443 # https
-		3923 # copyparty
-		8581 # homebridge
-	];
-	networking.firewall.allowedTCPPortRanges = [
-		{ from = 52950; to = 52999; } # homebridge
-	];
-	networking.firewall.allowedUDPPorts = [
-		1900 # homebridge SSDP
-	];
-	networking.firewall.allowedUDPPortRanges = [
-		{ from = 52950; to = 52999; } # homebridge
 	];
 
 	users.groups.nas = { };

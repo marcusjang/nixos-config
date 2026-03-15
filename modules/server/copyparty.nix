@@ -19,14 +19,14 @@
 			ftp-pr = "12000-12999";
 		};
 		accounts = {
-			samba.passwordFile = config.sops.secrets."copyparty/accounts/samba/password".path;
+			copyparty.passwordFile = config.sops.secrets."copyparty/accounts/copyparty/password".path;
 		};
 		volumes = {
 			"/" = {
 				path = "/share";
 				access = {
 					r = "*";
-					A = [ "samba" ];
+					A = [ "copyparty" ];
 				};
 			};
 			"/archive" = {

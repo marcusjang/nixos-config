@@ -21,6 +21,7 @@
 	boot.loader.efi.canTouchEfiVariables = true;
 	boot.kernelPackages = pkgs.linuxPackages_latest;
 
+	/*
 	boot.kernelParams = [
 		"resume_offset=128559104"
 		"mem_sleep_default=s2idle"
@@ -33,11 +34,12 @@
 		device = "/var/lib/swapfile";
 		size = 49 * 1024;
 	}];
+	 */
 
 	services.logind.settings.Login = {
-		IdleAction = "suspend-then-hibernate";
+		IdleAction = "suspend";
 		IdleActionSec = "30m";
-		HandlePowerKey = "hibernate";
+		HandlePowerKey = "suspend";
 		HandlePowerKeyLongPress = "poweroff";
 	};
 
@@ -45,7 +47,7 @@
 		profiles.user.databases = [{
 			settings = {
 				"org/gnome/settings-daemon/plugins/power" = {
-					sleep-inactive-ac-type = "hibernate";
+					sleep-inactive-ac-type = "suspend";
 				};
 			};
 		}];

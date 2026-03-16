@@ -1,4 +1,4 @@
-{ pkgs, inputs, outputs, ... }:
+{ pkgs, lib, config, inputs, outputs, ... }:
 {
 	imports = [
 		outputs.nixosModules.default
@@ -20,6 +20,21 @@
 	boot.loader.systemd-boot.configurationLimit = 4;
 	boot.loader.efi.canTouchEfiVariables = true;
 	boot.kernelPackages = pkgs.linuxPackages_latest;
+
+	boot.extraModulePackages = [
+		(config.boot.kernelPackages.it87.overrideAttrs (old: {
+			postInstall = ((old.postInstall or "") + ''find $out -name '*.ko' -exec xz {} \;'');
+		}))
+	];
+	boot.kernelParams = [ "acpi_enforce_resources=lax" ];
+	boot.kernelModules = [ "coretemp" "it87" ];
+	system.modulesTree = lib.mkForce [
+		((pkgs.aggregateModules
+			(config.boot.extraModulePackages ++ [ config.boot.kernelPackages.kernel.modules ])
+		).overrideAttrs {
+			ignoreCollisions = true;
+		})
+	];
 
 	/*
 	boot.kernelParams = [

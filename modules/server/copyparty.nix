@@ -28,6 +28,8 @@
 			ftp = 14321;
 			ftp-nat = "10.0.10.2";
 			ftp-pr = "12000-12999";
+			rproxy = -1;
+			no-robots = true;
 		};
 		accounts = {
 			copyparty.passwordFile = config.sops.secrets."copyparty/accounts/copyparty/password".path;
@@ -36,7 +38,6 @@
 			"/" = {
 				path = "/share";
 				access = {
-					r = "*";
 					A = [ "copyparty" ];
 				};
 				flags = {
@@ -47,7 +48,7 @@
 			"/archive" = {
 				path = "/var/empty";
 				access = {
-					r = "*";
+					r = [ "copyparty" ];
 				};
 			};
 		};

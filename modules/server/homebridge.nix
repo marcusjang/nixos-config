@@ -1,7 +1,6 @@
 { config, lib, pkgs, ... }: let
 	marcus-desktop = "10.0.10.10";
 	marcus-work-vm = "10.0.10.11";
-	air-purifier = "10.0.20.251";
 in {
 	sops.secrets = {
 		"homebridge/sshKey" = {
@@ -71,52 +70,18 @@ in {
 					country = "KR";
 					language = "ko-KR";
 					auth_mode = "token";
-					username = "";
-					password = "";
 					refresh_interval = 60;
 					devices = [
 						{
 							type = "DEHUMIDIFIER";
 							name = "제습기";
 						}
-					];
-				}
-				{
-					name = "miot";
-					platform = "miot";
-					micloud = {
-						forceMiCloud = false;
-						useCachedSession = true;
-					};
-					devices = [
 						{
-							name = "공기 청정기";
-							ip = air-purifier;
-							model = "zhimi.airpurifier.m2";
-							deviceId = "70541498";
-							micloud = {
-								country = "tw";
-								forceMiCloud = false;
-								useCachedSession = true;
-							};
-							pollingInterval = 10;
-							deepDebugLog = false;
-							silentLog = true;
-							deviceEnabled = true;
-							customAccessory = false;
-							onlyMainService = false;
-							buzzerControl = false;
-							ledControl = false;
-							childLockControl = false;
-							modeControl = true;
-							suppressAutoServiceCreation = [
-								"temperature"
-								"relativeHumidity"
-								"illumination"
-							];
-							fanLevelControl = false;
-							ioniserControl = false;
-							screenControl = false;
+							type = "AIR_PURIFIER";
+							name = "공기청정기";
+							ac_energy_save = true;
+							ac_air_clean = true;
+							air_fast_mode = false;
 						}
 					];
 				}

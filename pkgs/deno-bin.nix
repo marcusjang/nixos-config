@@ -2,25 +2,28 @@
 	stdenv,
 	lib,
 	fetchzip,
-	autoPatchelfHook
+	autoPatchelfHook,
+	makeBinaryWrapper
 }:
 stdenv.mkDerivation rec {
 	pname = "deno-bin";
-	version = "2.7.1";
+	version = "2.7.6";
 
 	src = fetchzip {
 		url = "https://github.com/denoland/deno/releases/download/v${version}/deno-x86_64-unknown-linux-gnu.zip";
-		hash = "sha256-I4VdsBUI7g4ciRA1QaGh3hoSYaXd5zeOM19oeEHwHP8=";
+		hash = "sha256-tE2FLy86WgFLuzmpMrf6TMFXuK14jCATy2ZKl1SQIx4=";
 	};
 
 	nativeBuildInputs = [
 		autoPatchelfHook
 		stdenv.cc.cc.lib
+		makeBinaryWrapper
 	];
 
 	installPhase = ''
 		mkdir -p "$out/bin"
 		install -m755 -D deno $out/bin/deno
+		makeBinaryWrapper $out/bin/deno $out/bin/dx --add-flags "x"
 	'';
 
 	meta = {

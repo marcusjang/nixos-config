@@ -30,6 +30,8 @@
 			ftp-pr = "12000-12999";
 			rproxy = -1;
 			no-robots = true;
+			chmod-f = "664";
+			chmod-d = "775";
 		};
 		accounts = {
 			copyparty.passwordFile = config.sops.secrets."copyparty/accounts/copyparty/password".path;
@@ -37,19 +39,11 @@
 		volumes = {
 			"/" = {
 				path = "/share";
-				access = {
-					A = [ "copyparty" ];
-				};
-				flags = {
-					chmod_f = "664";
-					chmod_d = "775";
-				};
+				access = { g = "*"; A = "copyparty"; };
 			};
 			"/archive" = {
 				path = "/var/empty";
-				access = {
-					r = [ "copyparty" ];
-				};
+				access = { r = "copyparty"; };
 			};
 		};
 	};

@@ -71,19 +71,6 @@ in {
 					language = "ko-KR";
 					auth_mode = "token";
 					refresh_interval = 60;
-					devices = [
-						{
-							type = "DEHUMIDIFIER";
-							name = "제습기";
-						}
-						{
-							type = "AIR_PURIFIER";
-							name = "공기청정기";
-							ac_energy_save = true;
-							ac_air_clean = true;
-							air_fast_mode = false;
-						}
-					];
 				}
 			];
 		};

@@ -39,7 +39,7 @@
     (pkgs.writeTextFile {
       name = "disable-mouse-wakeup";
       text = ''
-        ACTION=="add|change" SUBSYSTEM=="usb", ATTRS{idVendor}=="25a7", ATTRS{idProduct}=="fa7c", ATTR{power/wakeup}="disabled"
+        ACTION=="add|change" SUBSYSTEM=="usb", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c54d", ATTR{power/wakeup}="disabled"
       '';
       destination = "/etc/udev/rules.d/41-disable-wakeup-triggers.rules";
     })

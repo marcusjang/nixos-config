@@ -44,4 +44,5 @@
 	};
 	
 	legcord-latest = import ./legcord.nix { };
+	libhangul-latest = import ./libhangul.nix { };
 }

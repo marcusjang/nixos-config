@@ -1,6 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, outputs, ... }:
 {
-	 i18n = {
+	nixpkgs.overlays = [
+		outputs.overlays.libhangul-latest
+	];
+
+	i18n = {
 		inputMethod = {
 			enable = true;
 			type = "ibus";

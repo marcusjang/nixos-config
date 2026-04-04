@@ -45,6 +45,7 @@
 					./modules/desktop/fonts.nix
 					./modules/desktop/office.nix
 					./modules/desktop/games.nix
+					./modules/desktop/printing.nix
 					./modules/desktop/uxplay.nix
 					./modules/desktop/de/gnome.nix
 					./modules/desktop/ime/ibus.nix
@@ -65,6 +66,7 @@
 					./modules/desktop/fonts.nix
 					./modules/desktop/office.nix
 					./modules/desktop/suspend.nix
+					./modules/desktop/printing.nix
 					./modules/desktop/de/gnome.nix
 					./modules/desktop/ime/ibus.nix
 					sops-nix.nixosModules.sops
@@ -84,6 +86,7 @@
 					./modules/desktop/audio.nix
 					./modules/desktop/fonts.nix
 					./modules/desktop/suspend.nix
+					./modules/desktop/printing.nix
 					./modules/desktop/de/gnome.nix
 					./modules/desktop/ime/ibus.nix
 					sops-nix.nixosModules.sops

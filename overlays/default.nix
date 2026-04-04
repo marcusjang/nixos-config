@@ -23,10 +23,10 @@
 		patched = import (final.pkgs.applyPatches {
 			src = final.pkgs.path;
 			patches = [
-				(final.pkgs.fetchpatch {
-					url = "https://github.com/NixOS/nixpkgs/pull/490544.patch";
-					hash = "sha256-TE0inT45HDkz0MIYzDFZdfUj70KrsR2eHG/6xQvfAw8=";
-				})
+				#(final.pkgs.fetchpatch {
+				#	url = "https://github.com/NixOS/nixpkgs/pull/490544.patch";
+				#	hash = "sha256-TE0inT45HDkz0MIYzDFZdfUj70KrsR2eHG/6xQvfAw8=";
+				#})
 			];
 		}) {
 			system = final.stdenv.hostPlatform.system;

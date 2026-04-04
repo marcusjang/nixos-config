@@ -2,6 +2,7 @@
 {
 	nixpkgs.overlays = [
 		outputs.overlays.libhangul-latest
+		outputs.overlays.ibus-hangul-latest
 	];
 
 	i18n = {

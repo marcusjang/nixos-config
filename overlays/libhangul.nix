@@ -15,9 +15,5 @@ final: prev: {
 		];
 		patches = [ ./patches/libhangul.patch ];
 		preAutoreconf = "touch ChangeLog";
-#        configurePhase = ''
-#		    ./autogen.sh
-#			./configure
-#        '';
 	});
 }

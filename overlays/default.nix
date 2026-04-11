@@ -2,48 +2,71 @@
 {
 	additions = final: _prev: import ../pkgs final.pkgs;
 
-	ghostty-flake = final: _prev: {
-		ghostty = inputs.ghostty.packages.${final.pkgs.stdenv.hostPlatform.system}.default;
+	ghostty-flake = final: _prev: with final; {
+		ghostty = inputs.ghostty.packages.${stdenv.hostPlatform.system}.default;
 		/*
-		ghostty = inputs.ghostty.packages.${final.pkgs.stdenv.hostPlatform.system}.default.overrideAttrs (finalAttrs: prevAttrs: {
+		ghostty = inputs.ghostty.packages.${stdenv.hostPlatform.system}.default.overrideAttrs (finalAttrs: prevAttrs: {
 			patches = [
 			];
 		});
 		*/
 	};
 
-	unstable-packages = final: _prev: {
+	unstable-packages = final: _prev: with final; {
 		unstable = import inputs.nixpkgs-unstable {
-			system = final.stdenv.hostPlatform.system;
+			system = stdenv.hostPlatform.system;
 			config.allowUnfree = true;
 		};
 	};
 
-	nixpkgs-patched = final: _prev: {
-		patched = import (final.pkgs.applyPatches {
-			src = final.pkgs.path;
+	nixpkgs-patched = final: _prev: with final; {
+		patched = import (applyPatches {
+			src = pkgs.path;
 			patches = [
-				#(final.pkgs.fetchpatch {
+				(fetchpatch {
+					url = "https://github.com/NixOS/nixpkgs/commit/fb7791755e14f21b6afcbf74624b5043d93b3dac.patch";
+					hash = "sha256-6QFs0xR5jEMJuWMw/P/94U0R//n5KhMZ8zzCgTSN3a8=";
+				})
+				(fetchpatch {
+					url = "https://github.com/NixOS/nixpkgs/pull/487177.patch";
+					hash = "sha256-2550UNgJM6Rt0QZ8GmeT7c2uElAyjxkEpB5WlkhO3Qw=";
+				})
+				#(fetchpatch {
 				#	url = "https://github.com/NixOS/nixpkgs/pull/490544.patch";
 				#	hash = "sha256-TE0inT45HDkz0MIYzDFZdfUj70KrsR2eHG/6xQvfAw8=";
 				#})
 			];
 		}) {
-			system = final.stdenv.hostPlatform.system;
+			system = stdenv.hostPlatform.system;
 			config.allowUnfree = true;
 		};
 
 	};
 
-	legcord-icon = final: prev: {
-		legcord = prev.legcord.overrideAttrs (old: {
+	legcord-icon = _final: prev: {
+		legcord = prev.legcord.overrideAttrs (prevAttrs: {
 			desktopItems = [
-				((builtins.elemAt old.desktopItems 0).override { icon = "discord"; })
+				((builtins.elemAt prevAttrs.desktopItems 0).override { icon = "discord"; })
+			];
+		});
+	};
+
+	goofcord-icon = final: prev: with final; {
+		goofcord = prev.patched.goofcord.overrideAttrs (prevAttrs: {
+			nativeBuildInputs = prevAttrs.nativeBuildInputs ++ [ pkgs.jq ];
+            postPatch = ''
+                mv ./package.json ./package.json.old
+                jq '.desktopName = "GoofCord"' ./package.json.old > ./package.json
+                rm ./package.json.old
+            '';
+
+			desktopItems = [
+				((builtins.elemAt prevAttrs.desktopItems 0).override { icon = "discord"; })
 			];
 		});
 	};
 	
-	legcord-latest = import ./legcord.nix { };
-	libhangul-latest = import ./libhangul.nix { };
-	ibus-hangul-latest = import ./ibus-hangul.nix { };
+	legcord-latest = import ./legcord.nix;
+	libhangul-latest = import ./libhangul.nix;
+	ibus-hangul-latest = import ./ibus-hangul.nix;
 }

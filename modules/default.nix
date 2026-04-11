@@ -43,12 +43,6 @@
 	boot.consoleLogLevel = 0;
 	boot.initrd.verbose = false;
 
-	nixpkgs.overlays = [
-		outputs.overlays.additions
-		outputs.overlays.unstable-packages
-		outputs.overlays.nixpkgs-patched
-	];
-
 	security.polkit.enable = true;
 	security.polkit.extraConfig = ''
       polkit.addRule(function (action, subject) {
@@ -65,6 +59,12 @@
 	  });
 	'';
 	
+	nixpkgs.overlays = [
+		outputs.overlays.additions
+		outputs.overlays.unstable-packages
+		outputs.overlays.nixpkgs-patched
+	];
+
 	environment.systemPackages = with pkgs; [
 		bat
 		bat-extras.batman

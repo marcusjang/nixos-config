@@ -1,15 +1,14 @@
-{ ... }:
-final: prev: {
+final: prev: with final; {
 	libhangul = prev.libhangul.overrideAttrs (finalAttrs: prevAttrs: rec {
 		pname = prevAttrs.pname;
 		version = "0.2.0";
-		src = final.pkgs.fetchFromGitHub {
+		src = fetchFromGitHub {
 			owner = "libhangul";
 			repo = "libhangul";
 			tag = "libhangul-${version}";
 			hash = "sha256-1cTDsRJpT5TLdJN8D2LfOISWeAOlSO6zKZOaCrTxooM=";
 		};
-		nativeBuildInputs = with final.pkgs; [
+		nativeBuildInputs = with pkgs; [
 			autoreconfHook
 			pkg-config
 		];

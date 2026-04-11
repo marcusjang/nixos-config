@@ -6,6 +6,7 @@
 		outputs.overlays.ghostty-flake
 		outputs.overlays.legcord-icon
 		outputs.overlays.legcord-latest
+		outputs.overlays.goofcord-icon
 	];
 
 	environment.systemPackages = with pkgs; [
@@ -15,7 +16,7 @@
 		ghostty
 		ibus
 		keepassxc
-		legcord
+		goofcord
 		mpv
 		thunderbird
 		unstable.remmina

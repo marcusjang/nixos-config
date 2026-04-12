@@ -116,6 +116,7 @@
 					./modules/server/ssh.nix
 					./modules/server/samba.nix
 					./modules/server/traefik.nix
+					./modules/server/harmonia.nix
 					./modules/server/cloudflared.nix
 					./modules/server/homebridge.nix
 					./modules/server/webdav.nix

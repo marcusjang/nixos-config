@@ -1,8 +1,9 @@
+{ config, ... }:
 {
 	sops.secrets."harmonia/key".mode = "0400";
 
 	services.harmonia.enable = true;
-	services.harmonia.signKeyPaths = [];
+	services.harmonia.signKeyPaths = [ config.sops.secrets."harmonia/key".path ];
 
 	services.traefik.dynamicConfigOptions.http = {
 		routers.harmonia = {

@@ -37,6 +37,7 @@
 				modules = [
 					./hosts/ser8
 					./users/marcus.nix
+					./modules/harmonia.nix
 					./modules/locale.nix
 					./modules/firewall.nix
 					./modules/mounts.nix
@@ -57,6 +58,7 @@
 				modules = [
 					./hosts/x1c13
 					./users/marcus.nix
+					./modules/harmonia.nix
 					./modules/locale.nix
 					./modules/firewall.nix
 					./modules/mounts.nix
@@ -77,6 +79,7 @@
 				modules = [
 					./hosts/minibook
 					./users/marcus.nix
+					./modules/harmonia.nix
 					./modules/locale.nix
 					./modules/mounts.nix
 					./modules/firewall.nix
@@ -100,6 +103,7 @@
 					./hosts/wsl
 					./users/marcus.nix
 					./modules/mounts.nix
+					./modules/harmonia.nix
 					sops-nix.nixosModules.sops
 				];
 			};

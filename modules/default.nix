@@ -71,7 +71,7 @@
 		bat-extras.batman
 		btop
 		curl
-		#deno
+		deno
 		direnv
 		fd
 		gcc_multi

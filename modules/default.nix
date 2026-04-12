@@ -63,6 +63,7 @@
 		outputs.overlays.additions
 		outputs.overlays.unstable-packages
 		outputs.overlays.nixpkgs-patched
+		outputs.overlays.deno-latest
 	];
 
 	environment.systemPackages = with pkgs; [
@@ -70,7 +71,7 @@
 		bat-extras.batman
 		btop
 		curl
-		deno-bin
+		deno
 		direnv
 		fd
 		gcc_multi

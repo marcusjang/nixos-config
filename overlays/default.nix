@@ -23,18 +23,16 @@
 		patched = import (applyPatches {
 			src = pkgs.path;
 			patches = [
+				# goofcord: fetcherVersion = 1 to 3
 				(fetchpatch {
 					url = "https://github.com/NixOS/nixpkgs/commit/fb7791755e14f21b6afcbf74624b5043d93b3dac.patch";
 					hash = "sha256-6QFs0xR5jEMJuWMw/P/94U0R//n5KhMZ8zzCgTSN3a8=";
 				})
+				# goofcord: 1.7.1 -> 2.2.0
 				(fetchpatch {
 					url = "https://github.com/NixOS/nixpkgs/pull/487177.patch";
 					hash = "sha256-2550UNgJM6Rt0QZ8GmeT7c2uElAyjxkEpB5WlkhO3Qw=";
 				})
-				#(fetchpatch {
-				#	url = "https://github.com/NixOS/nixpkgs/pull/490544.patch";
-				#	hash = "sha256-TE0inT45HDkz0MIYzDFZdfUj70KrsR2eHG/6xQvfAw8=";
-				#})
 			];
 		}) {
 			system = stdenv.hostPlatform.system;
@@ -67,6 +65,7 @@
 	};
 	
 	legcord-latest = import ./legcord.nix;
+	deno-latest = import ./deno.nix;
 	libhangul-latest = import ./libhangul.nix;
 	ibus-hangul-latest = import ./ibus-hangul.nix;
 }

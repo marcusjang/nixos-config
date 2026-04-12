@@ -4,7 +4,7 @@
 	services.harmonia.enable = true;
 	services.harmonia.signKeyPaths = [];
 
-	services.harmonia.dynamicConfigOptions.http = {
+	services.traefik.dynamicConfigOptions.http = {
 		routers.harmonia = {
 			rule = "Host(`nix-cache.dungeon.melange.works`)";
 			entryPoints = "https";

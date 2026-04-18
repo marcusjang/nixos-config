@@ -156,7 +156,7 @@
 		pkgs = import nixpkgs { inherit system; };
 	in {
 		apps = {
-			nix-update-inputs = {
+			update-inputs = {
 				type = "app";
 				program = toString (pkgs.writeShellScript "update-inputs" ''
 					git diff-index --quiet HEAD -- >/dev/null 2>&1; ec=$?

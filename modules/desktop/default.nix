@@ -10,6 +10,7 @@
 	];
 
 	environment.systemPackages = with pkgs; [
+		celluloid
 		discord
 		eog
 		firefox

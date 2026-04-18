@@ -6,6 +6,7 @@
 		nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 		hardware.url = "github:nixos/nixos-hardware";
 		wsl.url = "github:nix-community/NixOS-WSL/main";
+		flake-utils.url = "github:numtide/flake-utils";
 		copyparty.url = "github:9001/copyparty";
 		niri.url = "github:sodiboo/niri-flake";
 		ghostty.url = "github:ghostty-org/ghostty?ref=v1.3.1";
@@ -24,7 +25,8 @@
 		};
 	};
 
-	outputs = { self, nixpkgs, sops-nix, ... } @ inputs: let
+	outputs = { self, nixpkgs, sops-nix, flake-utils, ... } @ inputs: 
+	flake-utils.lib.eachDefaultSystemPassThrough (system: let
 		inherit (self) outputs;
 	in {
 		overlays = import ./overlays { inherit inputs; };
@@ -149,5 +151,26 @@
 				];
 			};
 		};
-	};
+	}) //
+	flake-utils.lib.eachDefaultSystem (system: let
+		pkgs = import nixpkgs { inherit system; };
+	in {
+		apps = {
+			nix-update-inputs = {
+				type = "app";
+				program = toString (pkgs.writeShellScript "update-inputs" ''
+					git diff-index --quiet HEAD -- >/dev/null 2>&1; ec=$?
+					if test "$ec" = 0; then
+						nix flake update
+						git add flake.lock
+						git commit -m "Update flake inputs"
+					elif test "$ec" = 1; then
+						exit
+					else
+						echo "Error from diff-index, cancelling..."
+					fi
+				'');
+			};
+		};
+	});
 }

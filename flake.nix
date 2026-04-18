@@ -171,6 +171,31 @@
 					fi
 				'');
 			};
+			build = {
+				type = "app";
+				program = toString (pkgs.writeShellScript "build" ''
+					git pull --quiet
+					readarray -t HOSTS < <(nix eval .#nixosConfigurations --json --apply "builtins.attrNames" | nix run nixpkgs#jq -- -r '.[]')
+					for host in "''${HOSTS[@]}"; do
+						echo "Building $host..."
+						nix build --store ssh-ng://nas ".#nixosConfigurations.$host.config.system.build.toplevel"
+						echo "Done building $host!"
+					done
+				'');
+			};
+			update = {
+				type = "app";
+				program = toString (pkgs.writeShellScript "update" ''
+					git pull --quiet
+					nixos-rebuild --flake . --sudo --ask-sudo-password $1
+				'');
+			};
+			update-nas = {
+				type = "app";
+				program = toString (pkgs.writeShellScript "update-nas" ''
+					nixos-rebuild --target-host nas --flake . --sudo --ask-sudo-password $1
+				'');
+			};
 		};
 	});
 }

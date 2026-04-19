@@ -8,13 +8,6 @@ final: prev: with final; let
 			sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
 		};
 	};
-	fetcherArgs = {
-		version = "147.0.0";
-		shas = {
-			x86_64-linux = "sha256-PXLRowkOBRVWeonQDTN6e4BQlSLK/kobCX7eE0Y1NLY=";
-		};
-	};
-	librusty_v8 = fetchLibrustyV8 fetcherArgs;
 in with final; {
 	deno = prev.unstable.deno.overrideAttrs (finalAttrs: prevAttrs: rec {
 		pname = prevAttrs.pname;
@@ -29,6 +22,9 @@ in with final; {
 			inherit src;
 			hash = "sha256-YahHLz4ykAcFNrh/GFVJ0fZtCNHKG9RzdCUprQDfOUo=";
 		};
-		env.RUSTY_V8_ARCHIVE = librusty_v8;
+		env.RUSTY_V8_ARCHIVE = fetchLibrustyV8 {
+			version = "147.0.0";
+			shas.x86_64-linux = "sha256-PXLRowkOBRVWeonQDTN6e4BQlSLK/kobCX7eE0Y1NLY=";
+		};
 	});
 }

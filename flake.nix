@@ -178,7 +178,7 @@
 					readarray -t HOSTS < <(nix eval .#nixosConfigurations --json --apply "builtins.attrNames" | nix run nixpkgs#jq -- -r '.[]')
 					for host in "''${HOSTS[@]}"; do
 						echo "Building $host..."
-						nix build --store ssh-ng://nas ".#nixosConfigurations.$host.config.system.build.toplevel"
+						nix build --store ssh-ng://marcus@n5.local ".#nixosConfigurations.$host.config.system.build.toplevel"
 						echo "Done building $host!"
 					done
 				'');
@@ -193,7 +193,7 @@
 			update-nas = {
 				type = "app";
 				program = toString (pkgs.writeShellScript "update-nas" ''
-					nixos-rebuild --target-host nas --flake . --sudo --ask-sudo-password $1
+					nixos-rebuild --target-host marcus@n5.local --flake . --sudo --ask-sudo-password $1
 				'');
 			};
 		};

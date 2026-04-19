@@ -4,8 +4,6 @@
 
 	nixpkgs.overlays = [
 		outputs.overlays.ghostty-flake
-		outputs.overlays.legcord-icon
-		outputs.overlays.legcord-latest
 		outputs.overlays.goofcord-icon
 	];
 

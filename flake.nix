@@ -25,7 +25,7 @@
 		};
 	};
 
-	outputs = { self, nixpkgs, sops-nix, flake-utils, ... } @ inputs: 
+	outputs = { self, nixpkgs, nixpkgs-unstable, sops-nix, flake-utils, ... } @ inputs: 
 	flake-utils.lib.eachDefaultSystemPassThrough (system: let
 		inherit (self) outputs;
 	in {
@@ -153,8 +153,10 @@
 		};
 	}) //
 	flake-utils.lib.eachDefaultSystem (system: let
-		pkgs = import nixpkgs { inherit system; };
+		pkgs = import nixpkgs-unstable { inherit system; };
 	in {
+		packages = import ./pkgs pkgs;
+
 		apps = {
 			update-inputs = {
 				type = "app";

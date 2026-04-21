@@ -26,7 +26,7 @@
 				# goofcord: 1.7.1 -> 2.2.0
 				(fetchpatch {
 					url = "https://github.com/NixOS/nixpkgs/pull/487177.patch";
-					hash = "sha256-2550UNgJM6Rt0QZ8GmeT7c2uElAyjxkEpB5WlkhO3Qw=";
+					hash = "sha256-/ySLGcHdBIEWS1tjfPuZLtqBbyKtJiQzD2HNIez7I6U=";
 				})
 			];
 		}) { inherit (stdenv.hostPlatform) system; };

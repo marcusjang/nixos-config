@@ -13,6 +13,8 @@ stdenvNoCC.mkDerivation rec {
 		hash = "sha256-61wDircP2YVrundnk/XbIU3HyipVWfczks8E7CsVGUY=";
 	};
 
+	unpackPhase = ":";
+
 	installPhase = ''
 		runHook preInstall
 		install -m444 -Dt $out/share/fonts $src

@@ -19,7 +19,7 @@ in with final; {
 			hash = "sha256-yWSkgA5pXOtuN4ubDm0DlKVOKxHz3Bovd3gsWNoxjqo=";
 		};
 		cargoDeps = rustPlatform.fetchCargoVendor {
-			inherit src;
+			inherit pname version src nativeBuildInputs;
 			hash = "sha256-YahHLz4ykAcFNrh/GFVJ0fZtCNHKG9RzdCUprQDfOUo=";
 		};
 		env.RUSTY_V8_ARCHIVE = fetchLibrustyV8 {

@@ -16,7 +16,8 @@ in with final; {
 			owner = "denoland";
 			repo = "deno";
 			tag = "v${version}";
-			hash = "sha256-yWSkgA5pXOtuN4ubDm0DlKVOKxHz3Bovd3gsWNoxjqo=";
+			hash = "sha256-e1G1y9aGWhFDhsvzmLFD6VIfxU8BseWOa8bBcCC255Y=";
+			fetchSubmodules = true;
 		};
 		cargoDeps = rustPlatform.fetchCargoVendor {
 			inherit pname version src nativeBuildInputs;

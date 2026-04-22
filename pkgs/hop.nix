@@ -15,13 +15,13 @@
 }:
 rustPlatform.buildRustPackage (finalAttrs: {
 	pname = "hop";
-	version = "0.1.5";
+	version = "0.1.6";
 
 	src = fetchFromGitHub {
 		owner = "golbin";
 		repo = "hop";
 		tag = "v${finalAttrs.version}";
-		hash = "sha256-QD28r4mU3ZQBpSrWiAYh2RycjyOxz1VqVT1azM/NuC4=";
+		hash = "sha256-OPKa6Lcbcvvp/Qc6uNQbq00DgtmEezlyZdHph9sgyos=";
 		fetchSubmodules = true;
 	};
 
@@ -41,10 +41,10 @@ rustPlatform.buildRustPackage (finalAttrs: {
 	pnpmDeps = fetchPnpmDeps {
 		inherit (finalAttrs) pname version src;
 		fetcherVersion = 3;
-		hash = "sha256-eibt7nfTBIZH/N3s+yqFZ8BzusqGpnTaajP5cNLj5ZE=";
+		hash = "sha256-aZueFzrxAwdG6ni34fxrq9oi9E+GmdvL2TeV6zesHbs=";
 	};
 
-	cargoHash = "sha256-LYKHhqkEE9I2aP1rO16HB1gAkuIeyPEJZ6cyssF842w=";
+	cargoHash = "sha256-1yOULZI7jEWqiaZp1Vlp1F9T44Yw1l2ESEhAvkEbuKw=";
 
 	passthru = {
 		inherit (finalAttrs) pnpmDeps;

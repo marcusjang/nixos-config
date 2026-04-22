@@ -10,22 +10,22 @@ final: prev: with final; let
 	};
 in with final; {
 	deno = prev.unstable.deno.overrideAttrs (finalAttrs: prevAttrs: rec {
-		pname = prevAttrs.pname;
-		version = "2.7.12";
+		inherit (prevAttrs) pname;
+		version = "2.7.13";
 		src = fetchFromGitHub {
 			owner = "denoland";
 			repo = "deno";
 			tag = "v${version}";
-			hash = "sha256-e1G1y9aGWhFDhsvzmLFD6VIfxU8BseWOa8bBcCC255Y=";
+			hash = "sha256-LGTA2xwT939GlAaKfUU3XA0Jx0h1P+8eFgPLmddHxlo=";
 			fetchSubmodules = true;
 		};
 		cargoDeps = rustPlatform.fetchCargoVendor {
-			inherit pname version src nativeBuildInputs;
-			hash = "sha256-YahHLz4ykAcFNrh/GFVJ0fZtCNHKG9RzdCUprQDfOUo=";
+			inherit pname version src;
+			hash = "sha256-CLI54HSEOC/OVnIf0FmizVrS0adfzukFFBDl+EUP7BE=";
 		};
 		env.RUSTY_V8_ARCHIVE = fetchLibrustyV8 {
-			version = "147.0.0";
-			shas.x86_64-linux = "sha256-PXLRowkOBRVWeonQDTN6e4BQlSLK/kobCX7eE0Y1NLY=";
+			version = "147.2.1";
+			shas.x86_64-linux = "sha256-/oX8Aww6CwIsukfa/Rv/MYSXM3Ku8i19ID8UuXHQIvM=";
 		};
 	});
 }

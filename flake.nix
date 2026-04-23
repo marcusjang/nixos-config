@@ -176,6 +176,7 @@
 			build = {
 				type = "app";
 				program = toString (pkgs.writeShellScript "build" ''
+					trap "break" SIGINT SIGHUP SIGTERM
 					git pull --quiet
 					readarray -t HOSTS < <(nix eval .#nixosConfigurations --json --apply "builtins.attrNames" | nix run nixpkgs#jq -- -r '.[]')
 					for host in "''${HOSTS[@]}"; do

@@ -1,9 +1,14 @@
-{ config, ... }:
+{ inputs, config, ... }:
 {
+	imports = [ inputs.harmonia.nixosModules.harmonia ];
+
 	sops.secrets.harmonia-key.mode = "0400";
 
-	services.harmonia.enable = true;
-	services.harmonia.signKeyPaths = [ config.sops.secrets.harmonia-key.path ];
+	services.harmonia-dev = {
+		cache.enable = true;
+		cache.signKeyPaths = [ config.sops.secrets.harmonia-key.path ];
+		daemon.enable = true;
+	};
 
 	services.traefik.dynamicConfigOptions.http = {
 		routers.harmonia = {

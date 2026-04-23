@@ -6,6 +6,7 @@
 		nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 		hardware.url = "github:nixos/nixos-hardware";
 		wsl.url = "github:nix-community/NixOS-WSL/main";
+		harmonia.url = "github:nix-community/harmonia?ref=harmonia-v3.0.0";
 		flake-utils.url = "github:numtide/flake-utils";
 		copyparty.url = "github:9001/copyparty";
 		niri.url = "github:sodiboo/niri-flake";
@@ -184,7 +185,7 @@
 						nix build ".#nixosConfigurations.$host.config.system.build.toplevel"
 						echo "Done building $host!"
 						echo "Copying over to local cache..."
-						nix copy --substitute-on-destination --to ssh-ng://marcus@n5.local --no-check-sigs ".#nixosConfigurations.$host.config.system.build.toplevel"
+						nix copy --substitute-on-destination --to ssh-ng://marcus@nas --no-check-sigs ".#nixosConfigurations.$host.config.system.build.toplevel"
 						echo "Done!"
 					done
 				'');

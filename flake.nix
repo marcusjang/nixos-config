@@ -185,7 +185,7 @@
 						nix build --no-out-link ".#nixosConfigurations.$host.config.system.build.toplevel"
 						echo "Done building $host!"
 						echo "Copying over to local cache..."
-						nix copy --substitute-on-destination --to ssh-ng://marcus@nas --no-check-sigs ".#nixosConfigurations.$host.config.system.build.toplevel"
+						nix copy --substitute-on-destination --to ssh-ng://marcus@n5.local --no-check-sigs ".#nixosConfigurations.$host.config.system.build.toplevel"
 						echo "Done!"
 					done
 				'');

@@ -181,8 +181,11 @@
 					readarray -t HOSTS < <(nix eval .#nixosConfigurations --json --apply "builtins.attrNames" | nix run nixpkgs#jq -- -r '.[]')
 					for host in "''${HOSTS[@]}"; do
 						echo "Building $host..."
-						nix build --store ssh-ng://marcus@n5.local ".#nixosConfigurations.$host.config.system.build.toplevel"
+						nix build ".#nixosConfigurations.$host.config.system.build.toplevel"
 						echo "Done building $host!"
+						echo "Copying over to local cache..."
+						nix copy --substitute-on-destination --to ssh-ng://marcus@n5.local --no-check-sigs ".#nixosConfigurations.$host.config.system.build.toplevel"
+						echo "Done!"
 					done
 				'');
 			};

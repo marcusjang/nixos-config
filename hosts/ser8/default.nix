@@ -36,20 +36,10 @@
 		})
 	];
 
-	/*
-	boot.kernelParams = [
-		"resume_offset=128559104"
-		"mem_sleep_default=s2idle"
-	];
-	boot.resumeDevice = "/dev/disk/by-uuid/311cc798-4f3a-4211-b196-564c5960a612";
-
-	powerManagement.enable = true;
-
 	swapDevices = [{
 		device = "/var/lib/swapfile";
-		size = 49 * 1024;
+		size = 24 * 1024;
 	}];
-	 */
 
 	services.logind.settings.Login = {
 		IdleAction = "suspend";

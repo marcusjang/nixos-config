@@ -38,7 +38,7 @@
 
 	swapDevices = [{
 		device = "/var/lib/swapfile";
-		size = 24 * 1024;
+		size = 48 * 1024;
 	}];
 
 	services.logind.settings.Login = {

@@ -23,17 +23,12 @@
 		patched = import (unstable.applyPatches {
 			src = unstable.pkgs.path;
 			patches = [
-				# goofcord: 1.7.1 -> 2.2.0
-				(fetchpatch {
-					url = "https://github.com/NixOS/nixpkgs/pull/487177.patch";
-					hash = "sha256-/ySLGcHdBIEWS1tjfPuZLtqBbyKtJiQzD2HNIez7I6U=";
-				})
 			];
 		}) { inherit (stdenv.hostPlatform) system; };
 	};
 
 	goofcord-icon = final: prev: with final; {
-		goofcord = prev.patched.goofcord.overrideAttrs (prevAttrs: {
+		goofcord = prev.unstable.goofcord.overrideAttrs (prevAttrs: {
 			nativeBuildInputs = prevAttrs.nativeBuildInputs ++ [ pkgs.jq ];
             postPatch = ''
                 mv ./package.json ./package.json.old

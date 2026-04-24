@@ -154,14 +154,15 @@
 		};
 	}) //
 	flake-utils.lib.eachDefaultSystem (system: let
+		inherit (self) outputs;
 		pkgs = import nixpkgs-unstable { inherit system; };
-	in {
+	in with pkgs; {
 		packages = import ./pkgs pkgs;
 
 		apps = {
 			update-inputs = {
 				type = "app";
-				program = toString (pkgs.writeShellScript "update-inputs" ''
+				program = toString (writeShellScript "update-inputs" ''
 					git diff-index --quiet HEAD -- >/dev/null 2>&1; ec=$?
 					if test "$ec" = 0; then
 						nix flake update
@@ -176,30 +177,31 @@
 			};
 			build = {
 				type = "app";
-				program = toString (pkgs.writeShellScript "build" ''
+				program = toString (writeShellScript "build" ''
+					set -e
 					trap "break" SIGINT SIGHUP SIGTERM
 					git pull --quiet
-					readarray -t HOSTS < <(nix eval .#nixosConfigurations --json --apply "builtins.attrNames" | nix run nixpkgs#jq -- -r '.[]')
+					readarray -t HOSTS < <(echo ${with builtins; lib.escapeShellArg (toJSON (attrNames outputs.nixosConfigurations))} | ${lib.getExe pkgs.jq} -r '.[]')
 					for host in "''${HOSTS[@]}"; do
 						echo "Building $host..."
-						nix build --no-link ".#nixosConfigurations.$host.config.system.build.toplevel"
+						nix build --no-warn-dirty --no-link ".#nixosConfigurations.$host.config.system.build.toplevel" || (echo "Build error, halting..."; exit 1)
 						echo "Done building $host!"
 						echo "Copying over to local cache..."
-						nix copy --substitute-on-destination --to ssh-ng://marcus@n5.local --no-check-sigs ".#nixosConfigurations.$host.config.system.build.toplevel"
+						nix copy --no-warn-dirty --substitute-on-destination --to ssh-ng://marcus@n5.local --no-check-sigs ".#nixosConfigurations.$host.config.system.build.toplevel"
 						echo "Done!"
 					done
 				'');
 			};
 			update = {
 				type = "app";
-				program = toString (pkgs.writeShellScript "update" ''
+				program = toString (writeShellScript "update" ''
 					git pull --quiet
 					nixos-rebuild --flake . --sudo --ask-sudo-password $1
 				'');
 			};
 			update-nas = {
 				type = "app";
-				program = toString (pkgs.writeShellScript "update-nas" ''
+				program = toString (writeShellScript "update-nas" ''
 					nixos-rebuild --target-host marcus@n5.local --flake . --sudo --ask-sudo-password $1
 				'');
 			};

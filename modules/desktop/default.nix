@@ -13,7 +13,6 @@
 		eog
 		firefox
 		ghostty
-		hop
 		ibus
 		keepassxc
 		goofcord

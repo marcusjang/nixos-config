@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
 	environment.systemPackages = with pkgs; [
+		hop
 		libreoffice-fresh
 		hunspell
 		hunspellDicts.en_US

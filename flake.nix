@@ -183,11 +183,12 @@
 					git pull --quiet
 					readarray -t HOSTS < <(echo ${with builtins; lib.escapeShellArg (toJSON (attrNames outputs.nixosConfigurations))} | ${lib.getExe pkgs.jq} -r '.[]')
 					for host in "''${HOSTS[@]}"; do
+						derivation=".#nixosConfigurations.$host.config.system.build.toplevel"
 						echo "Building $host..."
-						nix build --no-warn-dirty --no-link ".#nixosConfigurations.$host.config.system.build.toplevel" || (echo "Build error, halting..."; exit 1)
+						nix build --no-warn-dirty --no-link $derivation || (echo "Build error, halting..."; exit 1)
 						echo "Done building $host!"
 						echo "Copying over to local cache..."
-						nix copy --no-warn-dirty --substitute-on-destination --to ssh-ng://marcus@n5.local --no-check-sigs ".#nixosConfigurations.$host.config.system.build.toplevel"
+						nix copy --no-warn-dirty --substitute-on-destination --to ssh-ng://marcus@n5.local --no-check-sigs $derivation
 						echo "Done!"
 					done
 				'');

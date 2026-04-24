@@ -36,11 +36,6 @@
 		})
 	];
 
-	swapDevices = [{
-		device = "/var/lib/swapfile";
-		size = 48 * 1024;
-	}];
-
 	services.logind.settings.Login = {
 		IdleAction = "suspend";
 		IdleActionSec = "30m";

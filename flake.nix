@@ -197,13 +197,13 @@
 				type = "app";
 				program = toString (writeShellScript "update" ''
 					git pull --quiet
-					nixos-rebuild --no-warn-dirty --flake . --sudo --ask-sudo-password $1
+					nixos-rebuild --option warn-dirty false --flake . --sudo --ask-sudo-password $1
 				'');
 			};
 			update-nas = {
 				type = "app";
 				program = toString (writeShellScript "update-nas" ''
-					nixos-rebuild --no-warn-dirty --target-host marcus@n5.local --flake . --sudo --ask-sudo-password $1
+					nixos-rebuild --option warn-dirty false --target-host marcus@n5.local --flake . --sudo --ask-sudo-password $1
 				'');
 			};
 		};

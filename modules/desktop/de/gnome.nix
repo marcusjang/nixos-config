@@ -22,13 +22,17 @@
 			];
 		};
 
-		systemPackages = with pkgs.gnomeExtensions; [
-			pkgs.gnome-session
-			pkgs.gnome-color-manager
-			pkgs.gnome-tweaks
-			pkgs.pinentry-gnome3
-			pkgs.switcheroo
-			pkgs.ffmpegthumbnailer
+		systemPackages = with pkgs; [
+			ffmpegthumbnailer
+			gnome-color-manager
+			gnome-session
+			gnome-tweaks
+			pinentry-gnome3
+			switcheroo
+		] ++ (with pkgs.gnomeExtensions; [
+			# TEMP: until ko language PR is merged then updated on nixpkgs
+			#power-off-options
+			pkgs.gnome-shell-power-off-options-ko
 			appindicator
 			auto-move-windows
 			blur-my-shell
@@ -38,13 +42,10 @@
 			dash-to-dock
 			lockscreen-extension
 			no-overview
-			# TEMP: until ko language PR is merged then updated on nixpkgs
-			#power-off-options
-			pkgs.gnome-shell-power-off-options-ko
+			quick-settings-tweaker
 			rounded-corners
 			rounded-window-corners-reborn
-			pkgs.unstable.gnomeExtensions.quick-settings-tweaker
-		];
+		]);
 	};
 
 	programs.dconf = {

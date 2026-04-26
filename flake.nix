@@ -180,16 +180,40 @@
 				program = toString (writeShellScript "build" ''
 					set -e
 					trap "break" SIGINT SIGHUP SIGTERM
+
 					git pull --quiet
-					readarray -t HOSTS < <(echo ${with builtins; lib.escapeShellArg (toJSON (attrNames outputs.nixosConfigurations))} | ${lib.getExe pkgs.jq} -r '.[]')
+
+					HEAD=$(git rev-parse --short=8 HEAD)
+					TIME=$(git show -s --format=%ci)
+					CACHE_URL="ssh-ng://marcus@n5.local"
+					echo -e "\x1b[92m\033[1minfo: \033[0m\x1b[0mBuilding $HEAD ($TIME)..."
+					echo -e "\x1b[92m\033[1minfo: \033[0m\x1b[0mLocal cache at: $CACHE_URL"
+
+					readarray -t HOSTS < <(echo ${with builtins; lib.escapeShellArg (
+						toJSON (attrNames outputs.nixosConfigurations)
+					)} | ${lib.getExe pkgs.jq} -r '.[]')
+
 					for host in "''${HOSTS[@]}"; do
-						derivation=".#nixosConfigurations.$host.config.system.build.toplevel"
-						echo "Building $host..."
-						nix build --no-warn-dirty --no-link $derivation || (echo "Build error, halting..."; exit 1)
-						echo "Done building $host!"
-						echo "Copying over to local cache..."
-						nix copy --no-warn-dirty --substitute-on-destination --to ssh-ng://marcus@n5.local --no-check-sigs $derivation
-						echo "Done!"
+						DERIVATION=".#nixosConfigurations.$host.config.system.build.toplevel"
+
+						BUILD_MSG="\x1b[32m\033[1mbuilding: \033[0m\x1b[0mBuilding $host..."
+						echo -e $BUILD_MSG
+						nix build \
+							--no-warn-dirty \
+							--no-link \
+							$DERIVATION \
+						|| (echo -e "\x1b[31m\033[1merror: \033[0m\x1b[0mBuild error, halting..."; exit 1)
+						echo -e "\e[1A\r\e[K$BUILD_MSG Done!"
+
+						COPY_MSG="\x1b[34m\033[1mcopying: \033[0m\x1b[0mCopying $host over to local cache..."
+						echo -e $COPY_MSG
+						nix copy \
+							--no-warn-dirty \
+							--substitute-on-destination \
+							--to $CACHE_URL \
+							--no-check-sigs \
+							$DERIVATION
+						echo -e "\e[1A\r\e[K$COPY_MSG Done!"
 					done
 				'');
 			};

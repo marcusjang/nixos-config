@@ -35,7 +35,14 @@ stdenv.mkDerivation rec {
 	meta = {
 		description = "Adds extra options to the GNOME Power Off dialog such as 'Turn Off Screen', 'Hibernate', 'Hybrid Sleep', and now also custom commands!";
 		license = lib.licenses.gpl2;
-		maintainers = [ ];
+		maintainers = [
+			{
+				email = "marcus@melange.works";
+				github = "marcusjang";
+				githubId = 10116562;
+				name = "Marcus Jang";
+			}
+		];
 		homepage = "https://github.com/marcusjang/power-off-options";
 	};
 }

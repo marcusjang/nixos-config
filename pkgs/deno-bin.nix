@@ -7,11 +7,11 @@
 }:
 stdenv.mkDerivation rec {
 	pname = "deno-bin";
-	version = "2.7.12";
+	version = "2.7.13";
 
 	src = fetchzip {
 		url = "https://github.com/denoland/deno/releases/download/v${version}/deno-x86_64-unknown-linux-gnu.zip";
-		hash = "sha256-6s8ZCHA/nJ511DRqGQ1WE3uk33gUkJ8DiAzu1Y8wIOI=";
+		hash = "sha256-gozQvcVXnV9ZsaSwS0uVnlPKmiId3Hre3JvWJhlmIbY=";
 	};
 
 	nativeBuildInputs = [
@@ -40,7 +40,14 @@ stdenv.mkDerivation rec {
 			'';
 		license = lib.licenses.mit;
 		mainProgram = "deno";
-		maintainers = [ ];
+		maintainers = [
+			{
+				email = "marcus@melange.works";
+				github = "marcusjang";
+				githubId = 10116562;
+				name = "Marcus Jang";
+			}
+		];
 		platforms = [ "x86_64-linux" ];
 	};
 }

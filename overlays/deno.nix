@@ -1,14 +1,4 @@
-final: prev: with final; let 
-	fetchLibrustyV8 = args: fetchurl {
-		name = "librusty_v8-${args.version}";
-		url = "https://github.com/denoland/rusty_v8/releases/download/v${args.version}/librusty_v8_simdutf_release_${stdenv.hostPlatform.rust.rustcTarget}.a.gz";
-		sha256 = args.shas.${stdenv.hostPlatform.system};
-		meta = {
-			inherit (args) version;
-			sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
-		};
-	};
-in with final; {
+final: prev: with final; {
 	deno = prev.unstable.deno.overrideAttrs (finalAttrs: prevAttrs: rec {
 		inherit (prevAttrs) pname;
 		version = "2.7.13";
@@ -23,9 +13,24 @@ in with final; {
 			inherit pname version src;
 			hash = "sha256-CLI54HSEOC/OVnIf0FmizVrS0adfzukFFBDl+EUP7BE=";
 		};
-		env.RUSTY_V8_ARCHIVE = fetchLibrustyV8 {
-			version = "147.2.1";
-			shas.x86_64-linux = "sha256-/oX8Aww6CwIsukfa/Rv/MYSXM3Ku8i19ID8UuXHQIvM=";
-		};
+		env.RUSTY_V8_ARCHIVE = let
+			v8_version = (builtins.head (
+				builtins.filter (pkg: pkg.name == "v8") (lib.importTOML "${src}/Cargo.lock").package
+			)).version;
+		in prev.unstable.deno.librusty_v8.overrideAttrs (finalAttrs: prevAttrs: rec {
+			inherit (prevAttrs) pname;
+			version = v8_version;
+			src = fetchFromGitHub {
+				owner = "denoland";
+				repo = "rusty_v8";
+				tag = "v${version}";
+				hash = "sha256-HompYzilJ7AC+HXfJJcvPC3L0rQfdAOhMhir/7qDXG8=";
+				fetchSubmodules = true;
+			};
+			cargoDeps = rustPlatform.fetchCargoVendor {
+				inherit pname version src;
+				hash = "sha256-2h/zATsNngMg0Tvu5oSSveQNfaVbwFbzHndmSyP4Ddo=";
+			};
+		});
 	});
 }

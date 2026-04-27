@@ -103,6 +103,6 @@ rustPlatform.buildRustPackage (finalAttrs: {
 		platforms = [
 			"x86_64-linux"
 		];
-		mainProgram = "hop";
+		mainProgram = "hop-desktop";
 	};
 })

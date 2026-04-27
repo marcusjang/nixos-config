@@ -32,21 +32,7 @@
 		}) { inherit (stdenv.hostPlatform) system; };
 	};
 
-	goofcord-icon = final: prev: with final; {
-		goofcord = prev.patched.goofcord.overrideAttrs (prevAttrs: {
-			nativeBuildInputs = prevAttrs.nativeBuildInputs ++ [ pkgs.jq ];
-            postPatch = ''
-                mv ./package.json ./package.json.old
-                jq '.desktopName = "GoofCord"' ./package.json.old > ./package.json
-                rm ./package.json.old
-            '';
-
-			desktopItems = [
-				((builtins.elemAt prevAttrs.desktopItems 0).override { icon = "discord"; })
-			];
-		});
-	};
-	
+	goofcord = import ./goofcord.nix;
 	deno-latest = import ./deno.nix;
 	libhangul-latest = import ./libhangul.nix;
 	ibus-hangul-latest = import ./ibus-hangul.nix;

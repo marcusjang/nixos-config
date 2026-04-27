@@ -60,11 +60,11 @@
 	  });
 	'';
 	
-	nixpkgs.overlays = [
-		outputs.overlays.additions
-		outputs.overlays.unstable-packages
-		outputs.overlays.nixpkgs-patched
-		outputs.overlays.deno-latest
+	nixpkgs.overlays = with outputs.overlays; [
+		additions
+		unstable-packages
+		nixpkgs-patched
+		deno-latest
 	];
 
 	environment.systemPackages = with pkgs; [

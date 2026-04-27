@@ -2,9 +2,9 @@
 {
 	nixpkgs.config.allowUnfree = true;
 
-	nixpkgs.overlays = [
-		outputs.overlays.ghostty-flake
-		outputs.overlays.goofcord
+	nixpkgs.overlays = with outputs.overlays; [
+		ghostty-flake
+		goofcord
 	];
 
 	environment.systemPackages = with pkgs; [

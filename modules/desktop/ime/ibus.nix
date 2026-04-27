@@ -1,8 +1,8 @@
 { pkgs, outputs, ... }:
 {
-	nixpkgs.overlays = [
-		outputs.overlays.libhangul-latest
-		outputs.overlays.ibus-hangul-latest
+	nixpkgs.overlays = with outputs.overlays; [
+		libhangul-latest
+		ibus-hangul-latest
 	];
 
 	i18n = {

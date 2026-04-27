@@ -15,13 +15,13 @@
 }:
 rustPlatform.buildRustPackage (finalAttrs: {
 	pname = "hop";
-	version = "0.1.8";
+	version = "0.1.9";
 
 	src = fetchFromGitHub {
 		owner = "golbin";
 		repo = "hop";
 		tag = "v${finalAttrs.version}";
-		hash = "sha256-svOt6hohTuLUeyDC1t/OQWr1e610Lb1s9IOliB2BYic=";
+		hash = "sha256-DHhGEfiMnBWi0Rg+aLkNipOUoXxnDfeyIr/YnrLObi4=";
 		fetchSubmodules = true;
 	};
 
@@ -41,7 +41,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
 	pnpmDeps = fetchPnpmDeps {
 		inherit (finalAttrs) pname version src;
 		fetcherVersion = 3;
-		hash = "sha256-+lnvbZi8/Ekg6WCD0qHhnRz0ie7lPT9UfUEFrPEdgNc=";
+		hash = "sha256-KJaKlearllEe9ON+H9cuO4wEVpz05pBxzhPcpojnxtQ=";
 	};
 
 	passthru = {
@@ -49,7 +49,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
 	};
 
 	cargoRoot = "apps/desktop/src-tauri";
-	cargoHash = "sha256-zsrDjkOB8RusP3rsoOvNoKIUuQTDyCarDTAgae6QbuU=";
+	cargoHash = "sha256-zdkOfl+g0iGGhIb5WbkFxTkWUpM/l8/MbDrHwKuowfg=";
 	buildAndTestSubdir = finalAttrs.cargoRoot;
 
 	installPhase = ''

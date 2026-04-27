@@ -1,114 +1,39 @@
-{ pkgs, lib, outputs, config, ... }: 
 {
-	boot.loader.timeout = 2;
-
-	nix = {
-		settings = {
-			experimental-features = [ "nix-command" "flakes" ];
-			trusted-users = [ "marcus" ];
+	users = import ../users;
+	default = import ./common.nix;
+	harmonia-client = import ./harmonia.nix;
+	locale = import ./locale.nix;
+	firewall = import ./firewall.nix;
+	nas-mounts = import ./mounts.nix;
+	wireguard = import ./wireguard.nix;
+	desktop = {
+		common = import ./desktop;
+		audio = import ./desktop/audio.nix;
+		fonts = import ./desktop/fonts.nix;
+		office = import ./desktop/fonts.nix;
+		suspend = import ./desktop/suspend.nix;
+		games = import ./desktop/games.nix;
+		printing = import ./desktop/printing.nix;
+		uxplay = import ./desktop/uxplay.nix;
+		de = {
+			gnome = import ./desktop/de/gnome.nix;
+			niri = import ./desktop/de/niri.nix;
 		};
-
-		gc = {
-			automatic = lib.mkDefault true;
-			dates = lib.mkDefault "weekly";
-			options = lib.mkDefault "--delete-older-than 7d";
-		};
-
-		settings = {
-			auto-optimise-store = lib.mkDefault true;
-		};
-	};
-
-	sops = {
-		defaultSopsFile = ../secrets/secrets.yaml;
-		defaultSopsFormat = "yaml";
-		age = {
-			keyFile = "${config.users.users."marcus".home}/.config/sops/age/keys.txt";
-			sshKeyPaths = [
-				"/etc/ssh/ssh_host_ed25519_key"
-			];
-			generateKey = true;
+		ime = {
+			ibus-hangul = import ./desktop/ime/ibus.nix;
 		};
 	};
-
-	boot.plymouth.enable = true;
-	boot.kernelParams = [
-		"quiet"
-		"splash"
-		"loglevel=4"
-		"systemd.show_status=false"
-		"rd.udev.lov_level=3"
-		"udev.log_priority=3"
-		"boot.shell_on_fail"
-	];
-	boot.consoleLogLevel = 0;
-	boot.initrd.verbose = false;
-
-	security.polkit.enable = true;
-	security.polkit.extraConfig = ''
-      polkit.addRule(function (action, subject) {
-	    if (
-	      subject.isInGroup("users") &&
-	      [
-	        "org.freedesktop.login1.reboot",
-	        "org.freedesktop.login1.reboot-multiple-sessions",
-	        "org.freedesktop.login1.power-off",
-	        "org.freedesktop.login1.power-off-multiple-sessions",
-	      ].indexOf(action.id) !== -1
-	    )
-	    { return polkit.Result.YES; }
-	  });
-	'';
-	
-	nixpkgs.overlays = with outputs.overlays; [
-		additions
-		unstable-packages
-		nixpkgs-patched
-		deno-latest
-	];
-
-	environment.systemPackages = with pkgs; [
-		bat
-		bat-extras.batman
-		btop
-		curl
-		deno
-		direnv
-		fd
-		gcc_multi
-		gh
-		git
-		mosh
-		neovim
-		nix-search-cli
-		ripgrep
-		starship
-		stow
-		tmux
-		trashy
-		tree-sitter
-		unstable.carapace
-		unstable.fzf
-		unstable.lazygit
-		unstable.nerdfetch
-		unstable.nushell
-		unzip
-		vim
-		wget
-	];
-	environment.variables.PATH = lib.mkForce [ "$PATH" "$HOME/scripts" ];
-
-	programs = {
-		neovim = {
-			enable = true;
-			defaultEditor = true;
-			viAlias = true;
-		};
-
-		tmux = {
-			enable = true;
-			baseIndex = 1;
-			keyMode = "vi";
-		};
+	server = {
+		common = import ./server;
+		cloudflared = import ./server/cloudflared.nix;
+		copyparty = import ./server/copyparty.nix;
+		harmonia = import ./server/harmonia.nix;
+		homebridge = import ./server/homebridge.nix;
+		komga = import ./server/komga.nix;
+		mylar3 = import ./server/mylar3.nix;
+		samba = import ./server/samba.nix;
+		ssh = import ./server/ssh.nix;
+		traefik = import ./server/traefik.nix;
+		webdav = import ./server/webdav.nix;
 	};
 }

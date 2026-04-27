@@ -13,7 +13,6 @@
 	glib-networking,
 	wrapGAppsHook4,
 	openssl,
-	libayatana-appindicator,
 	librsvg,
 	jq,
 	makeDesktopItem,
@@ -64,7 +63,6 @@ rustPlatform.buildRustPackage (finalAttrs: {
 		glib-networking
 		webkitgtk_4_1
 		openssl
-		libayatana-appindicator
 		librsvg
 	];
 
@@ -74,11 +72,6 @@ rustPlatform.buildRustPackage (finalAttrs: {
 		mv $TAURI_ROOT/tauri.conf.json $TAURI_ROOT/tauri.conf.json.old
 		jq '.plugins.updater.endpoints = [ ] | .bundle.createUpdaterArtifacts = false' $TAURI_ROOT/tauri.conf.json.old > $TAURI_ROOT/tauri.conf.json
 		rm $TAURI_ROOT/tauri.conf.json.old
-	'' +
-	# from https://github.com/NixOS/nixpkgs/blob/04e40bca2a68d7ca85f1c47f00598abb062a8b12/pkgs/by-name/ca/cargo-tauri/test-app.nix#L23-L26
-	lib.optionalString stdenv.hostPlatform.isLinux ''
-		substituteInPlace $cargoDepsCopy/*/libappindicator-sys-*/src/lib.rs \
-		--replace-fail "libayatana-appindicator3.so.1" "${libayatana-appindicator}/lib/libayatana-appindicator3.so.1"
 	'';
 
 	installPhase = ''

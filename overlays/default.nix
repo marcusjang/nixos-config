@@ -32,7 +32,7 @@
 		}) { inherit (stdenv.hostPlatform) system; };
 	};
 
-	goofcord = import ./goofcord.nix;
+	goofcord-latest = import ./goofcord.nix;
 	deno-latest = import ./deno.nix;
 	libhangul-latest = import ./libhangul.nix;
 	ibus-hangul-latest = import ./ibus-hangul.nix;

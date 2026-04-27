@@ -4,7 +4,7 @@
 
 	nixpkgs.overlays = with outputs.overlays; [
 		ghostty-flake
-		goofcord
+		goofcord-latest
 	];
 
 	environment.systemPackages = with pkgs; [

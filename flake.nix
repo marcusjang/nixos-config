@@ -155,9 +155,16 @@
 	}) //
 	flake-utils.lib.eachDefaultSystem (system: let
 		inherit (self) outputs;
-		pkgs = import nixpkgs-unstable { inherit system; };
+		pkgs = import nixpkgs-unstable {
+			inherit system;
+			overlays = with outputs.overlays; [
+				additions
+				unstable-packages
+				nixpkgs-patched
+			] ++ builtins.attrValues outputs.overlays;
+		};
 	in with pkgs; {
-		packages = import ./pkgs pkgs;
+		packages = pkgs;
 
 		apps = {
 			update-inputs = {

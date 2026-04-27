@@ -32,6 +32,7 @@
 		}) { inherit (stdenv.hostPlatform) system; };
 	};
 
+	gnomeExtensions-addon = import ./gnomeExtensions.nix;
 	goofcord-latest = import ./goofcord.nix;
 	deno-latest = import ./deno.nix;
 	libhangul-latest = import ./libhangul.nix;

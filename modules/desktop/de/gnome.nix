@@ -1,5 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, outputs, ... }:
 {
+	nixpkgs.overlays = with outputs.overlays; [
+		gnomeExtensions-addon
+	];
+
 	services.xserver.enable = true;
 	services.xserver.excludePackages = [ pkgs.xterm ];
 	services.displayManager.gdm.enable = true;
@@ -30,9 +34,7 @@
 			pinentry-gnome3
 			switcheroo
 		] ++ (with pkgs.gnomeExtensions; [
-			# TEMP: until ko language PR is merged then updated on nixpkgs
-			#power-off-options
-			pkgs.gnome-shell-power-off-options-ko
+			power-off-options
 			appindicator
 			auto-move-windows
 			blur-my-shell

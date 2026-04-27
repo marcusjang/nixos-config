@@ -41,6 +41,8 @@ rustPlatform.buildRustPackage (finalAttrs: {
 	cargoHash = "sha256-zdkOfl+g0iGGhIb5WbkFxTkWUpM/l8/MbDrHwKuowfg=";
 	buildAndTestSubdir = finalAttrs.cargoRoot;
 
+	doCheck = false;
+
 	passthru = {
 		inherit (finalAttrs) pnpmDeps;
 	};

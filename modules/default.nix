@@ -10,7 +10,7 @@
 		common = import ./desktop;
 		audio = import ./desktop/audio.nix;
 		fonts = import ./desktop/fonts.nix;
-		office = import ./desktop/fonts.nix;
+		office = import ./desktop/office.nix;
 		suspend = import ./desktop/suspend.nix;
 		games = import ./desktop/games.nix;
 		printing = import ./desktop/printing.nix;

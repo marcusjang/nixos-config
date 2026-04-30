@@ -13,10 +13,8 @@
 	glib-networking,
 	wrapGAppsHook4,
 	openssl,
-	librsvg,
 	libayatana-appindicator,
 	jq,
-	xdotool,
 }:
 rustPlatform.buildRustPackage (finalAttrs: {
 	pname = "hop";
@@ -40,8 +38,6 @@ rustPlatform.buildRustPackage (finalAttrs: {
 	cargoHash = "sha256-NbD8Djgy/mYR0ESROm21/S5/XpTyOCbZHBzS14+z+NQ=";
 	buildAndTestSubdir = finalAttrs.cargoRoot;
 
-	doCheck = false;
-
 	passthru = {
 		inherit (finalAttrs) pnpmDeps;
 	};
@@ -62,9 +58,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
 		glib-networking
 		webkitgtk_4_1
 		openssl
-		librsvg
 		libayatana-appindicator
-		xdotool
 	];
 
 	# disable updater
@@ -73,13 +67,6 @@ rustPlatform.buildRustPackage (finalAttrs: {
 		mv $TAURI_ROOT/tauri.conf.json $TAURI_ROOT/tauri.conf.json.old
 		jq '.plugins.updater.endpoints = [ ] | .bundle.createUpdaterArtifacts = false' $TAURI_ROOT/tauri.conf.json.old > $TAURI_ROOT/tauri.conf.json
 		rm $TAURI_ROOT/tauri.conf.json.old
-	'';
-
-	postInstal= ''
-		mkdir -p "$out/share/lib/hop-desktop"
-		for size in 32 48 128 256 512 1024; do
-			install -Dm644 "assets/logo/logo-"$size".png" $out/share/icons/hicolor/"$size"x"$size"/apps/hop-desktop.png
-		done
 	'';
 
 	meta = {

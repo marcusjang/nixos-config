@@ -16,8 +16,7 @@
 	librsvg,
 	libayatana-appindicator,
 	jq,
-	makeDesktopItem,
-	copyDesktopItems,
+	xdotool,
 }:
 rustPlatform.buildRustPackage (finalAttrs: {
 	pname = "hop";
@@ -54,7 +53,6 @@ rustPlatform.buildRustPackage (finalAttrs: {
 		pnpm
 		nodejs_24
 		jq
-		copyDesktopItems
 	]
 	++ lib.optionals stdenv.hostPlatform.isLinux [
 		wrapGAppsHook4
@@ -66,6 +64,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
 		openssl
 		librsvg
 		libayatana-appindicator
+		xdotool
 	];
 
 	# disable updater
@@ -78,32 +77,10 @@ rustPlatform.buildRustPackage (finalAttrs: {
 
 	postInstal= ''
 		mkdir -p "$out/share/lib/hop-desktop"
-		for size in 16 32 48 128 256 300 512 1024; do
+		for size in 32 48 128 256 512 1024; do
 			install -Dm644 "assets/logo/logo-"$size".png" $out/share/icons/hicolor/"$size"x"$size"/apps/hop-desktop.png
 		done
 	'';
-
-	desktopItems = [
-		(makeDesktopItem {
-			name = "hop-desktop";
-			genericName = "Word Processor";
-			desktopName = "Hop";
-			exec = "hop-desktop %F";
-			icon = "hop-desktop";
-			comment = finalAttrs.meta.description;
-			keywords = [
-				"word"
-				"hangul"
-				"hwp"
-			];
-			categories = [
-				"WordProcessor"
-				"Office"
-			];
-			startupWMClass = "Hop";
-			terminal = false;
-		})
-	];
 
 	meta = {
 		description = "HOP is Open HWP";

@@ -14,6 +14,7 @@
 	wrapGAppsHook4,
 	openssl,
 	librsvg,
+	libayatana-appindicator,
 	jq,
 	makeDesktopItem,
 	copyDesktopItems,
@@ -64,6 +65,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
 		webkitgtk_4_1
 		openssl
 		librsvg
+		libayatana-appindicator
 	];
 
 	# disable updater
@@ -74,19 +76,11 @@ rustPlatform.buildRustPackage (finalAttrs: {
 		rm $TAURI_ROOT/tauri.conf.json.old
 	'';
 
-	installPhase = ''
-		runHook preInstall
-
+	postInstal= ''
 		mkdir -p "$out/share/lib/hop-desktop"
 		for size in 16 32 48 128 256 300 512 1024; do
 			install -Dm644 "assets/logo/logo-"$size".png" $out/share/icons/hicolor/"$size"x"$size"/apps/hop-desktop.png
 		done
-
-		mkdir -p "$out/bin"
-		target_dir="target/${stdenv.hostPlatform.rust.cargoShortTarget}/release"
-		cp -r "$target_dir/hop-desktop" "$out/bin/hop-desktop"
-
-		runHook postInstall
 	'';
 
 	desktopItems = [

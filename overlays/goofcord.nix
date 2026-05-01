@@ -1,5 +1,5 @@
 final: prev: with final; {
-	goofcord = prev.patched.goofcord.overrideAttrs (prevAttrs: rec {
+	goofcord = prev.unstable.goofcord.overrideAttrs (prevAttrs: rec {
 		inherit (prevAttrs) pname;
 		version = "2.2.1";
 		src = fetchFromGitHub {

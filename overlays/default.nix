@@ -3,13 +3,10 @@
 	additions = final: _prev: import ../pkgs final.pkgs;
 
 	ghostty-flake = final: _prev: with final; {
-		ghostty = inputs.ghostty.packages.${stdenv.hostPlatform.system}.default;
-		/*
 		ghostty = inputs.ghostty.packages.${stdenv.hostPlatform.system}.default.overrideAttrs (finalAttrs: prevAttrs: {
 			patches = [
 			];
 		});
-		*/
 	};
 
 	unstable-packages = final: _prev: with final; {
@@ -23,11 +20,6 @@
 		patched = import (unstable.applyPatches {
 			src = unstable.pkgs.path;
 			patches = [
-				# goofcord: 1.7.1 -> 2.2.0
-				(fetchpatch {
-					url = "https://github.com/NixOS/nixpkgs/pull/487177.patch";
-					hash = "sha256-/ySLGcHdBIEWS1tjfPuZLtqBbyKtJiQzD2HNIez7I6U=";
-				})
 			];
 		}) { inherit (stdenv.hostPlatform) system; };
 	};

@@ -1,5 +1,7 @@
 { pkgs, outputs, ... }: 
 {
+	nix.settings.accept-flake-config = true;
+	
 	nixpkgs.config.allowUnfree = true;
 
 	nixpkgs.overlays = with outputs.overlays; [

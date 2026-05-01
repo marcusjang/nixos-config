@@ -41,22 +41,33 @@ Set of shell scripts that can be run with `nix run` command. See `flake.nix` for
 > ⚠️ Only intended to be run from within the directory of the repository. Some are tailored to only be used for my current configurations.
 
 ### `overlays`
-  * General overlays
-    - `additions`: Exposes packages from `pkgs/` into system configuration `pkgs`.
-    - `unstable-packages`: Exposes [`nixos-unstable`](https://github.com/NixOS/nixpkgs/tree/nixos-unstable) from the flake input into system configuration under `pkgs.unstable`.
-    - `nixpkgs-patched`: Adds `nixos-unstable` packages with additional patches applied, if there are patches specified, into system configuration under `pkgs.patched`.
-  * Package specific overlays
-    - `ghostty-flake`: Adds `ghostty` package from [ghostty-org/ghostty](https://github.com/ghostty-org/ghostty) Nix flake into system configuration `pkgs`.
-    - `ghostty-patched`: Overrides `ghostty` package with additional patches, if there are patches specified.
-    - `gnomeExtensions-addon`: Adds/overrides packages under `pkgs.gnomeExtensions`. Currently packaged extensions are as belows.
-      - [axelitama/power-off-options](https://github.com/axelitama/power-off-options) latest built from source.
-      - [flexagoon/rounded-window-corners](https://github.com/flexagoon/rounded-window-corners) latest from [extensions.gnome.org](https://extensions.gnome.org/extension/7048/rounded-window-corners-reborn/).
-    - `goofcord-latest`: [Milkshiift/GoofCord](https://github.com/Milkshiift/GoofCord) latest with couple of patches.
-      - The latest version of Electron requiring `desktopName` value in `package.json`. See NixOS/nixpkgs#505078.
-      - Changes the `icon` of `.desktop` file into `discord`. (Requires `discord` package to be installed.) 
-    - `deno-latest`: [denoland/deno](https://github.com/denoland/deno) latest.
-    - `libhangul-latest`: [libhangul/libhangul](https://github.com/libhangul/libhangul) latest with a small patch applied to change default behavior to not combine first consonants into doubles.
-    - `ibus-hangul-latest`: [libhangul/ibus-hangul](https://github.com/libhangul/ibus-hangul) latest.
+#### General overlays
+  - `additions`\
+     Exposes packages from `pkgs/` into system configuration `pkgs`.
+  - `unstable-packages`\
+     Exposes [`nixos-unstable`](https://github.com/NixOS/nixpkgs/tree/nixos-unstable) from the flake input into system configuration under `pkgs.unstable`.
+  - `nixpkgs-patched`\
+     Adds `nixos-unstable` packages with additional patches applied, if there are patches specified, into system configuration under `pkgs.patched`.
+    
+#### Package specific overlays
+  - `ghostty-flake`\
+     Adds `ghostty` package from [ghostty-org/ghostty](https://github.com/ghostty-org/ghostty) Nix flake into system configuration `pkgs`.
+  - `ghostty-patched`\
+     Overrides `ghostty` package with additional patches, if there are patches specified.
+  - `gnomeExtensions-addon`\
+     Adds/overrides packages under `pkgs.gnomeExtensions`. Currently packaged extensions are as belows.
+    - [axelitama/power-off-options](https://github.com/axelitama/power-off-options) latest built from source.
+    - [flexagoon/rounded-window-corners](https://github.com/flexagoon/rounded-window-corners) latest from [extensions.gnome.org](https://extensions.gnome.org/extension/7048/rounded-window-corners-reborn/).
+  - `goofcord-latest`\
+     [Milkshiift/GoofCord](https://github.com/Milkshiift/GoofCord) latest with couple of patches.
+    - The latest version of Electron requiring `desktopName` value in `package.json`. See NixOS/nixpkgs#505078.
+    - Changes the `icon` of `.desktop` file into `discord`. (Requires `discord` package to be installed.) 
+  - `deno-latest`\
+     [denoland/deno](https://github.com/denoland/deno) latest.
+  - `libhangul-latest`\
+     [libhangul/libhangul](https://github.com/libhangul/libhangul) latest with a small patch applied to change default behavior to not combine first consonants into doubles.
+  - `ibus-hangul-latest`\
+     [libhangul/ibus-hangul](https://github.com/libhangul/ibus-hangul) latest.
    
 ### `packages`
   - `birdtray`: [gyunaev/birdtray](https://github.com/gyunaev/birdtray)

@@ -73,4 +73,5 @@ Set of shell scripts that can be run with `nix run` command. See `flake.nix` for
   - `birdtray`: [gyunaev/birdtray](https://github.com/gyunaev/birdtray)
   - `deno-bin`: [denoland/deno](https://github.com/denoland/deno) latest precompiled binary with `autoPatchelfHook`.
   - `gulim`: [googlefonts/gulim](https://github.com/googlefonts/gulim)
+  - `batang`: [googlefonts/batang](https://github.com/googlefonts/batang)
   - `hop`: [golbin/hop](https://github.com/golbin/hop)

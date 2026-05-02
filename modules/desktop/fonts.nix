@@ -12,6 +12,7 @@
 			fira-code
 			nanum
 			gulim
+			batang
 		];
 		fontconfig = {
 			enable = true;

@@ -11,6 +11,7 @@
 			hack-font
 			fira-code
 			nanum
+			gulim
 		];
 		fontconfig = {
 			enable = true;

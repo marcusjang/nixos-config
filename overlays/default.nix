@@ -24,8 +24,17 @@
 		patched = import (unstable.applyPatches {
 			src = unstable.pkgs.path;
 			patches = [
+				# cargo-tauri: 2.9.6 -> 2.11.0
+				(fetchpatch2 {
+					url = "https://github.com/NixOS/nixpkgs/pull/515363.patch";
+					hash = "sha256-Jz4TliZlhFkV/SXoJEWt7OHTU4t2/jhh+zKkR1au1co=";
+				})
 			];
 		}) { inherit (stdenv.hostPlatform) system; };
+	};
+
+	cargo-tauri-latest = final: _prev: with final; {
+		cargo-tauri = patched.cargo-tauri;
 	};
 
 	gnomeExtensions-addon = import ./gnomeExtensions.nix;

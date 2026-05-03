@@ -1,6 +1,6 @@
 final: prev: with final; {
 	ibus = prev.ibus.overrideAttrs (finalAttrs: prevAttrs: {
-		pname = prevAttrs.pname;
+		inherit (prevAttrs) pname;
 		version = "1.5.34";
 		src = fetchFromGitHub {
 			owner = "ibus";

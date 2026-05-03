@@ -10,7 +10,7 @@ final: prev: with final; {
 			fetchSubmodules = true;
 		};
 		cargoDeps = rustPlatform.fetchCargoVendor {
-			inherit pname version src;
+			inherit (finalAttrs) pname version src;
 			hash = "sha256-bFQLsAF4hFBRw04VaL+sxvxIZ9p7nXOLSr2BIZKcwiI=";
 		};
 		env.RUSTY_V8_ARCHIVE = let
@@ -28,7 +28,7 @@ final: prev: with final; {
 				fetchSubmodules = true;
 			};
 			cargoDeps = rustPlatform.fetchCargoVendor {
-				inherit pname version src;
+				inherit (finalAttrs) pname version src;
 				hash = "sha256-e/G9AevaJwqYdr8022kmv05Mwzi4Cishj9imLproNB0=";
 			};
 		});

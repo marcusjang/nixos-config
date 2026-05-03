@@ -3,7 +3,7 @@ final: prev: let
 in with final; {
 	gnomeExtensions = prev.gnomeExtensions // {
 		power-off-options = prev.gnomeExtensions.power-off-options.overrideAttrs (finalAttrs: prevAttrs: rec {
-			pname = prevAttrs.pname;
+			inherit (prevAttrs) pname;
 			version = "8-dev";
 			src = fetchFromGitHub {
 				owner = "axelitama";

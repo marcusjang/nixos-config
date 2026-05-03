@@ -1,6 +1,6 @@
 final: prev: with final; {
 	libhangul = prev.libhangul.overrideAttrs (finalAttrs: prevAttrs: rec {
-		pname = prevAttrs.pname;
+		inherit (prevAttrs) pname;
 		version = "0.2.0";
 		src = fetchFromGitHub {
 			owner = "libhangul";

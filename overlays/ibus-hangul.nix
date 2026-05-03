@@ -1,6 +1,6 @@
 final: prev: with final; {
 	ibus-engines.hangul = prev.ibus-engines.hangul.overrideAttrs (finalAttrs: prevAttrs: {
-		pname = prevAttrs.pname;
+		inherit (prevAttrs) pname;
 		version = "1.5.5-dev";
 		src = fetchFromGitHub {
 			owner = "libhangul";

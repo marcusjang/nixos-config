@@ -1,6 +1,7 @@
 { pkgs, outputs, ... }:
 {
 	nixpkgs.overlays = with outputs.overlays; [
+		ibus-latest
 		libhangul-latest
 		ibus-hangul-latest
 	];

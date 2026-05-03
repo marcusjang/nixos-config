@@ -96,7 +96,6 @@
 						echo -e $COPY_MSG
 						nix copy \
 							--no-warn-dirty \
-							--substitute-on-destination \
 							--to $CACHE_URL \
 							--no-check-sigs \
 							$DERIVATION

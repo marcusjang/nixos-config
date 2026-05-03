@@ -7,6 +7,7 @@
 	services.harmonia-dev = {
 		cache.enable = true;
 		cache.signKeyPaths = [ config.sops.secrets.harmonia-key.path ];
+		cache.settings.priority = 30;
 		daemon.enable = true;
 	};
 

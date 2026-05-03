@@ -6,7 +6,7 @@
 		nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 		hardware.url = "github:nixos/nixos-hardware";
 		wsl.url = "github:nix-community/NixOS-WSL/main";
-		harmonia.url = "github:nix-community/harmonia?ref=0327e9d607d42ccafaad2f1b24fabec8ab99fd9f";
+		harmonia.url = "github:nix-community/harmonia?ref=harmonia-v3.1.0";
 		flake-utils.url = "github:numtide/flake-utils";
 		copyparty.url = "github:9001/copyparty";
 		niri.url = "github:sodiboo/niri-flake";

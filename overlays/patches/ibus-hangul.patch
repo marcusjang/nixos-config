@@ -1,8 +1,10 @@
+diff --git a/src/engine.c b/src/engine.c
+index c4078f5..42dc01b 100644
 --- a/src/engine.c
 +++ b/src/engine.c
 @@ -1851,9 +1851,9 @@ ibus_hangul_engine_get_input_mode_symbol (IBusHangulEngine *hangul,
      IBusText **symbols = hangul->input_mode_symbols;
-
+ 
      if (symbols[0] == NULL) {
 -        symbols[INPUT_MODE_HANGUL] = ibus_text_new_from_string ("한글");
 +        symbols[INPUT_MODE_HANGUL] = ibus_text_new_from_string ("가");
@@ -11,3 +13,17 @@
 +        symbols[INPUT_MODE_LATIN] = ibus_text_new_from_string ("A");
          g_object_ref_sink(symbols[INPUT_MODE_LATIN]);
      }
+ 
+diff --git a/src/hangul.xml.in.in b/src/hangul.xml.in.in
+index 200f87e..887013d 100644
+--- a/src/hangul.xml.in.in
++++ b/src/hangul.xml.in.in
+@@ -22,7 +22,7 @@
+ 			<longname>Hangul</longname>
+ 			<description>Korean Input Method</description>
+ 			<rank>99</rank>
+-			<symbol>&#xD55C;&#xAE00;</symbol>
++			<symbol>&#xAC00;</symbol>
+ 			<icon_prop_key>InputMode</icon_prop_key>
+ 			<setup>${libexecdir}/ibus-setup-hangul</setup>
+ 		</engine>

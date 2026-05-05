@@ -36,7 +36,7 @@
 	}) //
 	flake-utils.lib.eachDefaultSystem (system: let
 		inherit (self) outputs;
-		pkgs = import inputs.nixpkgs-unstable {
+		pkgs = import inputs.nixpkgs {
 			inherit system;
 			overlays = with outputs.overlays; [
 				additions

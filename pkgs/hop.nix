@@ -67,6 +67,9 @@ rustPlatform.buildRustPackage (finalAttrs: {
 		mv $TAURI_ROOT/tauri.conf.json $TAURI_ROOT/tauri.conf.json.old
 		jq '.plugins.updater.endpoints = [ ] | .bundle.createUpdaterArtifacts = false' $TAURI_ROOT/tauri.conf.json.old > $TAURI_ROOT/tauri.conf.json
 		rm $TAURI_ROOT/tauri.conf.json.old
+	'' + lib.optionalString stdenv.hostPlatform.isLinux ''
+		substituteInPlace $cargoDepsCopy/libappindicator-sys-*/src/lib.rs \
+			--replace-fail "libayatana-appindicator3.so.1" "${libayatana-appindicator}/lib/libayatana-appindicator3.so.1"
 	'';
 
 	meta = {

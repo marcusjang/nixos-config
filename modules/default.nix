@@ -21,6 +21,7 @@
 		};
 		ime = {
 			ibus-hangul = import ./desktop/ime/ibus.nix;
+			kime = import ./desktop/ime/kime.nix;
 		};
 	};
 	server = {

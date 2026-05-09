@@ -10,7 +10,6 @@
 	];
 
 	environment.systemPackages = with pkgs; [
-		birdtray
 		celluloid
 		discord
 		eog

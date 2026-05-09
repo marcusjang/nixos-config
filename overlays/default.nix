@@ -40,7 +40,6 @@
 	gnomeExtensions-addon = import ./gnomeExtensions.nix;
 	goofcord-latest = import ./goofcord.nix;
 	deno-latest = import ./deno.nix;
-	ibus-latest = import ./ibus.nix;
 	libhangul-latest = import ./libhangul.nix;
 	ibus-hangul-latest = import ./ibus-hangul.nix;
 }

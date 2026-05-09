@@ -64,8 +64,6 @@ Set of shell scripts that can be run with `nix run` command. See `flake.nix` for
     - Changes the `icon` of `.desktop` file into `discord`. (Requires `discord` package to be installed.) 
   - `deno-latest`\
      [denoland/deno](https://github.com/denoland/deno) latest.
-  - `ibus-latest`\
-     [ibus/ibus](https://github.com/ibus/ibus) latest.
   - `libhangul-latest`\
      [libhangul/libhangul](https://github.com/libhangul/libhangul) latest with a small patch applied to change default behavior to not combine first consonants into doubles.
   - `ibus-hangul-latest`\

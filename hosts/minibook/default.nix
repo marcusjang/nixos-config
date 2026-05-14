@@ -17,6 +17,7 @@ nixpkgs.lib.nixosSystem {
 		audio
 		fonts
 		printing
+		suspend
 		de.gnome
 		ime.ibus-hangul
 	]);

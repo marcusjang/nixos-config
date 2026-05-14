@@ -18,6 +18,7 @@ nixpkgs.lib.nixosSystem {
 		fonts
 		office
 		printing
+		suspend
 		de.gnome
 		ime.ibus-hangul
 	]);

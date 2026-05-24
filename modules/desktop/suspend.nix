@@ -7,7 +7,9 @@
 		HandlePowerKeyLongPress = "poweroff";
 	};
 
-	systemd.sleep.extraConfig = ''
-        HibernateDelaySec=60m
-    '';
+	systemd.sleep.settings = {
+		Sleep = {
+			HibernateDelaySec = "60m";
+		};
+	};
 }

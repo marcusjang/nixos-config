@@ -40,7 +40,14 @@ Set of shell scripts that can be run with `nix run` command. See `flake.nix` for
 > ⚠️ Only intended to be run from within the directory of the repository. Some are tailored to only be used for my current configurations.
 
 ### `packages`
-All packages from stable `nixpkgs` are exposed through `outputs.packages` with below overlays and substitutions applied. 
+All packages from stable `nixpkgs` are exposed through `outputs.packages` with below additions, overlays and substitutions applied. 
+
+#### Additions
+- `birdtray`: [gyunaev/birdtray](https://github.com/gyunaev/birdtray) latest
+- `deno-bin`: [denoland/deno](https://github.com/denoland/deno) latest precompiled binary with `autoPatchelfHook`.
+- `gulim`: [googlefonts/gulim](https://github.com/googlefonts/gulim)
+- `batang`: [googlefonts/batang](https://github.com/googlefonts/batang)
+- `hop`: [golbin/hop](https://github.com/golbin/hop)
 
 ### `overlays`
 #### General overlays
@@ -70,10 +77,3 @@ All packages from stable `nixpkgs` are exposed through `outputs.packages` with b
      [libhangul/libhangul](https://github.com/libhangul/libhangul) latest with a small patch applied to change default behavior to not combine first consonants into doubles.
   - `ibus-hangul-latest`\
      [libhangul/ibus-hangul](https://github.com/libhangul/ibus-hangul) latest.
-   
-### `packages`
-  - `birdtray`: [gyunaev/birdtray](https://github.com/gyunaev/birdtray)
-  - `deno-bin`: [denoland/deno](https://github.com/denoland/deno) latest precompiled binary with `autoPatchelfHook`.
-  - `gulim`: [googlefonts/gulim](https://github.com/googlefonts/gulim)
-  - `batang`: [googlefonts/batang](https://github.com/googlefonts/batang)
-  - `hop`: [golbin/hop](https://github.com/golbin/hop)

@@ -1,0 +1,15 @@
+--- a/build/config/rust.gni
++++ b/build/config/rust.gni
+@@ -438 +438 @@ rustc_wrapper_inputs = [
+-  rustc_wrapper_inputs += [ "//third_party/rust-toolchain/bin/rustc" ]
++  rustc_wrapper_inputs += [ "${rust_sysroot}/bin/rustc" ]
+--- a/build/rust/cargo_crate.gni
++++ b/build/rust/cargo_crate.gni
+@@ -469 +469 @@
+-        inputs += [ "//third_party/rust-toolchain/bin/rustc" ]
++        inputs += [ "${rust_sysroot}/bin/rustc" ]
+--- a/build/rust/std/BUILD.gn
++++ b/build/rust/std/BUILD.gn
+@@ -274 +274 @@
+-        inputs = [ "//third_party/rust-toolchain/bin/rustc" ]
++        inputs = [ "${rust_sysroot}/bin/rustc" ]

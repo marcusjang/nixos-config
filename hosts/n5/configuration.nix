@@ -31,6 +31,7 @@ in {
 	boot.kernel.sysctl."net.ipv6.ip_forward" = 1;
 	
 	boot.supportedFilesystems = [ "zfs" ];
+	boot.zfs.forceImportRoot = false;
 
 	environment.systemPackages = [ pkgs.unstable.disko ];
 

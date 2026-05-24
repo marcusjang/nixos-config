@@ -16,7 +16,6 @@ This repository contains my personal NixOS configurations for multiple machines.
 ├─┬─ hosts/               # Machine-specific system configurations
 │ ├─ hosts/minibook         # Chuwi Minibook X (2023)
 │ ├─ hosts/n5               # Minisforum N5 Air NAS
-│ ├─ hosts/nas400           # ipTIME NAS400 (disused)
 │ ├─ hosts/ser8             # Beelink ser8 8745HS
 │ ├─ hosts/wsl              # Windows Subsystem for Linux
 │ └─ hosts/x1c13            # Lenovo ThinkPad X1 Carbon Gen. 13

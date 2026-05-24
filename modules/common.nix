@@ -16,6 +16,7 @@
 
 		settings = {
 			auto-optimise-store = lib.mkDefault true;
+			download-buffer-size = 524288000;
 		};
 	};
 

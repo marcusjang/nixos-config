@@ -31,7 +31,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
 	pnpmDeps = fetchPnpmDeps {
 		inherit (finalAttrs) pname version src;
 		fetcherVersion = 3;
-		hash = "sha256-KtZvKP6MOSPD9QV648orPPbMzrLjz6YccDRcnx/YY64=";
+		hash = "sha256-gNZXCISf9ZmvzZKZP04QuOBTh+/8+bVyHDbmuPXjgfU=";
 	};
 
 	cargoRoot = "apps/desktop/src-tauri";
@@ -68,7 +68,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
 		jq '.plugins.updater.endpoints = [ ] | .bundle.createUpdaterArtifacts = false' $TAURI_ROOT/tauri.conf.json.old > $TAURI_ROOT/tauri.conf.json
 		rm $TAURI_ROOT/tauri.conf.json.old
 	'' + lib.optionalString stdenv.hostPlatform.isLinux ''
-		substituteInPlace $cargoDepsCopy/libappindicator-sys-*/src/lib.rs \
+		substituteInPlace $cargoDepsCopy/*/libappindicator-sys-*/src/lib.rs \
 			--replace-fail "libayatana-appindicator3.so.1" "${libayatana-appindicator}/lib/libayatana-appindicator3.so.1"
 	'';
 

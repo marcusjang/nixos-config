@@ -46,7 +46,7 @@
 			no-overview
 			quick-settings-tweaker
 			rounded-corners
-			rounded-window-corners-reborn
+			rounded-window-corners
 		]);
 	};
 

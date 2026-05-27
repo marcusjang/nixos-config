@@ -18,24 +18,24 @@
 }:
 rustPlatform.buildRustPackage (finalAttrs: {
 	pname = "hop";
-	version = "0.2.0";
+	version = "0.3.1";
 
 	src = fetchFromGitHub {
 		owner = "golbin";
 		repo = "hop";
 		tag = "v${finalAttrs.version}";
-		hash = "sha256-BGEXpnP9K8kDWjq1GL1/F1rA/kVhCe1lIeDDRsygc8U=";
+		hash = "sha256-Yb7zDJ6A1Upm46a5gMFji7PRWTWyFA7qAX46RIiQ+i4=";
 		fetchSubmodules = true;
 	};
 
 	pnpmDeps = fetchPnpmDeps {
 		inherit (finalAttrs) pname version src;
 		fetcherVersion = 3;
-		hash = "sha256-gNZXCISf9ZmvzZKZP04QuOBTh+/8+bVyHDbmuPXjgfU=";
+		hash = "sha256-0eQX3xvjQkAxPlTgqGJud+n9ASNEBWw+IcuIMbpi/so=";
 	};
 
 	cargoRoot = "apps/desktop/src-tauri";
-	cargoHash = "sha256-L8Qbwe1NdduY32ZODK8ErhzQPAo/ur8Ldujfjqhd7dY=";
+	cargoHash = "sha256-B+Jir/M61adSOxaIUNb8spcch5jtOSV6YoQ+8mfSYQU=";
 	buildAndTestSubdir = finalAttrs.cargoRoot;
 
 	passthru = {

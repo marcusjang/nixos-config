@@ -1,17 +1,17 @@
 final: prev: with final; {
 	deno = prev.unstable.deno.overrideAttrs (finalAttrs: prevAttrs: rec {
 		inherit (prevAttrs) pname;
-		version = "2.8.0";
+		version = "2.8.1";
 		src = fetchFromGitHub {
 			owner = "denoland";
 			repo = "deno";
 			tag = "v${version}";
-			hash = "sha256-gcDQ2nkiLtnOJCneiHAWwvYxHUwQ/2n2lsmWAMgf/yc=";
+			hash = "sha256-rWmOFKRoS5oPpI0qzJS0Z9w7S1fz+2W/2psT+lPSFfw=";
 			fetchSubmodules = true;
 		};
 		cargoDeps = rustPlatform.fetchCargoVendor {
 			inherit (finalAttrs) pname version src;
-			hash = "sha256-1vHgkLWqwTt3tO4qSkfqwCj5KMfKCT3kscChf2FrkH8=";
+			hash = "sha256-JAFSL0wwIJDUQgXScIzgXtrBTwqCh7MPCpo+ecWWj6E=";
 		};
 		env = prevAttrs.env // (let
 			v8_version = (builtins.head (
@@ -34,7 +34,7 @@ final: prev: with final; {
 				};
 				patches = (builtins.filter (patch:
 					!(builtins.typeOf patch == "set" && patch.name == "chromium-146-revert-Update-fsanitizer=array-bounds-config.patch") &&
-					!(builtins.typeOf patch == "path" && builtins.baseNameOf patch == "librusty_v8_revert_-fno-lifetime-dse.patch")
+					!(builtins.typeOf patch == "path" && baseNameOf patch == "librusty_v8_revert_-fno-lifetime-dse.patch")
 				) prevAttrs.patches) ++ [
 					./patches/librusty_v8_rust_toolchain_nix_path.patch
 					./patches/librusty_v8_buildconfig.patch

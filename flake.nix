@@ -2,7 +2,7 @@
 	description = "marcus@nixos";
 
 	inputs = {
-		nixpkgs.url = "github:nixos/nixpkgs/release-26.05";
+		nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
 		nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 		hardware.url = "github:nixos/nixos-hardware";
 		wsl.url = "github:nix-community/NixOS-WSL/main";

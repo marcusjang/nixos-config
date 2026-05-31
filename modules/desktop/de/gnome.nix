@@ -47,6 +47,7 @@
 			quick-settings-tweaker
 			rounded-corners
 			rounded-window-corners
+			gnome-brightness-control
 		]);
 	};
 

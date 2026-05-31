@@ -67,7 +67,7 @@ All packages from stable `nixpkgs` are exposed through `outputs.packages` with b
      Adds/overrides packages under `pkgs.gnomeExtensions`. Currently packaged extensions are as belows.
     - [axelitama/power-off-options](https://github.com/axelitama/power-off-options) latest built from source.
     - [flexagoon/rounded-window-corners](https://github.com/flexagoon/rounded-window-corners) latest from [extensions.gnome.org](https://extensions.gnome.org/extension/7048/rounded-window-corners-reborn/).
-    - [achirkin/gnome-brightness-control](https://github.com/achirkin/gnome-brightness-control) latest build from source.
+    - [achirkin/gnome-brightness-control](https://github.com/achirkin/gnome-brightness-control) latest built from source.
   - `goofcord-latest`\
      [Milkshiift/GoofCord](https://github.com/Milkshiift/GoofCord) latest with couple of patches.
     - The latest version of Electron requiring `desktopName` value in `package.json`. See NixOS/nixpkgs#505078.

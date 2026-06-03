@@ -82,6 +82,22 @@
     "flake-compat": {
       "flake": false,
       "locked": {
+        "lastModified": 1767039857,
+        "narHash": "sha256-vNpUSpF5Nuw8xvDLj2KCwwksIbjua2LZCqhV1LNRDns=",
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "rev": "5edf11c44bc78a0d334f6334cdaf7d60d732daab",
+        "type": "github"
+      },
+      "original": {
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "type": "github"
+      }
+    },
+    "flake-compat_2": {
+      "flake": false,
+      "locked": {
         "lastModified": 1761588595,
         "narHash": "sha256-XKUZz9zewJNUj46b4AJdiRZJAvSZ0Dqj2BNfXvFlJC4=",
         "owner": "edolstra",
@@ -95,7 +111,7 @@
         "type": "github"
       }
     },
-    "flake-compat_2": {
+    "flake-compat_3": {
       "flake": false,
       "locked": {
         "lastModified": 1767039857,
@@ -164,7 +180,7 @@
     },
     "ghostty": {
       "inputs": {
-        "flake-compat": "flake-compat",
+        "flake-compat": "flake-compat_2",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs_2",
         "zig": "zig",
@@ -476,6 +492,7 @@
         "copyparty": "copyparty",
         "disko": "disko",
         "disko-zfs": "disko-zfs",
+        "flake-compat": "flake-compat",
         "flake-utils": "flake-utils_2",
         "ghostty": "ghostty",
         "hardware": "hardware",
@@ -561,7 +578,7 @@
     },
     "wsl": {
       "inputs": {
-        "flake-compat": "flake-compat_2",
+        "flake-compat": "flake-compat_3",
         "nixpkgs": "nixpkgs_7"
       },
       "locked": {

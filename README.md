@@ -39,8 +39,8 @@ A set of NixOS modules that resided in `modules/`. Not intended to be used exter
 Set of shell scripts that can be run with `nix run` command. See `flake.nix` for the specifics.
 > ⚠️ Only intended to be run from within the directory of the repository. Some are tailored to only be used for my current configurations.
 
-### `packages`
-All packages from stable `nixpkgs` are exposed through `outputs.packages` with below additions, overlays and substitutions applied. 
+### `legacyPackages`
+All packages from stable `nixpkgs` are exposed through `outputs.legacyPackages` with below additions, overlays and substitutions applied. 
 
 #### Additions
 - `birdtray`: [gyunaev/birdtray](https://github.com/gyunaev/birdtray) latest

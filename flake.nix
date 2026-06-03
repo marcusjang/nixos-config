@@ -44,9 +44,9 @@
 				nixpkgs-patched
 			] ++ builtins.attrValues outputs.overlays;
 		};
-	in with pkgs; {
-		packages = pkgs;
-		apps = {
+	in {
+		legacyPackages = pkgs;
+		apps = with pkgs; {
 			update-inputs = {
 				type = "app";
 				program = toString (writeShellScript "update-inputs" ''

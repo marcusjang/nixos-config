@@ -7,11 +7,11 @@
 }:
 stdenv.mkDerivation rec {
 	pname = "deno-bin";
-	version = "2.8.2";
+	version = "2.8.3";
 
 	src = fetchzip {
 		url = "https://github.com/denoland/deno/releases/download/v${version}/deno-x86_64-unknown-linux-gnu.zip";
-		hash = "sha256-+a5gSOtQGVObbETFbL4qhIka8SZVIupibJxcvMHDIts=";
+		hash = "sha256-JmFS8rHqpjvNn6eAe3yUDRitwqtWoeKm6qcCLLIPtro=";
 	};
 
 	nativeBuildInputs = [

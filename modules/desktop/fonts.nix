@@ -2,9 +2,8 @@
 {
 	fonts = {
 		enableDefaultPackages = true;
-		packages = with pkgs; [
+		packages = (with pkgs; [
 			pretendard
-			nerd-fonts.meslo-lg
 			noto-fonts
 			noto-fonts-cjk-sans
 			noto-fonts-cjk-serif
@@ -13,7 +12,12 @@
 			nanum
 			gulim
 			batang
-		];
+		]) ++ (with pkgs.nerd-fonts; [
+			agave
+			caskaydia-cove
+			d2coding
+			meslo-lg
+		]);
 		fontconfig = {
 			enable = true;
 			defaultFonts = {

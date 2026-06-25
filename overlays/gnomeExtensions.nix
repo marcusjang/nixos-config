@@ -2,7 +2,7 @@ final: prev: let
 	buildGnomeExtension = final.pkgs.callPackage "${final.pkgs.path}/pkgs/desktops/gnome/extensions/buildGnomeExtension.nix" { };
 in with final; {
 	gnomeExtensions = prev.gnomeExtensions // {
-		power-off-options = prev.gnomeExtensions.power-off-options.overrideAttrs (finalAttrs: prevAttrs: rec {
+		power-off-options-sourcebuild = prev.gnomeExtensions.power-off-options.overrideAttrs (finalAttrs: prevAttrs: rec {
 			inherit (prevAttrs) pname;
 			version = "8-dev";
 			src = fetchFromGitHub {

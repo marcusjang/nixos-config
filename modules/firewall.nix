@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
 	networking.firewall.enable = true;
+	networking.firewall.logRefusedPackets = true;
 	networking.nftables.enable = true;
 
 	environment.systemPackages = with pkgs; [

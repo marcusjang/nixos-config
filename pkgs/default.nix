@@ -4,5 +4,6 @@ pkgs: with pkgs; {
 	gulim = callPackage ./gulim.nix { };
 	batang = callPackage ./batang.nix { };
 	hop = callPackage ./hop.nix { };
+	kime = callPackage ./kime.nix { };
 	tls-client = callPackage ./tls-client.nix { };
 }

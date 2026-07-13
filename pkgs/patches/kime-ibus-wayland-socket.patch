@@ -1,0 +1,36 @@
+diff --git a/src/frontends/ibus/src/connection.rs b/src/frontends/ibus/src/connection.rs
+index cc28de1..197ca2c 100644
+--- a/src/frontends/ibus/src/connection.rs
++++ b/src/frontends/ibus/src/connection.rs
+@@ -99,10 +99,3 @@ fn display_parts() -> (String, String) {
+-    let display = std::env::var("DISPLAY").unwrap_or_default();
+-    match display.rsplit_once(':') {
+-        Some((host, tail)) => {
+-            let host = if host.is_empty() {
+-                "unix".to_string()
+-            } else {
+-                host.to_string()
+-            };
+-            let number = tail.split('.').next().unwrap_or("0").to_string();
+-            (host, number)
++    if let Ok(wayland_display) = std::env::var("WAYLAND_DISPLAY") {
++        if !wayland_display.is_empty() {
++            return ("unix".to_string(), wayland_display);
+@@ -110,3 +102,0 @@ fn display_parts() -> (String, String) {
+-        // No DISPLAY (e.g. pure Wayland session): the env-var path is normally
+-        // used instead, but fall back to the common default.
+-        None => ("unix".to_string(), "0".to_string()),
+@@ -113,0 +104,13 @@ fn display_parts() -> (String, String) {
++
++    let display = std::env::var("DISPLAY").unwrap_or_default();
++    if let Some((host, tail)) = display.rsplit_once(':') {
++        let host = if host.is_empty() {
++            "unix".to_string()
++        } else {
++            host.to_string()
++        };
++        let number = tail.split('.').next().unwrap_or("0").to_string();
++        return (host, number);
++    }
++
++    ("unix".to_string(), "0".to_string())

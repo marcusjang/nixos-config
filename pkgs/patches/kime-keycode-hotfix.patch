@@ -1,0 +1,7 @@
+diff --git a/src/frontends/ibus/src/engine.rs b/src/frontends/ibus/src/engine.rs
+index 56d4de8..1c9a393 100644
+--- a/src/frontends/ibus/src/engine.rs
++++ b/src/frontends/ibus/src/engine.rs
+@@ -194 +194 @@ impl IBusEngine {
+-            .press_key_code(keycode as u16, mods, numlock, &self.config);
++            .press_key_code((keycode as u16) + 8, mods, numlock, &self.config);

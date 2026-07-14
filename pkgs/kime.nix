@@ -23,29 +23,29 @@
 }:
 llvmPackages_18.stdenv.mkDerivation (finalAttrs: {
 	pname = "kime";
-	version = "3.2.0-dev";
+	version = "3.2.0";
 	src = fetchFromGitHub {
 		owner = "Riey";
 		repo = "kime";
-		#rev = "v${finalAttrs.version}";
-		#hash = "sha256-AGjNo2LqAkpdfBtB3ytCizBa+gGRp7U+FyYHiyJDI8M=";
-		rev = "69462c084ab52d317884f1cb195d7cf2da8f45e6";
-		hash = "sha256-Zo45+IZWg4+nTMEU8m9R3g43IQoNIHa77+tDG9gqIBU=";
+		rev = "v${finalAttrs.version}";
+		hash = "sha256-AGjNo2LqAkpdfBtB3ytCizBa+gGRp7U+FyYHiyJDI8M=";
 	};
 	patches = [
-		#(fetchpatch2 {
-		#	url = "https://github.com/Riey/kime/pull/751.patch";
-		#	excludes = [
-		#		"docs/CHANGELOG.md"
-		#		"Cargo.lock"
-		#	];
-		#	hash = "sha256-3AqbUfP6JFLMbm1VnA4NTAx7r1Th+RYg2sDH3f8Crhs=";
-		#})
+		(fetchpatch2 {
+			url = "https://github.com/Riey/kime/pull/751.patch";
+			excludes = [
+				"docs/CHANGELOG.md"
+				"Cargo.lock"
+			];
+			hash = "sha256-3AqbUfP6JFLMbm1VnA4NTAx7r1Th+RYg2sDH3f8Crhs=";
+		})
 		./patches/kime-ibus-wayland-socket.patch
+		./patches/kime-keycode-hotfix.patch
+		./patches/kime-preedit-mode-hotfix.patch
 	];
 	cargoDeps = rustPlatform.fetchCargoVendor {
 		inherit (finalAttrs) pname version src;
-		hash = "sha256-NgG3EuA2pcBj2YgQEkaFrSgE+2/6SdxZhozQVJUty1g=";
+		hash = "sha256-opmOIGk6doCVr4VPPH+F9UVMGIkITlwHLjISLrneMzA=";
 	};
 	LIBCLANG_PATH = "${llvmPackages_18.libclang.lib}/lib";
 	dontUseCmakeConfigure = true;

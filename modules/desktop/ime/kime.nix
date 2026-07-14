@@ -2,10 +2,10 @@
 {
 	i18n.inputMethod = {
 		enable = true;
-		type = "ibus";
+		#type = "ibus";
 		ibus.engines = [ pkgs.kime ];
-		#type = "kime";
-		#kime.iconColor = "White";
+		type = "kime";
+		kime.iconColor = "White";
 	};
 
 	environment.systemPackages = [ pkgs.kime ];

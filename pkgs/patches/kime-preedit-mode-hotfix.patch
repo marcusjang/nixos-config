@@ -1,0 +1,7 @@
+diff --git a/src/frontends/ibus/src/engine.rs b/src/frontends/ibus/src/engine.rs
+index 56d4de8..46c5499 100644
+--- a/src/frontends/ibus/src/engine.rs
++++ b/src/frontends/ibus/src/engine.rs
+@@ -79 +79 @@ impl IBusEngine {
+-                &(v, cursor_pos, visible),
++                &(v, cursor_pos, visible, 0),

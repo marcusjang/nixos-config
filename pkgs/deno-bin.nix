@@ -5,13 +5,13 @@
 	autoPatchelfHook,
 	makeBinaryWrapper
 }:
-stdenv.mkDerivation rec {
+stdenv.mkDerivation (finalAttrs: {
 	pname = "deno-bin";
-	version = "2.9.2";
+	version = "2.9.3";
 
 	src = fetchzip {
-		url = "https://github.com/denoland/deno/releases/download/v${version}/deno-x86_64-unknown-linux-gnu.zip";
-		hash = "sha256-+6O9YK9o2gxPbd3E8aEk30jANb9JtL+Y4MAFFYKV5jM=";
+		url = "https://github.com/denoland/deno/releases/download/v${finalAttrs.version}/deno-x86_64-unknown-linux-gnu.zip";
+		hash = "sha256-Lf+gxwhZzfXELSK/SO4qvWXUrGCI3cGTj4i/FjkBknA=";
 	};
 
 	nativeBuildInputs = [
@@ -27,7 +27,7 @@ stdenv.mkDerivation rec {
 	'';
 
 	meta = {
-		changelog = "https://github.com/denoland/deno/releases/tag/v${version}";
+		changelog = "https://github.com/denoland/deno/releases/tag/v${finalAttrs.version}";
 		description = "Secure runtime for JavaScript and TypeScript";
 		longDescription = ''
 			Deno aims to be a productive and secure scripting environment for the modern programmer.
@@ -50,5 +50,5 @@ stdenv.mkDerivation rec {
 		];
 		platforms = [ "x86_64-linux" ];
 	};
-}
+})
 

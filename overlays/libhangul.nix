@@ -1,11 +1,11 @@
 final: prev: with final; {
-	libhangul = prev.libhangul.overrideAttrs (finalAttrs: prevAttrs: rec {
+	libhangul = prev.libhangul.overrideAttrs (finalAttrs: prevAttrs: {
 		inherit (prevAttrs) pname;
 		version = "0.2.0";
 		src = fetchFromGitHub {
 			owner = "libhangul";
 			repo = "libhangul";
-			tag = "libhangul-${version}";
+			tag = "libhangul-${finalAttrs.version}";
 			hash = "sha256-1cTDsRJpT5TLdJN8D2LfOISWeAOlSO6zKZOaCrTxooM=";
 		};
 		nativeBuildInputs = with pkgs; [

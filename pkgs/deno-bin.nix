@@ -4,14 +4,24 @@
 	fetchzip,
 	autoPatchelfHook,
 	makeBinaryWrapper
-}:
-stdenv.mkDerivation (finalAttrs: {
+}: let
+	urls = version: let
+		commonPath = "https://github.com/denoland/deno/releases/download/v${version}/";
+	in {
+		x86_64-linux = commonPath + "deno-x86_64-unknown-linux-gnu.zip";
+		aarch64-linux = commonPath + "deno-aarch64-unknown-linux-gnu.zip";
+	};
+	hashes = {
+		x86_64-linux = "sha256-Lf+gxwhZzfXELSK/SO4qvWXUrGCI3cGTj4i/FjkBknA=";
+		aarch64-linux = "sha256-b2/0CjS7GHHcE3LPnNAwz1RFfpUbM0IDYJFkicP55dA=";
+	};
+in stdenv.mkDerivation (finalAttrs: {
 	pname = "deno-bin";
 	version = "2.9.3";
 
 	src = fetchzip {
-		url = "https://github.com/denoland/deno/releases/download/v${finalAttrs.version}/deno-x86_64-unknown-linux-gnu.zip";
-		hash = "sha256-Lf+gxwhZzfXELSK/SO4qvWXUrGCI3cGTj4i/FjkBknA=";
+		url = (urls finalAttrs.version).${stdenv.hostPlatform.system} or (throw "Unsupported system ${stdenv.hostPlatform.system}");
+		hash = hashes.${stdenv.hostPlatform.system} or (throw "Unsupported system ${stdenv.hostPlatform.system}");
 	};
 
 	nativeBuildInputs = [
@@ -48,7 +58,10 @@ stdenv.mkDerivation (finalAttrs: {
 				name = "Marcus Jang";
 			}
 		];
-		platforms = [ "x86_64-linux" ];
+		platforms = [
+			"x86_64-linux"
+			"aarch64-linux"
+		];
 	};
 })
 

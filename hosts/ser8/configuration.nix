@@ -36,6 +36,8 @@
 		})
 	];
 
+	boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
 	services.logind.settings.Login = {
 		IdleAction = "suspend";
 		IdleActionSec = "30m";

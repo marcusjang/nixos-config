@@ -15,7 +15,7 @@ in with final; {
 				extensionUuid = "power-off-options@axelitama.github.io";
 				extensionPortalSlug = "power-off-options";
 			};
-			buildInputs = [ final.pkgs.glib ];
+			nativeBuildInputs = [ final.pkgs.glib ];
 			buildPhase = with finalAttrs; ''
 				glib-compile-schemas --targetdir=${uuid}/schemas ${uuid}/schemas
 				find "${uuid}/locale" -name '*.po' | while read -r po; do \
@@ -42,7 +42,7 @@ in with final; {
 			metadata = "ewoJICAiX2dlbmVyYXRlZCI6ICJHZW5lcmF0ZWQgYnkgU3dlZXRUb290aCwgZG8gbm90IGVkaXQiLAoJICAiZGVzY3JpcHRpb24iOiAiQWRkIHJvdW5kZWQgY29ybmVycyB0byBhbGwgd2luZG93cy4gRm9yayBvZiB0aGUgbm93IHVubWFpbnRhaW5lZCBSb3VuZGVkIFdpbmRvdyBDb3JuZXJzIGV4dGVuc2lvbi4iLAoJICAiZ2V0dGV4dC1kb21haW4iOiAicm91bmRlZC13aW5kb3ctY29ybmVyc0BmeGduIiwKCSAgIm5hbWUiOiAiUm91bmRlZCBXaW5kb3cgQ29ybmVycyBSZWJvcm4iLAoJICAic2V0dGluZ3Mtc2NoZW1hIjogIm9yZy5nbm9tZS5zaGVsbC5leHRlbnNpb25zLnJvdW5kZWQtd2luZG93LWNvcm5lcnMtcmVib3JuIiwKCSAgInNoZWxsLXZlcnNpb24iOiBbCgkgICAgIjQ5IiwKCSAgICAiNTAiCgkgIF0sCgkgICJ1cmwiOiAiaHR0cHM6Ly9naXRodWIuY29tL2ZsZXhhZ29vbi9yb3VuZGVkLXdpbmRvdy1jb3JuZXJzIiwKCSAgInV1aWQiOiAicm91bmRlZC13aW5kb3ctY29ybmVyc0BmeGduIiwKCSAgInZlcnNpb24iOiAxOAp9";
 		};
 		gnome-brightness-control = stdenv.mkDerivation (finalAttrs: {
-			pname = "gnome-brightness-control";
+			pname = "gnome-shell-extension-gnome-brightness-control";
 			version = "unstable-260426";
 			src = fetchFromGitHub {
 				owner = "achirkin";
@@ -54,7 +54,7 @@ in with final; {
 				extensionUuid = "brightness-control@achirkin.noreply.users.github.com";
 				extensionPortalSlug = "brightness-control";
 			};
-			buildInputs = [ final.pkgs.glib ];
+			nativeBuildInputs = [ final.pkgs.glib ];
 			buildPhase = ''
 				runHook preBuild
 				if [ -d schemas ]; then
@@ -70,6 +70,63 @@ in with final; {
 			'';
 			doCheck = false;
 			uuid = "brightness-control@achirkin.noreply.users.github.com";
+		});
+		quick-settings-tweaker = stdenv.mkDerivation (finalAttrs: {
+			pname = "gnome-shell-extension-quick-settings-tweaks";
+			version = "2.2-offx1.1";
+			src = fetchFromGitHub {
+				owner = "jstockdale";
+				repo = "quick-settings-tweaks";
+				rev = "v${finalAttrs.version}";
+				hash = "sha256-HEMkTgQ5ITkGzo++Hr2y6uBUPvWhKbAtcaPKrYu0a1U=";
+			};
+			passthru = {
+				extensionUuid = "quick-settings-tweaks@offx1";
+				extensionPortalSlug = "quick-settings-tweaks";
+			};
+			nativeBuildInputs = with final.pkgs; [
+				glib
+				typescript
+				dart-sass
+			];
+			buildPhase = ''
+				runHook preBuild
+				mkdir -p target/out
+
+				tsc --noCheck
+				cp -r target/tsc/* target/out
+
+				sass --no-source-map src/stylesheet.scss:target/out/stylesheet.css
+				sed $'s/^  /\t/g' -i target/out/stylesheet.css
+
+				if [ -d schemas ]; then
+					glib-compile-schemas --strict schemas
+				fi
+
+				mkdir -p target/out/locale
+
+				find "po" -name '*.po' | while read -r po; do \
+					locale=`basename $po .po`;
+					path="target/out/locale/$locale/LC_MESSAGES";
+					mkdir -p $path;
+					mo="$path/quick-settings-tweaks.mo"; \
+					msgfmt "$po" -o "$mo"; \
+				done
+
+				cp metadata.json target/out
+				cp -r schemas target/out
+				cp -r media target/out
+
+				runHook postBuild
+			'';
+			installPhase = ''
+				runHook preInstall
+				mkdir -p $out/share/gnome-shell/extensions
+				cp -r -T target/out $out/share/gnome-shell/extensions/${finalAttrs.uuid}
+				runHook postInstall
+			'';
+			doCheck = false;
+			uuid = "quick-settings-tweaks@offx1";
 		});
 	};
 }

@@ -22,6 +22,10 @@
 			enable = true;
 			defaultFonts = {
 				sansSerif = [ "Pretendard" ];
+				monospace = [
+					"MesloLGS Nerd Font"
+					"D2CodingLigature Nerd Font"
+				];
 			};
 		};
 	};

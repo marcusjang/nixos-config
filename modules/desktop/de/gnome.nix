@@ -2,6 +2,7 @@
 {
 	nixpkgs.overlays = with outputs.overlays; [
 		gnomeExtensions-addon
+		udisks-latest
 	];
 
 	services.xserver.enable = true;

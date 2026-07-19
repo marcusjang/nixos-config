@@ -71,4 +71,22 @@ in stdenv.mkDerivation (finalAttrs: {
 		pythonEnv
 	];
 
+	meta = {
+		description = "Scriptorium is a text editor coupled with a plotting tool and a formatting tool. The objective is to provide writers with a simple and complete environment to plan, plot, write and edit e-books.";
+		homepage = "https://github.com/cgueret/Scriptorium";
+		downloadPage = "https://github.com/cgueret/Scriptorium/releases";
+		license = lib.licenses.gpl3;
+		maintainers = [
+			{
+				email = "marcus@melange.works";
+				github = "marcusjang";
+				githubId = 10116562;
+				name = "Marcus Jang";
+			}
+		];
+		platforms = [
+			"x86_64-linux"
+		];
+		mainProgram = "scriptorium";
+	};
 })

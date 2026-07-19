@@ -2,6 +2,7 @@
 {
 	environment.systemPackages = with pkgs; [
 		hop
+		scriptorium
 		libreoffice-fresh
 		hunspell
 		hunspellDicts.en_US

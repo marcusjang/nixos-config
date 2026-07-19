@@ -48,6 +48,7 @@ All packages from stable `nixpkgs` are exposed through `outputs.legacyPackages` 
 - `gulim`: [googlefonts/gulim](https://github.com/googlefonts/gulim)
 - `batang`: [googlefonts/batang](https://github.com/googlefonts/batang)
 - `hop`: [golbin/hop](https://github.com/golbin/hop)
+- `scriptorium`: [cgueret/Scriptorium](https://github.com/cgueret/Scriptorium)
 - `tls-client`: [bogdanfinn/tls-client](https://github.com/bogdanfinn/tls-client)
 
 ### `overlays`

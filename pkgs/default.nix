@@ -5,5 +5,6 @@ pkgs: with pkgs; {
 	batang = callPackage ./batang.nix { };
 	hop = callPackage ./hop.nix { };
 	kime = callPackage ./kime.nix { };
+	scriptorium = callPackage ./scriptorium.nix { };
 	tls-client = callPackage ./tls-client.nix { };
 }

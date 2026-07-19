@@ -1,4 +1,4 @@
-{ lib, inputs, outputs, ... }:
+{ lib, pkgs, inputs, outputs, ... }:
 {
 	imports =[
 		outputs.nixosModules.default
@@ -50,6 +50,10 @@
 		}];
 	};
 	
+	environment.systemPackages = with pkgs; [
+		scriptorium	
+	];
+
 	system.stateVersion = "24.11";
 }
 

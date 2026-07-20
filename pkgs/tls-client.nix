@@ -24,14 +24,7 @@ buildGoModule (finalAttrs: {
 		homepage = "https://bogdanfinn.gitbook.io/open-source-oasis";
 		downloadPage = "https://github.com/bogdanfinn/tls-client/releases";
 		license = lib.licenses.bsdOriginal;
-		maintainers = [
-			{
-				email = "marcus@melange.works";
-				github = "marcusjang";
-				githubId = 10116562;
-				name = "Marcus Jang";
-			}
-		];
+		maintainers = [ lib.importJSON ../maintainer.json ];
 		platforms = [
 			"x86_64-linux"
 		];

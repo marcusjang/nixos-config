@@ -32,12 +32,7 @@ stdenv.mkDerivation {
 		homepage = "https://github.com/gyunaev/birdtray";
 		license = lib.licenses.gpl3Plus;
 		maintainers = with lib.maintainers; [ Flakebi ] ++ [
-			{
-				email = "marcus@melange.works";
-				github = "marcusjang";
-				githubId = 10116562;
-				name = "Marcus Jang";
-			}
+			lib.importJSON ../maintainer.json
 		];
 		platforms = lib.platforms.linux;
 	};

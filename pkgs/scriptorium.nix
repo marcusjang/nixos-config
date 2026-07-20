@@ -76,14 +76,7 @@ in stdenv.mkDerivation (finalAttrs: {
 		homepage = "https://github.com/cgueret/Scriptorium";
 		downloadPage = "https://github.com/cgueret/Scriptorium/releases";
 		license = lib.licenses.gpl3;
-		maintainers = [
-			{
-				email = "marcus@melange.works";
-				github = "marcusjang";
-				githubId = 10116562;
-				name = "Marcus Jang";
-			}
-		];
+		maintainers = [ lib.importJSON ../maintainer.json ];
 		platforms = [
 			"x86_64-linux"
 		];

@@ -26,14 +26,7 @@ stdenvNoCC.mkDerivation {
 		description = "Batang Korean Font";
 		homepage = "https://github.com/googlefonts/batang";
 		license = lib.licenses.ofl;
-		maintainers = [
-			{
-				email = "marcus@melange.works";
-				github = "marcusjang";
-				githubId = 10116562;
-				name = "Marcus Jang";
-			}
-		];
+		maintainers = [ lib.importJSON ../maintainer.json ];
 	};
 }
 

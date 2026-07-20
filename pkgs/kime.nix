@@ -88,14 +88,8 @@ llvmPackages_18.stdenv.mkDerivation (finalAttrs: {
 		description = "Korean IME";
 		license = lib.licenses.gpl3Plus;
 		isIbusEngine = true;
-		maintainers = [
-			lib.maintainers.riey
-			{
-				email = "marcus@melange.works";
-				github = "marcusjang";
-				githubId = 10116562;
-				name = "Marcus Jang";
-			}
+		maintainers = with lib.maintainers; [ riey ] ++ [
+			lib.importJSON ../maintainer.json
 		];
 		platforms = lib.platforms.linux;
 	};

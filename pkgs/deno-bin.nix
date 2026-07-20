@@ -47,17 +47,10 @@ in stdenv.mkDerivation (finalAttrs: {
 			It uses a standard browser-compatible protocol for loading modules: URLs.
 			Among other things, Deno is a great replacement for utility scripts that may have been historically written with
 			bash or python.
-			'';
+		'';
 		license = lib.licenses.mit;
 		mainProgram = "deno";
-		maintainers = [
-			{
-				email = "marcus@melange.works";
-				github = "marcusjang";
-				githubId = 10116562;
-				name = "Marcus Jang";
-			}
-		];
+		maintainers = [ lib.importJSON ../maintainer.json ];
 		platforms = [
 			"x86_64-linux"
 			"aarch64-linux"

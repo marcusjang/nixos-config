@@ -77,14 +77,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
 		homepage = "https://golbin.github.io/hop/";
 		downloadPage = "https://github.com/golbin/hop/releases";
 		license = lib.licenses.mit;
-		maintainers = [
-			{
-				email = "marcus@melange.works";
-				github = "marcusjang";
-				githubId = 10116562;
-				name = "Marcus Jang";
-			}
-		];
+		maintainers = [ lib.importJSON ../maintainer.json ];
 		platforms = [
 			"x86_64-linux"
 		];

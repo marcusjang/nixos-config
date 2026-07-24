@@ -1,12 +1,12 @@
 final: prev: with final; {
 	goofcord = prev.unstable.goofcord.overrideAttrs (finalAttrs: prevAttrs: {
 		inherit (prevAttrs) pname;
-		version = "2.2.2";
+		version = "2.3.0";
 		src = fetchFromGitHub {
 			owner = "Milkshiift";
 			repo = "GoofCord";
 			tag = "v${finalAttrs.version}";
-			hash = "sha256-PwPDm/ay1df+tqpKzLMP64GOB4F/dgFm0xaT9x0yVGE=";
+			hash = "sha256-cg9NVL/dPIQ9xyMrUmWd42HxEsTSnhUGiqB7qaU2LuQ=";
 		};
 		node-modules = let
 			goofcord = finalAttrs;
@@ -15,8 +15,8 @@ final: prev: with final; {
 			pname = goofcord.pname + "-modules";
 
 			outputHash = {
-				x86_64-linux = "sha256-Gi9QO6FYgcpAEtVVMvkq/ihnYhovSmfhsqE2UnxYBaw=";
-				aarch64-linux = "sha256-+WpYaPp72BFV8j+gXJrmd52qtqkSf76tPEE40jzsqEs=";
+				x86_64-linux = "sha256-J26DRSUa/C7lvI8JFPQ92yj4zUVnD+SPkKwRQA9ITB8=";
+				aarch64-linux = "sha256-WIjcl//+OGB5J6Dp4Q2x24MA/cWqdtHYNwBBOgCD/tU=";
 			}.${stdenv.hostPlatform.system} or (throw "Unsupported system ${stdenv.hostPlatform.system}");
 		});
 		nativeBuildInputs = prevAttrs.nativeBuildInputs ++ [ pkgs.jq ];

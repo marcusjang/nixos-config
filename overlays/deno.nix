@@ -1,17 +1,17 @@
 final: prev: with final; {
 	deno = prev.unstable.deno.overrideAttrs (finalAttrs: prevAttrs: {
 		inherit (prevAttrs) pname;
-		version = "2.9.3";
+		version = "2.9.4";
 		src = fetchFromGitHub {
 			owner = "denoland";
 			repo = "deno";
 			tag = "v${finalAttrs.version}";
-			hash = "sha256-XMHlWK+lhyn1KO1CSxcuM3KzTjYviVrRw+FUL74bBPc=";
+			hash = "sha256-ivch++yGRUyWtox/5QqomC4DlTvMBxK+gIcN9/7tt5E=";
 			fetchSubmodules = true;
 		};
 		cargoDeps = rustPlatform.fetchCargoVendor {
 			inherit (finalAttrs) pname version src;
-			hash = "sha256-WZxyoD9WMnaLyD3/86R90KWC+9OA15fIMw8SjmovNHA=";
+			hash = "sha256-ynbHLZXkPPYpsC4dCu6jA6x8ftiTHWZ/uxzdbUcUaa0=";
 		};
 		env = prevAttrs.env // (let
 			v8_version = (builtins.head (
@@ -25,12 +25,12 @@ final: prev: with final; {
 					owner = "denoland";
 					repo = "rusty_v8";
 					tag = "v${finalAttrs.version}";
-					hash = "sha256-n4dKtki9ov0lWBeLmMDI4Tpk8zQ8YYSf04QW6DTYisY=";
+					hash = "sha256-Iwgc08bUHR4OiwqopJua6fkQYMOdC5k9TgoCmZQrWIw=";
 					fetchSubmodules = true;
 				};
 				cargoDeps = rustPlatform.fetchCargoVendor {
 					inherit (finalAttrs) pname version src;
-					hash = "sha256-bGqg/6sfBaF/JpObgXyP4Mh+4P9zfuzd454m4wjluGw=";
+					hash = "sha256-M65ODvL+o3njO3SdbJaCvgRupoguCGCIoYY/dYiJPng=";
 				};
 			});
 		});

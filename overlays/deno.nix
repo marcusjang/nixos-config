@@ -32,6 +32,9 @@ final: prev: with final; {
 					inherit (finalAttrs) pname version src;
 					hash = "sha256-M65ODvL+o3njO3SdbJaCvgRupoguCGCIoYY/dYiJPng=";
 				};
+				patches = prevAttrs.patches ++ [
+					./patches/librusty_v8-gn-additional-outputs.patch
+				];
 			});
 		});
 	});

@@ -28,7 +28,7 @@ llvmPackages_18.stdenv.mkDerivation (finalAttrs: {
 		owner = "Riey";
 		repo = "kime";
 		rev = "v${finalAttrs.version}";
-		hash = "sha256-AGjNo2LqAkpdfBtB3ytCizBa+gGRp7U+FyYHiyJDI8M=";
+		hash = "sha256-YQQ27pSyuznqOI5o5oqLQIdUPqnrw8UTmD65KL9su3c=";
 	};
 	patches = [
 		(fetchpatch2 {
@@ -45,7 +45,7 @@ llvmPackages_18.stdenv.mkDerivation (finalAttrs: {
 	];
 	cargoDeps = rustPlatform.fetchCargoVendor {
 		inherit (finalAttrs) pname version src;
-		hash = "sha256-opmOIGk6doCVr4VPPH+F9UVMGIkITlwHLjISLrneMzA=";
+		hash = "sha256-FP7uHsLVozB6kpwCuNFrYY2j6RQUL6n41hfvlFN5/qI=";
 	};
 	LIBCLANG_PATH = "${llvmPackages_18.libclang.lib}/lib";
 	dontUseCmakeConfigure = true;
@@ -82,6 +82,8 @@ llvmPackages_18.stdenv.mkDerivation (finalAttrs: {
 	postPatch = ''
 		substituteInPlace res/ibus/component/kime.xml \
 			--replace-fail "/usr/bin/kime-ibus" "$out/bin/kime-ibus"
+		substituteInPlace res/kime.desktop res/kime-xdg-autostart \
+			--replace-warn "/usr/bin/kime" "kime"
 	'';
 	meta = {
 		homepage = "https://github.com/Riey/kime";

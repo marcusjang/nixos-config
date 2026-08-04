@@ -1,12 +1,16 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
 	i18n.inputMethod = {
 		enable = true;
-		#type = "ibus";
+		type = "ibus";
 		ibus.engines = [ pkgs.kime ];
-		type = "kime";
-		kime.iconColor = "White";
 	};
 
 	environment.systemPackages = [ pkgs.kime ];
+
+	environment.variables = {
+		GTK_IM_MODULE = lib.mkForce "kime";
+		QT_IM_MODULE = lib.mkForce "kime";
+		XMODIFIERS = lib.mkForce "@im=kime";
+	};
 }

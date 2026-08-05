@@ -1,0 +1,7 @@
+diff --git a/src/frontends/ibus/src/engine.rs b/src/frontends/ibus/src/engine.rs
+index 56d4de8..34f5be8 100644
+--- a/src/frontends/ibus/src/engine.rs
++++ b/src/frontends/ibus/src/engine.rs
+@@ -165 +165 @@ impl IBusEngine {
+-#[interface(name = "org.freedesktop.IBus.Engine")]
++#[interface(name = "org.freedesktop.IBus.Engine", spawn = false)]

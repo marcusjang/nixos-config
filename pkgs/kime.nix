@@ -42,6 +42,7 @@ llvmPackages_18.stdenv.mkDerivation (finalAttrs: {
 		./patches/kime-ibus-wayland-socket.patch
 		./patches/kime-keycode-hotfix.patch
 		./patches/kime-preedit-mode-hotfix.patch
+		./patches/kime-ibus-zbus-spawn-fix.patch
 	];
 	cargoDeps = rustPlatform.fetchCargoVendor {
 		inherit (finalAttrs) pname version src;

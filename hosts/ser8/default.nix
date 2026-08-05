@@ -20,7 +20,7 @@ nixpkgs.lib.nixosSystem {
 		printing
 		uxplay
 		de.gnome
-		ime.ibus-hangul
+		ime.kime
 	]);
 }
 

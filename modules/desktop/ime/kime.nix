@@ -3,7 +3,10 @@
 	i18n.inputMethod = {
 		enable = true;
 		type = "ibus";
-		ibus.engines = [ pkgs.kime ];
+		ibus.engines = [
+			pkgs.kime
+			pkgs.ibus-engines.hangul # fallback for unstable kime-ibus
+		];
 	};
 
 	environment.systemPackages = [ pkgs.kime ];

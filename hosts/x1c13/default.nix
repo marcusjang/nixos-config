@@ -20,6 +20,6 @@ nixpkgs.lib.nixosSystem {
 		printing
 		suspend
 		de.gnome
-		ime.ibus-hangul
+		ime.kime
 	]);
 }

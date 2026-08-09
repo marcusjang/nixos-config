@@ -4,6 +4,7 @@ in {
 	virtualisation.oci-containers.containers = {
 		mylar3 = {
 			image = "lscr.io/linuxserver/mylar3:nightly";
+			pull = "newer";
 			ports = [ "127.0.0.1:${toString port}:8090" ];
 			environment = {
 				PUID = "991";

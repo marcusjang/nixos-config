@@ -12,6 +12,10 @@
 		./hardware-configuration.nix
 	];
 
+	nixpkgs.overlays = with outputs.overlays; [
+		zenpower-unstable
+	];
+
 	environment.systemPackages = with pkgs; [
 		unstable.zmk-studio
 	];

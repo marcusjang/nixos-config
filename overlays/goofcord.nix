@@ -1,5 +1,7 @@
 final: prev: with final; {
-	goofcord = prev.unstable.goofcord.overrideAttrs (finalAttrs: prevAttrs: {
+	goofcord = (prev.unstable.goofcord.override {
+		electron = final.electron_42;
+	}).overrideAttrs (finalAttrs: prevAttrs: {
 		inherit (prevAttrs) pname;
 		version = "2.3.0";
 		src = fetchFromGitHub {

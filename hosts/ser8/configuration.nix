@@ -12,8 +12,14 @@
 		./hardware-configuration.nix
 	];
 
-	nixpkgs.overlays = with outputs.overlays; [
-		zenpower-unstable
+	nixpkgs.overlays = [
+		(final: prev: with final; {
+			linuxPackages_latest = prev.linuxPackages_latest.extend (_kfinal: kprev: {
+				zenpower = kprev.zenpower.overrideAttrs (prevAttrs: {
+					inherit (unstable.linuxPackages_latest.zenpower) version src;
+				});
+			});
+		})
 	];
 
 	environment.systemPackages = with pkgs; [

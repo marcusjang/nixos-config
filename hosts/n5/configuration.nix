@@ -5,11 +5,15 @@
 		&& (builtins.tryEval kernelPackages). success
 		&& (!kernelPackages.${config.boot.zfs.package.kernelModuleAttribute}.meta.broken)
 	) pkgs.linuxKernel.packages;
-	latestKernelPackage = lib.last (
+	latestKernelPackage = (lib.last (
 		lib.sort (a: b: (lib.versionOlder a.kernel.version b.kernel.version)) (
 			builtins.attrValues zfsCompatibleKernelPackages
 		)
-	);
+	)).extend (_kfinal: kprev: {
+		zenpower = kprev.zenpower.overrideAttrs (prevAttrs: {
+			inherit (pkgs.unstable.linuxPackages_latest.zenpower) version src;
+		});
+	});
 in {
 	imports =[
 		outputs.nixosModules.default

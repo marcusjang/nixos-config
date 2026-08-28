@@ -37,14 +37,6 @@
 		cargo-tauri = patched.cargo-tauri;
 	};
 
-	zenpower-unstable = final: prev: with final; {
-		linuxPackages_latest = prev.linuxPackages_latest.extend (_kfinal: kprev: {
-			zenpower = kprev.zenpower.overrideAttrs (prevAttrs: {
-				inherit (unstable.linuxPackages_latest.zenpower) version src;
-			});
-		});
-	};
-
 	gnomeExtensions-addon = import ./gnomeExtensions.nix;
 	goofcord-latest = import ./goofcord.nix;
 	deno-latest = import ./deno.nix;

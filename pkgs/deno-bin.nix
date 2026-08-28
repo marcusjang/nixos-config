@@ -12,12 +12,12 @@
 		aarch64-linux = commonPath + "deno-aarch64-unknown-linux-gnu.zip";
 	};
 	hashes = {
-		x86_64-linux = "sha256-VD44OrmDsIxkjK5weRyc1srJu/DUrdwW0VMwDjESyPU=";
-		aarch64-linux = "sha256-CcA/mXf0a5l9IhDgBYHBQ78UtG1Uu0yOZxafIt7fZGs=";
+		x86_64-linux = "sha256-+dx+Z9JDL5eW8mc/7oclQvXycTAxcYpnVfyAoiHj994=";
+		aarch64-linux = "sha256-kWCo8wO8dvJiu5nTogJEdhzobTHyZvImsbe1a06JMEw=";
 	};
 in stdenv.mkDerivation (finalAttrs: {
 	pname = "deno-bin";
-	version = "2.9.5";
+	version = "2.9.6";
 
 	src = fetchzip {
 		url = (urls finalAttrs.version).${stdenv.hostPlatform.system} or (throw "Unsupported system ${stdenv.hostPlatform.system}");

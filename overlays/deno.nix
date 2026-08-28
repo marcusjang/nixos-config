@@ -1,17 +1,17 @@
 final: prev: with final; {
 	deno = prev.unstable.deno.overrideAttrs (finalAttrs: prevAttrs: {
 		inherit (prevAttrs) pname;
-		version = "2.9.5";
+		version = "2.9.6";
 		src = fetchFromGitHub {
 			owner = "denoland";
 			repo = "deno";
 			tag = "v${finalAttrs.version}";
-			hash = "sha256-IEtUgjk0sYvHCRBH8JI4NVhT0J5qhmF0kJ5zq00n0ro=";
+			hash = "sha256-4X7IfQk9NJizhZKqH2EuDnSfk8axkKFyiZEv1FOfWTM=";
 			fetchSubmodules = true;
 		};
 		cargoDeps = rustPlatform.fetchCargoVendor {
 			inherit (finalAttrs) pname version src;
-			hash = "sha256-b2RxrG2EEKRuEXQG818NwVQV7AgqZOyBYBW3/kGckZg=";
+			hash = "sha256-EKRC+wqIos9O0GHaxjmb/ghyzV6oCi1qwhO2tjszWR4=";
 		};
 		cargoBuildFeatures = (prevAttrs.cargoBuildFeatures or []) ++ [ "v8" ];
 		env = prevAttrs.env // (let

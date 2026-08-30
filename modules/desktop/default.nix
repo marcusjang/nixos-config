@@ -10,6 +10,7 @@
 	];
 
 	environment.systemPackages = with pkgs; [
+		apostrophe
 		celluloid
 		discord
 		eog

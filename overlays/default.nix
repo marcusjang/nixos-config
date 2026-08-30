@@ -24,11 +24,6 @@
 		patched = import (unstable.applyPatches {
 			src = unstable.pkgs.path;
 			patches = [
-				# gn: 0-unstable-2026-03-05 -> 0-unstable-2026-04-01
-				(fetchpatch2 {
-					url = "https://github.com/NixOS/nixpkgs/pull/522707.patch";
-					hash = "sha256-sK7r6ryDfqqFUtbK57uLTBk1g8bBICXB+ILp+VOVH+I=";
-				})
 			];
 		}) { inherit (stdenv.hostPlatform) system; };
 	};

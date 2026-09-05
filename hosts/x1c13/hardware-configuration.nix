@@ -28,6 +28,35 @@
     [ { device = "/dev/disk/by-uuid/8bcdff6a-cdfd-4738-8912-7b9eaecf5d18"; }
     ];
 
+  services.udev.extraRules = ''
+    ACTION=="add", SUBSYSTEM=="sound", KERNEL=="card0", TAG+="systemd", ENV{SYSTEMD_WANTS}+="speaker-led-attach.service"
+  '';
+
+  systemd.services.speaker-led-attach = {
+    description = "Attach ALSA speaker mute control to speaker LED";
+
+    serviceConfig = {
+      Type = "oneshot";
+    };
+
+    script = ''
+      attach="/sys/class/sound/ctl-led/speaker/card0/attach"
+
+      for i in $(seq 1 20); do
+        if [ -e "$attach" ] &&
+           printf '%s\n' 'numid=52' > "$attach" 2>/dev/null
+        then
+          exit 0
+        fi
+
+        sleep 0.5
+      done
+
+      echo "Could not attach numid=52 to speaker LED" >&2
+      exit 1
+    '';
+  };
+
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

@@ -5,14 +5,13 @@
 }:
 buildGoModule (finalAttrs: {
 	pname = "tls-client";
-	version = "1.15.1-nightly";
+	version = "1.16.0";
 
 	src = fetchFromGitHub {
 		owner = "bogdanfinn";
 		repo = "tls-client";
-		#tag = "v${finalAttrs.version}";
-		rev = "b790a311273f26051935641120de169e497e5943";
-		hash = "sha256-qYm48+wjdvZ21lAjAMGPKGVuA1K50sTnPM09+MK44BA=";
+		tag = "v${finalAttrs.version}";
+		hash = "sha256-b8n+v0/s8FygvDSf0tHrIvomLchbpABuPUaqOjLo1Ao=";
 	};
 
 	vendorHash = "sha256-ZvH9Ndnt5u/uH+4Q95rt54wN6yzKTOx9zld38e7Zg3E=";

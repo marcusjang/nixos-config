@@ -19,7 +19,11 @@
 			};
 
 			certificatesResolvers.cloudflare.acme = {
-				dnsChallenge.provider = "cloudflare";
+				dnsChallenge = {
+					provider = "cloudflare";
+					propagation.delayBeforeChecks = "60s";
+					resolvers = [ "1.1.1.1:53" "8.8.8.8:53" ];
+				};
 				email = "marcus@melange.works";
 				storage = "${config.services.traefik.dataDir}/acme.json";
 			};

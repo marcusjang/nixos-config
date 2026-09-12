@@ -4,7 +4,11 @@
 
 	nix = {
 		settings = {
+			auto-optimise-store = lib.mkDefault true;
+			connect-timeout = 5;
+			download-buffer-size = 524288000;
 			experimental-features = [ "nix-command" "flakes" ];
+			fallback = true;
 			trusted-users = [ "marcus" ];
 		};
 
@@ -12,11 +16,6 @@
 			automatic = lib.mkDefault true;
 			dates = lib.mkDefault "weekly";
 			options = lib.mkDefault "--delete-older-than 7d";
-		};
-
-		settings = {
-			auto-optimise-store = lib.mkDefault true;
-			download-buffer-size = 524288000;
 		};
 	};
 

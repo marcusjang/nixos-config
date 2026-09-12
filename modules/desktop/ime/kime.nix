@@ -21,16 +21,6 @@ in {
         NotShowIn=GNOME;KDE;
     '';
 
-    environment.etc."xdg/kime/config.yaml".text = ''
-        daemon:
-          modules: 
-          - Xim
-          - Wayland
-          - Indicator
-        indicator:
-          icon_color: White
-    '';
-
 	environment.variables = {
 		GTK_IM_MODULE = "kime";
 		QT_IM_MODULE = "kime";

@@ -8,6 +8,7 @@ nixpkgs.lib.nixosSystem {
 		wsl.nixosModules.default
 		sops-nix.nixosModules.sops
 	]) ++ (with outputs.nixosModules; [
+		ssh
 		users.marcus
 		harmonia-client
 		nas-mounts

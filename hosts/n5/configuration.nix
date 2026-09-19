@@ -11,7 +11,7 @@
 		)
 	)).extend (_kfinal: kprev: {
 		zenpower = kprev.zenpower.overrideAttrs (prevAttrs: {
-			inherit (pkgs.unstable.linuxPackages_latest.zenpower) version src;
+			inherit (pkgs.unstable.linuxPackages_latest.zenpower) version src patches;
 		});
 	});
 in {

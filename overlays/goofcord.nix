@@ -1,14 +1,14 @@
 final: prev: with final; {
 	goofcord = (prev.unstable.goofcord.override {
-		electron = final.electron_42;
+		electron = final.electron_44;
 	}).overrideAttrs (finalAttrs: prevAttrs: {
 		inherit (prevAttrs) pname;
-		version = "2.3.0";
+		version = "2.3.1";
 		src = fetchFromGitHub {
 			owner = "Milkshiift";
 			repo = "GoofCord";
 			tag = "v${finalAttrs.version}";
-			hash = "sha256-cg9NVL/dPIQ9xyMrUmWd42HxEsTSnhUGiqB7qaU2LuQ=";
+			hash = "sha256-958TIiBsXYTfYaQdNKeVJspdSE1vIYMX/wScfqekTBU=";
 		};
 		node-modules = let
 			goofcord = finalAttrs;
@@ -17,11 +17,18 @@ final: prev: with final; {
 			pname = goofcord.pname + "-modules";
 
 			outputHash = {
-				x86_64-linux = "sha256-J26DRSUa/C7lvI8JFPQ92yj4zUVnD+SPkKwRQA9ITB8=";
-				aarch64-linux = "sha256-WIjcl//+OGB5J6Dp4Q2x24MA/cWqdtHYNwBBOgCD/tU=";
+				x86_64-linux = "sha256-J9ECsmgIhUfLfSEk6TBJYGi7V6GsM0YbspmTxNO9L8U=";
+				aarch64-linux = "sha256-ss25YGAezqAfo57jE4pkekr+6O9UK4CIxcOgb7GCIV8=";
 			}.${stdenv.hostPlatform.system} or (throw "Unsupported system ${stdenv.hostPlatform.system}");
 		});
 		nativeBuildInputs = prevAttrs.nativeBuildInputs ++ [ pkgs.jq ];
+		buildPhase = lib.replaceStrings [
+			"electron-builder/out"
+			"-c.npmRebuild"
+		] [
+			"electron-builder/dist"
+			"-c.nativeModules.npmRebuild"
+		] prevAttrs.buildPhase;
 		postPatch = ''
 			mv ./package.json ./package.json.old
 			jq '.desktopName = "GoofCord"' ./package.json.old > ./package.json

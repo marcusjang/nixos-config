@@ -32,6 +32,10 @@
 		};
 	};
 
+	environment.systemPackages = with pkgs; [
+		easyeffects
+	];
+
 	networking.hostName = "x1c13";
 	networking.networkmanager.enable = true;
 	time.timeZone = "Asia/Seoul";

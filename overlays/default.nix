@@ -35,6 +35,7 @@
 	gnomeExtensions-addon = import ./gnomeExtensions.nix;
 	goofcord-latest = import ./goofcord.nix;
 	deno-latest = import ./deno.nix;
+	keepassxc-beta = import ./keepassxc.nix;
 	libhangul-latest = import ./libhangul.nix;
 	ibus-hangul-latest = import ./ibus-hangul.nix;
 }

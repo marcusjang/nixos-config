@@ -1,5 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, outputs, ... }:
 {
+	nixpkgs.overlays = with outputs.overlays; [
+		hop-older
+	];
+
 	environment.systemPackages = with pkgs; [
 		hop
 		scriptorium

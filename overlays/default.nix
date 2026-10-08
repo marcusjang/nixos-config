@@ -31,6 +31,31 @@
 	cargo-tauri-latest = final: _prev: with final; {
 		cargo-tauri = patched.cargo-tauri;
 	};
+	
+	hop-older = final: prev: with final; {
+		hop-older = prev.hop.overrideAttrs(finalAttrs: prevAttrs: {
+			inherit (prevAttrs) pname;
+			version = "0.4.4";
+			src = fetchFromGitHub {
+				owner = "golbin";
+				repo = "hop";
+				tag = "v${finalAttrs.version}";
+				hash = "sha256-CM56MNKuHtQ1YThOtc5n9tgXCfSfjNSzwRTayrGXw/Q=";
+				fetchSubmodules = true;
+			};
+
+			pnpmDeps = fetchPnpmDeps {
+				inherit (finalAttrs) pname version src;
+				fetcherVersion = 3;
+				hash = "sha256-AhfjcFg/Iu+dyOJY8byrstK3h8QQ4BL/WWwqm1WHOxg=";
+			};
+
+			cargoDeps = rustPlatform.fetchCargoVendor {
+				inherit (finalAttrs) pname version src cargoRoot;
+				hash = "sha256-9jSX0O7tRFdTeDvxEY9xae+iWE2N5HNgiNA9DkVbmLI=";
+			};
+		});
+	};
 
 	gnomeExtensions-addon = import ./gnomeExtensions.nix;
 	goofcord-latest = import ./goofcord.nix;

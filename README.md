@@ -68,7 +68,6 @@ All packages from stable `nixpkgs` are exposed through `outputs.legacyPackages` 
   - `gnomeExtensions-addon`\
      Adds/overrides packages under `pkgs.gnomeExtensions`. Currently packaged extensions are as belows.
     - [axelitama/power-off-options](https://github.com/axelitama/power-off-options) latest built from source.
-    - [flexagoon/rounded-window-corners](https://github.com/flexagoon/rounded-window-corners) latest from [extensions.gnome.org](https://extensions.gnome.org/extension/7048/rounded-window-corners-reborn/).
     - [achirkin/gnome-brightness-control](https://github.com/achirkin/gnome-brightness-control) latest built from source.
     - [jstockdale/quick-settings-tweaks](https://github.com/jstockdale/quick-settings-tweaks), a community fork of [qwreey/quick-settings-tweaks](https://github.com/qwreey/quick-settings-tweaks) latest built from source.
   - `goofcord-latest`\

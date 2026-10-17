@@ -23,7 +23,7 @@ in {
 				{
 					accessory = "NetworkDevice";
 					model = "NetworkDevice";
-					name = "marcus@desktop";
+					name = "marcus-desktop";
 					host = marcus-desktop;
 					broadcastAddress = "10.0.10.255";
 					mac = "34:5A:60:15:20:B1";
@@ -44,7 +44,7 @@ in {
 				{
 					accessory = "NetworkDevice";
 					model = "NetworkDevice";
-					name = "marcus@work.vm";
+					name = "marcus-work-vm";
 					host = marcus-work-vm;
 					pingCommand = "${lib.getExe' pkgs.iputils "ping"} -c 1 ${marcus-work-vm}";
 					pingCommandTimeout = 1;

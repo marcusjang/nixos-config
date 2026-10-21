@@ -11,7 +11,7 @@
 	boot.loader.systemd-boot.consoleMode = "5";
 	boot.loader.systemd-boot.configurationLimit = 4;
 	boot.loader.efi.canTouchEfiVariables = true;
-	boot.kernelPackages = pkgs.linuxPackages_latest;
+	boot.kernelPackages = pkgs.linuxPackages_6_18;
 
 	services.fprintd.enable = true;
 	#services.fprintd.tod.enable = true;

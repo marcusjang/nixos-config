@@ -1,17 +1,18 @@
 final: prev: with final; {
 	keepassxc = prev.unstable.keepassxc.overrideAttrs (finalAttrs: prevAttrs: {
 		inherit (prevAttrs) pname;
-		version = "2.8.0-beta1";
+		version = "2.8.0";
 
 		src = fetchFromGitHub {
 			owner = "keepassxreboot";
 			repo = "keepassxc";
 			tag = finalAttrs.version;
-			hash = "sha256-fksThYmGZed66zxGDxlS2SHQzJYRf+T9AuZPbaNZV5Y=";
+			hash = "sha256-821zL+xnCsHU8VvxsJh2a2LRGstSIq3tWQbWBk8g4hc=";
 		};
 
 		patches = (lib.filter (patch:
-			lib.baseNameOf patch != "darwin-remove-macdeployqt.patch"
+			lib.baseNameOf patch != "darwin-remove-macdeployqt.patch" && 
+			!(lib.hasSuffix "CVE-2026-69150.patch" (lib.baseNameOf patch))
 		) prevAttrs.patches);
 
 		cmakeFlags = (lib.filter (flag:

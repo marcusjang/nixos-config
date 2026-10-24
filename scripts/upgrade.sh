@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
+NAS_URL="${NAS_URL:-marcus@n5.local}"
+
 # Use colors only when stderr is a terminal and NO_COLOR isn't set
 # shellcheck disable=SC2034
 if [[ -t 2 && -z "${NO_COLOR:-}" ]]; then
@@ -43,7 +45,7 @@ function main() {
 		debug "${@:2}"
 		nixos-rebuild \
 			--option warn-dirty false \
-			--target-host marcus@n5.local \
+			--target-host "$NAS_URL" \
 			--sudo --ask-sudo-password \
 			--flake . \
 			"${@:2}"

@@ -4,7 +4,7 @@ set -euo pipefail
 
 trap "break" SIGINT SIGHUP SIGTERM
 
-CACHE_URL="ssh-ng://marcus@n5.local"
+CACHE_URL="${CACHE_URL:-ssh-ng://marcus@n5.local}"
 FLAKE="${FLAKE:-.}"
 
 # Use colors only when stderr is a terminal and NO_COLOR isn't set
@@ -71,10 +71,10 @@ function main() {
 		|| die "Build error, halting..."
 		build_msg "Done!"
 
-		copy_msg "Copyihng $host over to local cache..."
+		copy_msg "Copying $host over to local cache..."
 		nix copy \
 			--no-warn-dirty \
-			--to $CACHE_URL \
+			--to "$CACHE_URL" \
 			--no-check-sigs \
 			"$DERIVATION"
 		copy_msg "Done!"

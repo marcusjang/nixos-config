@@ -67,8 +67,7 @@ All packages from stable `nixpkgs` are exposed through `outputs.legacyPackages` 
     - [achirkin/gnome-brightness-control](https://github.com/achirkin/gnome-brightness-control) latest built from source.
     - [jstockdale/quick-settings-tweaks](https://github.com/jstockdale/quick-settings-tweaks), a community fork of [qwreey/quick-settings-tweaks](https://github.com/qwreey/quick-settings-tweaks) latest built from source.
   - `goofcord-latest`\
-     [Milkshiift/GoofCord](https://github.com/Milkshiift/GoofCord) latest with couple of patches.
-    - The latest version of Electron requiring `desktopName` value in `package.json`. See NixOS/nixpkgs#505078.
+     [Milkshiift/GoofCord](https://github.com/Milkshiift/GoofCord) latest.
     - Changes the `icon` of `.desktop` file into `discord`. (Requires `discord` package to be installed.) 
   - `deno-latest`\
      [denoland/deno](https://github.com/denoland/deno) latest.

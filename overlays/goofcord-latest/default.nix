@@ -29,13 +29,11 @@ final: prev: with final; {
 			"electron-builder/dist"
 			"-c.nativeModules.npmRebuild"
 		] prevAttrs.buildPhase;
-		postPatch = ''
-			mv ./package.json ./package.json.old
-			jq '.desktopName = "GoofCord"' ./package.json.old > ./package.json
-			rm ./package.json.old
-		'';
 		desktopItems = [
-			((builtins.elemAt prevAttrs.desktopItems 0).override { icon = "discord"; })
+			((builtins.elemAt prevAttrs.desktopItems 0).override {
+				icon = "discord";
+				startupWMClass = "io.github.milkshiift.GoofCord";
+			})
 		];
 	});
 }

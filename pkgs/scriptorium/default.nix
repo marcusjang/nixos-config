@@ -30,13 +30,13 @@
 	]);
 in stdenv.mkDerivation (finalAttrs: {
 	pname = "scriptorium";
-	version = "1.3.0";
+	version = "1.3.2";
 
 	src = fetchFromGitHub {
 		owner = "cgueret";
 		repo = "Scriptorium";
 		tag = "v${finalAttrs.version}";
-		hash = "sha256-IbxZm4irRtryS3Hsqtr2oUoCJ7Eg1y7jiHMu2uT2Sbo=";
+		hash = "sha256-TzWtuY7bXkKYsOAqMqk9nqlOH3b6dZU7wsEH1yzujWA=";
 	};
 
 	postPatch = ''

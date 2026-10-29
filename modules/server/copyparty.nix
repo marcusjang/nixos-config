@@ -4,9 +4,8 @@
 		inputs.copyparty.overlays.default
 		(final: prev: {
 			copyparty-full-raw = prev.copyparty-full.overridePythonAttrs(old: {
-				dependencies = old.dependencies ++ (with final.python3.pkgs; [
-					rawpy
-					pyvips
+				dependencies = old.dependencies ++ (with final; [
+					libraw
 				]);
 			});
 		})

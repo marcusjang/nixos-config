@@ -26,6 +26,11 @@
 		patched = import (unstable.applyPatches {
 			src = unstable.pkgs.path;
 			patches = [
+				# keepassxc: 2.7.12 -> 2.8.0 - #577117
+				(fetchpatch2 {
+					url = "https://github.com/NixOS/nixpkgs/pull/577117.patch";
+					hash = "sha256-bmN7J6hayJIdEwTaaqVX1Q+LwyzsTpxtpVDtlVsvNAM=";
+				})
 			];
 		}) { inherit (stdenv.hostPlatform) system; };
 	};
@@ -33,7 +38,6 @@
 	gnomeExtensions-addon = import ./gnomeExtensions;
 	goofcord-latest = import ./goofcord-latest;
 	deno-latest = import ./deno-latest;
-	keepassxc-latest = import ./keepassxc-latest;
 	libhangul-latest = import ./libhangul-latest;
 	ibus-hangul-latest = import ./ibus-hangul-latest;
 }

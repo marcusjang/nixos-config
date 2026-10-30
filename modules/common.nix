@@ -63,6 +63,7 @@
 	nixpkgs.overlays = with outputs.overlays; [
 		additions
 		unstable-packages
+		nixpkgs-patched
 		deno-latest
 	];
 

@@ -7,7 +7,6 @@
 	nixpkgs.overlays = with outputs.overlays; [
 		ghostty-flake
 		goofcord-latest
-		keepassxc-latest
 	];
 
 	environment.systemPackages = with pkgs; [
@@ -18,7 +17,7 @@
 		firefox
 		ghostty
 		ibus
-		keepassxc
+		patched.keepassxc
 		goofcord
 		mpv
 		thunderbird

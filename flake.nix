@@ -11,7 +11,7 @@
 		flake-compat.url = "github:edolstra/flake-compat";
 		copyparty.url = "github:9001/copyparty";
 		niri.url = "github:sodiboo/niri-flake";
-		ghostty.url = "github:ghostty-org/ghostty?ref=v1.3.1";
+		ghostty.url = "github:ghostty-org/ghostty?ref=v1.4.0";
 		disko = {
 			url = "github:nix-community/disko/latest";
 			inputs.nixpkgs.follows = "nixpkgs";

@@ -2,7 +2,8 @@
 
 set -euo pipefail
 
-NAS_URL="${NAS_URL:-marcus@n5.local}"
+target="${1:-@}"
+action="${2:-boot}"
 
 # Use colors only when stderr is a terminal and NO_COLOR isn't set
 # shellcheck disable=SC2034
@@ -39,26 +40,31 @@ function main() {
 	debug "Pulling from Git repository..."
 	git pull --quiet
 
-	if [ "$1" == "nas" ]; then
-		debug "Rebuilding NAS system configurations..."
-		debug "the following additional arguments are passed to nixos-rebuild:"
-		debug "${@:2}"
-		nixos-rebuild \
-			--option warn-dirty false \
-			--target-host "$NAS_URL" \
-			--sudo --ask-sudo-password \
-			--flake . \
-			"${@:2}"
+	rebuild_args=(
+		--option warn-dirty false
+		--sudo
+		--ask-sudo-password
+		--flake .
+	)
+
+	if [[ "$target" == "@" ]]; then
+		info "Rebuilding local system configurations..."
 	else
-		debug "Rebuilding local system configurations..."
-		debug "the following additional arguments are passed to nixos-rebuild:"
-		debug "${@:1}"
-		nixos-rebuild \
-			--option warn-dirty false \
-			--sudo --ask-sudo-password \
-			--flake . \
-			"${@:1}"
+		rebuild_args+=(--target-host "$target")
+		info "Rebuilding remote system configurations on $target..."	
 	fi
+
+	case "$action" in
+		switch|boot|test|build|dry-build|dry-activate|edit|build-vm|build-vm-with-bootloader|build-image|list-generations)
+			rebuild_args+=("$action")
+			info "Action = $action"
+			exec nixos-rebuild "${rebuild_args[@]}"
+			;;
+		*)
+			echo "Usage: $0 {host|@} {switch|boot|test|build|dry-build|dry-activate|edit|build-vm|build-vm-with-bootloader|build-image|list-generations} [args]" >&2
+			exit 1
+			;;
+	esac
 }
 
 main "$@"

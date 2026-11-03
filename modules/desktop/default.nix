@@ -17,7 +17,7 @@
 		firefox
 		ghostty
 		ibus
-		patched.keepassxc
+		unstable.keepassxc
 		goofcord
 		mpv
 		thunderbird

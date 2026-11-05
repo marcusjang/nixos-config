@@ -17,8 +17,8 @@ final: prev: with final; {
 			pname = goofcord.pname + "-modules";
 
 			outputHash = {
-				x86_64-linux = "sha256-J9ECsmgIhUfLfSEk6TBJYGi7V6GsM0YbspmTxNO9L8U=";
-				aarch64-linux = "sha256-ss25YGAezqAfo57jE4pkekr+6O9UK4CIxcOgb7GCIV8=";
+				x86_64-linux = "sha256-3iqlE0FOErXjqqY7K/jjCprLQK3gR4FyshHOUxiWfrc=";
+				aarch64-linux = "sha256-+7MHKy2meigKfDPfQJiE0d8ugCqs4UOkSEUlie1seV4=";
 			}.${stdenv.hostPlatform.system} or (throw "Unsupported system ${stdenv.hostPlatform.system}");
 		});
 		nativeBuildInputs = prevAttrs.nativeBuildInputs ++ [ pkgs.jq ];

@@ -35,4 +35,5 @@
 	deno-latest = import ./deno-latest;
 	libhangul-latest = import ./libhangul-latest;
 	ibus-hangul-latest = import ./ibus-hangul-latest;
+	loupe-bgcolor = import ./loupe-bgcolor;
 }

@@ -2,6 +2,7 @@
 {
 	nixpkgs.overlays = with outputs.overlays; [
 		gnomeExtensions-addon
+		loupe-bgcolor
 	];
 
 	services.xserver.enable = true;

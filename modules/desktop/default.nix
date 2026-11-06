@@ -13,7 +13,6 @@
 		apostrophe
 		celluloid
 		discord
-		eog
 		firefox
 		ghostty
 		ibus

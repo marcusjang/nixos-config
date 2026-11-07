@@ -1,0 +1,10 @@
+diff --git a/metadata.json b/metadata.json
+index 9de4b68..890cec3 100644
+--- a/metadata.json
++++ b/metadata.json
+@@ -7,0 +8,5 @@
++    , "47"
++    , "48"
++    , "49"
++    , "50"
++    , "51"

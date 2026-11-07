@@ -4,5 +4,6 @@ final: prev: with final; {
 		power-off-options = callPackage ./power-off-options {};
 		gnome-brightness-control = callPackage ./gnome-brightness-control {};
 		quick-settings-tweaker = callPackage ./quick-settings-tweaker {};
+		sleep-through-notifications = callPackage ./sleep-through-notifications {};
 	};
 }

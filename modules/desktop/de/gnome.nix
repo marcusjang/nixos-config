@@ -49,6 +49,7 @@
 			rounded-corners
 			rounded-window-corners
 			gnome-brightness-control
+			sleep-through-notifications
 		]);
 	};
 

@@ -16,12 +16,12 @@
 		firefox
 		ghostty
 		ibus
-		unstable.keepassxc
+		keepassxc
 		goofcord
 		mpv
 		thunderbird
-		unstable.remmina
-		unstable.winbox4
+		remmina
+		winbox
 		xdg-desktop-portal-gtk
 		xprop
 		yacreader

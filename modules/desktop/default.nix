@@ -26,4 +26,7 @@
 		xprop
 		yacreader
 	];
+
+	# Mikrotik Winbox MAC neighbor discovery port
+	networking.firewall.allowedUDPPorts = [ 5678 ];
 }

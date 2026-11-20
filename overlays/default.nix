@@ -1,6 +1,9 @@
 { inputs, ... }:
 {
-	additions = final: _prev: import ../pkgs final.pkgs;
+	additions = final: prev: prev.lib.packagesFromDirectoryRecursive {
+		inherit (final) callPackage;
+		directory = ../pkgs;
+	};
 
 	ghostty-flake = final: _prev: with final; {
 		ghostty = inputs.ghostty.packages.${stdenv.hostPlatform.system}.default;

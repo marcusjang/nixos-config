@@ -46,6 +46,7 @@ All packages from stable `nixpkgs` are exposed through `outputs.legacyPackages` 
 - `hop`: [golbin/hop](https://github.com/golbin/hop)
 - `scriptorium`: [cgueret/Scriptorium](https://github.com/cgueret/Scriptorium)
 - `tls-client`: [bogdanfinn/tls-client](https://github.com/bogdanfinn/tls-client)
+- `vmguard`: [Cormoran96/vmguard](https://github.com/Cormoran96/vmguard)
 
 ### `overlays`
 #### General overlays

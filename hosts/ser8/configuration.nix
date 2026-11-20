@@ -23,6 +23,7 @@
 	];
 
 	environment.systemPackages = with pkgs; [
+		vmguard
 		unstable.zmk-studio
 	];
 
@@ -64,6 +65,17 @@
 			};
 		}];
 	};
+
+	security.pam.u2f = {
+		enable = true;
+		control = "sufficient";
+		settings = {
+			cue = true;
+			cue-prompt = "Touch the VeriMark sensor";
+			userverification = 1;
+		};
+	};
+	security.pam.services.sudo.u2fAuth = true;
 
 	networking.hostName = "ser8";
 	networking.networkmanager.enable = true;
